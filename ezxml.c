@@ -1131,14 +1131,18 @@ void xml_parse_note(ezxml_t xml, zy_score_t *ptr_score)
             ptr_score->m_note_if_parsing = 1;
             (ptr_score->m_note_cur)++;
         }
-        else
+        else if (1 == ptr_score->m_note_if_parsing)
         {
             parse_note_loop(xml, ptr_score);
         }
     }
 
     xml_parse_note(xml->child, ptr_score);
-    ptr_score->m_note_if_parsing = 0;
+
+    if (0 == strcmp(xml->name, "note"))
+    {
+        ptr_score->m_note_if_parsing = 0;
+    }
 
     xml_parse_note(xml->ordered, ptr_score);
 
