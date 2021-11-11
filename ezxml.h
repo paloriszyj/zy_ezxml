@@ -51,7 +51,6 @@ struct ezxml {
     ezxml_t child;   // head of sub tag list, NULL if none
     ezxml_t parent;  // parent tag, NULL if current tag is root tag
     short flags;     // additional information
-    int note_num;
 };
 
 // Given a string of xml data and its length, parses it and creates an ezxml
