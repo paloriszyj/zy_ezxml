@@ -41,13 +41,13 @@
 #define EZXML_ERRL 128        // maximum error string length
 
 #define NOTE_LABEL    "</note>"
-#define HARMONY_LABEL    "<harmony>"
+#define HARMONY_LABEL    "</harmony>"
 #define MAX_ATTRIBUTES_SIZE    64
 // #define MAX_FRAME_SIZE    10
 
 static int tie_len = 0;
-static int zy_note_num = 0;
-static int zy_harmony_num = 0;
+static int zy_note_num = 0;      //前奏部分节拍数量
+static int zy_harmony_num = 0;   //正文部分和弦数量（反复的和弦只记录一次）
 typedef struct ezxml_root *ezxml_root_t;
 struct ezxml_root {       // additional data for the root tag
     struct ezxml xml;     // is a super-struct built on top of ezxml struct
@@ -64,10 +64,12 @@ struct ezxml_root {       // additional data for the root tag
     char err[EZXML_ERRL]; // error string
 };
 
-typedef struct zy_music_info_s
+
+typedef struct zy_repeate_info_s
 {
-    int prelude[6];
-} zy_music_info_t;
+    int start;       //开始反复的小结编号
+    int end;         //小结结束后，需要反复，记录当前小结   
+} zy_repeate_info_t;
 
 typedef struct zy_note_info_s
 {
@@ -100,11 +102,13 @@ typedef struct zy_harmony_frame_note_info_s
 
 typedef struct zy_harmony_info_s
 {
+    int  m_measure_cur;     
     char root_step[MAX_ATTRIBUTES_SIZE];
     char root_alter[MAX_ATTRIBUTES_SIZE];
     char kind[MAX_ATTRIBUTES_SIZE];
-    zy_harmony_frame_note_info_t framenote[6];
+    zy_harmony_frame_note_info_t framenote[6];    //表示构成和弦内的所有音高
     int curframenote;
+    int ending_number;
 } zy_harmony_info_t;
 
 typedef struct zy_harmony_s
@@ -112,6 +116,10 @@ typedef struct zy_harmony_s
     int m_harmony_total;
     int m_harmony_cur;
     int m_harmony_if_parsing;
+    int m_is_parsing_note;        //当开始解析harmony时，就不在检测harmony内的note
+    int m_repeate_total;
+    int m_measure_total;          //表示所有小节数量
+    zy_repeate_info_t m_repeate_info[MAX_ATTRIBUTES_SIZE];    //保存所有反复的小节段落
     zy_harmony_info_t m_harmony_info[];
 } zy_harmony_t;
 
@@ -133,7 +141,7 @@ zy_note_parse_t g_note_parse[] = {
     {"octave", parse_note_octave},
     {"alter", parse_note_alter},   
     {"tie", parse_note_tie},
-    {"rest", parse_note_rest},  
+    {"rest", parse_note_rest},   //休止符
     {"chord", parse_note_chord},  
     {"", NULL},
 };
@@ -1170,7 +1178,7 @@ void parse_note_octave(ezxml_t xml, zy_score_t *ptr_score)
     int note_num = ptr_score->m_note_cur;
     char *ptr = ptr_score->m_note_info[note_num].octave;
     if (NULL != xml->txt)
-    {
+    {     
         strcpy(ptr, xml->txt);
     }
 }
@@ -1248,7 +1256,7 @@ void parse_harmony_kind(ezxml_t xml, zy_harmony_t *ptr_harmony)
         strcpy(ptr, xml->txt);
     }
 }
-static int xxx = 0;
+    
 void parse_harmony_string(ezxml_t xml, zy_harmony_t *ptr_harmony)
 {
     int harmony_num = ptr_harmony->m_harmony_cur;
@@ -1421,19 +1429,31 @@ void parse_harmony_dump(zy_harmony_t *ptr_harmony)
     for (int i = 0; i < ptr_harmony->m_harmony_total; i++)
     {
         curframenote = ptr_harmony->m_harmony_info[i].curframenote;
-        printf("note id: %3d,    root_step: %s, root_alter: %s,  kind: %s \n",
+        printf("m_measure_cur: %d, note id: %3d,    root_step: %s, root_alter: %s,  kind: %s ending_number: %d \n",
+                ptr_harmony->m_harmony_info[i].m_measure_cur,
                 i,
                 ptr_harmony->m_harmony_info[i].root_step,
                 ptr_harmony->m_harmony_info[i].root_alter,
-                ptr_harmony->m_harmony_info[i].kind);
+                ptr_harmony->m_harmony_info[i].kind,
+                ptr_harmony->m_harmony_info[i].ending_number);
                 for(int j = 0;j < curframenote; j++)
                 {
-                    printf("curframenote: %d,    string: %s, fret: %s \n",
-                            curframenote,
-                            ptr_harmony->m_harmony_info[i].framenote[j].string,
-                            ptr_harmony->m_harmony_info[i].framenote[j].fret);
+                    // printf("curframenote: %d,    string: %s, fret: %s \n",
+                    //         curframenote,
+                    //         ptr_harmony->m_harmony_info[i].framenote[j].string,
+                    //         ptr_harmony->m_harmony_info[i].framenote[j].fret);
                 }
                 curframenote--;
+    };
+}
+
+void parse_repeate_dump(zy_harmony_t *ptr_harmony)
+{
+    for (int i = 0; i < ptr_harmony->m_repeate_total; i++)
+    {
+        printf("start: %d, end: %d,\n",
+                ptr_harmony->m_repeate_info[i].start,
+                ptr_harmony->m_repeate_info[i].end);
     };
 }
 
@@ -1445,17 +1465,27 @@ void xml_parse_note(ezxml_t xml, zy_score_t *ptr_score,zy_harmony_t *ptr_harmony
     }
     else
     {
+        if(0 == strcmp(xml->name, "measure"))
+        {      
+            (ptr_harmony->m_measure_total)++;
+        }
         if (0 == strcmp(xml->name, "harmony"))
         {
+            ptr_harmony->m_is_parsing_note = 1;
             ptr_harmony->m_harmony_if_parsing = 1;
             (ptr_harmony->m_harmony_cur)++;
             ptr_harmony->m_harmony_info[ptr_harmony->m_harmony_cur].curframenote = 0;
+            printf("-----------> m_measure_total: %d <--------------\n",ptr_harmony->m_measure_total);
+            printf("m_harmony_cur  %d: ----aaa----\n", ptr_harmony->m_harmony_cur);
+            ptr_harmony->m_harmony_info[ptr_harmony->m_harmony_cur].m_measure_cur = ptr_harmony->m_measure_total;
+            ptr_harmony->m_harmony_info[ptr_harmony->m_harmony_cur].ending_number = 0;
         }
         else if (1 == ptr_harmony->m_harmony_if_parsing)
         {
             parse_harmony_loop(xml, ptr_harmony);
         }
-        else if (0 == strcmp(xml->name, "note"))
+
+        if (0 == strcmp(xml->name, "note") && (0 == ptr_harmony->m_is_parsing_note))
         {
             ptr_score->m_note_if_parsing = 1;
             (ptr_score->m_note_cur)++;
@@ -1464,11 +1494,65 @@ void xml_parse_note(ezxml_t xml, zy_score_t *ptr_score,zy_harmony_t *ptr_harmony
         {
             parse_note_loop(xml, ptr_score);
         }
+
+        if(0 == strcmp(xml->name, "repeat"))
+        {
+            int i,j,z_measure_cur;
+            for (i=0; xml->attr[i] != NULL; i++)
+            {      
+                if(0 == strcmp(xml->attr[i], "forward"))
+                {
+                    printf("m_harmony_cur  %d: ---bbb-----\n", ptr_harmony->m_harmony_cur);
+                    z_measure_cur = ptr_harmony->m_measure_total;
+                    for(j = ptr_harmony->m_harmony_cur; j > 0; j--)
+                    {
+                        if(z_measure_cur != ptr_harmony->m_harmony_info[j].m_measure_cur)
+                        {
+                            break;
+                        }
+                    }
+                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_total].start = j + 1;
+                }
+                else if(0 == strcmp(xml->attr[i], "backward"))
+                {
+                    printf("m_harmony_cur  %d: ---ccc-----\n", ptr_harmony->m_harmony_cur);
+                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_total].end = ptr_harmony->m_harmony_cur;
+                    (ptr_harmony->m_repeate_total)++;
+                }
+                printf("repeat  %d: %s--------\n", i,xml->attr[i]);
+            }
+        }
+        else if(0 == strcmp(xml->name, "ending"))
+        {
+            int i,j,z_measure_cur;
+            for (i=0; xml->attr[i] != NULL; i++)
+            {
+                if(0 == strcmp(xml->attr[i], "number"))
+                {
+                    i++;
+                    printf("--www--> ptr_harmony->m_harmony_cur: %d  z_measure_cur:<------\n",ptr_harmony->m_harmony_cur);
+                    z_measure_cur = ptr_harmony->m_measure_total;
+                    for(j = ptr_harmony->m_harmony_cur; j > 0; j--)
+                    {
+                        if(z_measure_cur != ptr_harmony->m_harmony_info[j].m_measure_cur)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            ptr_harmony->m_harmony_info[j].ending_number = atoi(xml->attr[i]);
+                        }
+                    } 
+                    break;
+                }
+            }
+        }
+
     }
 
     xml_parse_note(xml->child, ptr_score,ptr_harmony);
 
-    if (0 == strcmp(xml->name, "note"))
+    if (0 == strcmp(xml->name, "note") && (0 == ptr_harmony->m_is_parsing_note))
     {
         tie_len = 0;
         ptr_score->m_note_if_parsing = 0;
@@ -1496,10 +1580,14 @@ void xml_parse_node(ezxml_t xml)
     ptr_harmony->m_harmony_total = zy_harmony_num;
     ptr_harmony->m_harmony_cur = -1;
     ptr_harmony->m_harmony_if_parsing = 0;
+    ptr_harmony->m_is_parsing_note = 0;
+    ptr_harmony->m_repeate_total = 0;
+    ptr_harmony->m_measure_total = 0;
 
     xml_parse_note(xml, ptr_score,ptr_harmony);
     parse_note_dump(ptr_score);
     parse_harmony_dump(ptr_harmony);
+    parse_repeate_dump(ptr_harmony);
 
     free(ptr_score);
     free(ptr_harmony);
