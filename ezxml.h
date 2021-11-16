@@ -38,6 +38,7 @@ extern "C" {
 #define EZXML_NAMEM   0x80 // name is malloced
 #define EZXML_TXTM    0x40 // txt is malloced
 #define EZXML_DUP     0x20 // attribute name and value are strduped
+#define MAX_ATTRIBUTES_SIZE    64
 
 typedef struct ezxml *ezxml_t;
 struct ezxml {
@@ -52,6 +53,84 @@ struct ezxml {
     ezxml_t parent;  // parent tag, NULL if current tag is root tag
     short flags;     // additional information
 };
+
+typedef struct zy_note_info_s
+{
+    char step[MAX_ATTRIBUTES_SIZE];
+    char octave[MAX_ATTRIBUTES_SIZE];
+    char alter[MAX_ATTRIBUTES_SIZE]; 
+    char tie[MAX_ATTRIBUTES_SIZE];
+    int  rest;
+    int chordsign;
+} zy_note_info_t;
+
+typedef struct zy_score_s
+{
+    int m_note_total;
+    int m_note_cur;
+    int m_note_if_parsing;
+    zy_note_info_t m_note_info[];
+} zy_score_t;
+
+typedef struct zy_repeate_info_s
+{
+    int start;       //开始反复的小结编号
+    int end;         //小结结束后，需要反复，记录当前小结   
+} zy_repeate_info_t;
+
+typedef struct zy_harmony_frame_note_info_s
+{
+    char string[MAX_ATTRIBUTES_SIZE];
+    char fret[MAX_ATTRIBUTES_SIZE];
+} zy_harmony_frame_note_info_t;
+
+typedef struct zy_harmony_info_s
+{
+    int  m_measure_cur;     
+    char root_step[MAX_ATTRIBUTES_SIZE];
+    char root_alter[MAX_ATTRIBUTES_SIZE];
+    char kind[MAX_ATTRIBUTES_SIZE];
+    zy_harmony_frame_note_info_t framenote[6];    //表示构成和弦内的所有音高
+    int m_framenote_total;
+    int ending_number;
+} zy_harmony_info_t;
+
+typedef struct zy_harmony_s
+{
+    int m_harmony_total;
+    int m_harmony_cur;
+    int m_harmony_if_parsing;
+    int m_is_parsing_note;        //当开始解析harmony时，就不在检测harmony内的note
+    int m_repeate_total;
+    int m_measure_total;          //表示所有小节数量
+    zy_repeate_info_t m_repeate_info[MAX_ATTRIBUTES_SIZE];    //保存所有反复的小节段落
+    zy_harmony_info_t m_harmony_info[];
+} zy_harmony_t;
+
+typedef struct zy_solo_beat_s
+{
+    int zy_strings_total;
+    int zy_beats[6];
+} zy_solo_beat_t;
+
+typedef struct zy_solo_s
+{
+    int zy_beats_total;
+    zy_solo_beat_t m_beat_info[];
+} zy_solo_t;
+
+typedef struct zy_chord_strings_s
+{
+    char chordname[MAX_ATTRIBUTES_SIZE];
+    int zy_strings_total;
+    int zy_strings[6];
+} zy_chord_strings_t;
+
+typedef struct zy_chord_s
+{
+    int zy_chord_total;
+    zy_chord_strings_t m_chord_info[];
+} zy_chord_t;
 
 // Given a string of xml data and its length, parses it and creates an ezxml
 // structure. For efficiency, modifies the data by adding null terminators
@@ -159,6 +238,16 @@ ezxml_t ezxml_insert(ezxml_t xml, ezxml_t dest, size_t off);
 
 // removes a tag along with all its subtags
 #define ezxml_remove(xml) ezxml_free(ezxml_cut(xml))
+
+void xml_parse_init(void);
+
+void xml_parse_node(ezxml_t xml);
+
+void xml_solo_chord_free(void);
+
+extern zy_solo_t *ptr_solo;
+
+extern zy_chord_t *ptr_chord;
 
 #ifdef __cplusplus
 }
