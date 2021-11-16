@@ -1300,12 +1300,21 @@ void parse_harmony_loop(ezxml_t xml)
 
 // }
 
-void parse_note_dump(void)
+int parse_note_dump(void)
 {
     // int (*zy_music)[2]=(int(*)[2])malloc(sizeof(int)*3*2); 
     int val = 0,zy_string = 0;
     int z_step = 0;
     static int num = 0;
+
+    if(ptr_score->m_note_cur <  0)
+    {
+        printf("--------------------没有前奏-------------\n");
+        ptr_solo = malloc(sizeof(zy_solo_t));
+        ptr_solo->zy_beats_total = -1;
+        return 0;
+    }
+
     ptr_solo = malloc(sizeof(zy_solo_t) + ptr_score->m_note_cur * sizeof(zy_solo_beat_t));
     ptr_solo->zy_beats_total = 0;
 
@@ -1398,11 +1407,16 @@ void parse_harmony_dump(void)
     int string = 0,fret = 0;
     int repeattime = 0;
     int repeate_cur = 0;
-    ptr_chord = malloc(sizeof(zy_chord_t) + (ptr_harmony->m_harmony_total * sizeof(zy_chord_strings_t)) * 2);
     int m_framenote_total = 0;
     int zy_chord_cur = 0;
     char *p = NULL;
 
+    if(ptr_harmony->m_harmony_total < 0) 
+    {
+        ptr_harmony->m_harmony_total = 0;
+    }
+    ptr_chord = malloc(sizeof(zy_chord_t) + (ptr_harmony->m_harmony_total * sizeof(zy_chord_strings_t)) * 2);
+    ptr_chord->zy_chord_total = 0;
     
     printf("total: %d\n",ptr_harmony->m_harmony_total);
 
