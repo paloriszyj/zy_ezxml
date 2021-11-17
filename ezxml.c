@@ -1515,6 +1515,7 @@ void parse_harmony_dump(void)
 
 void parse_repeate_dump(void)
 {
+    printf("ptr_harmony->m_repeate_total: %d\n",ptr_harmony->m_repeate_total);
     for (int i = 0; i < ptr_harmony->m_repeate_total; i++)
     {
         printf("start: %d, end: %d,\n",
@@ -1559,7 +1560,7 @@ void xml_parse_note(ezxml_t xml)
             parse_note_loop(xml);
         }
 
-        if(0 == strcmp(xml->name, "repeat"))
+        if(0 == strcmp(xml->name, "repeat")) //repeat只会标记在每个小结最后
         {
             int i,j,z_measure_cur;
             for (i=0; xml->attr[i] != NULL; i++)
@@ -1583,7 +1584,7 @@ void xml_parse_note(ezxml_t xml)
                 }
             }
         }
-        else if(0 == strcmp(xml->name, "ending"))
+        else if(0 == strcmp(xml->name, "ending"))  //ending只会标记在每个小结最后
         {
             int i,j,z_measure_cur;
             for (i=0; xml->attr[i] != NULL; i++)
@@ -1605,6 +1606,23 @@ void xml_parse_note(ezxml_t xml)
                     } 
                     break;
                 }
+            }
+        }
+        else if(0 == strcmp(xml->name, "sound"))
+        {
+            int i;
+            for (i=0; xml->attr[i] != NULL; i = i + 2)
+            {
+                if((0 == strcmp(xml->attr[0], "segno")) && (0 == strcmp(xml->attr[1], "segno")))
+                {
+                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_total].start = ptr_harmony->m_harmony_cur + 1;
+                }
+                else if((0 == strcmp(xml->attr[0], "dalsegno")) && (0 == strcmp(xml->attr[1], "segno")))
+                {
+                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_total].end = ptr_harmony->m_harmony_cur;
+                    (ptr_harmony->m_repeate_total)++;
+                }
+                
             }
         }
 
@@ -1768,7 +1786,7 @@ void xml_print_all(ezxml_t xml)
     return;
 }
 
-#if 0
+#if 1
 #define EZXML_TEST // test harness
 #ifdef EZXML_TEST // test harness
 
@@ -1789,6 +1807,7 @@ int main(int argc, char **argv)
     free(s);
     i = fprintf(stderr, "%s", ezxml_error(xml));
 #endif
+    xml_solo_chord_free();
     ezxml_free(xml);
     // xml_solo_free();
     return (i) ? 1 : 0;
