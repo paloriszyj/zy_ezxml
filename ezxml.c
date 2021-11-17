@@ -1411,13 +1411,15 @@ void parse_harmony_dump(void)
     int zy_chord_cur = 0;
     char *p = NULL;
 
+    
     if(ptr_harmony->m_harmony_total < 0) 
     {
         ptr_harmony->m_harmony_total = 0;
     }
+
     ptr_chord = malloc(sizeof(zy_chord_t) + (ptr_harmony->m_harmony_total * sizeof(zy_chord_strings_t)) * 2);
     ptr_chord->zy_chord_total = 0;
-    
+
     printf("total: %d\n",ptr_harmony->m_harmony_total);
 
     for (int i = 0; i < ptr_harmony->m_harmony_total; i++)
@@ -1486,7 +1488,7 @@ void parse_harmony_dump(void)
         chord_total++;
         m_framenote_total--;
 
-        if(ptr_harmony->m_repeate_total > 0) 
+        if(ptr_harmony->m_repeate_total > repeate_cur)
         {
             if(i == ptr_harmony->m_repeate_info[repeate_cur].start)
             {
