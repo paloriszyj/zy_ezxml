@@ -72,8 +72,14 @@ typedef struct zy_score_s
     zy_note_info_t m_note_info[];
 } zy_score_t;
 
+enum repeateType
+{
+    FORWARDTOBACKWARD = 0x00,
+    SEGNOTODALSEGNO,
+};
 typedef struct zy_repeate_info_s
 {
+    int repeate_type;  //[forward,backward]类型为1,  [segno,dalsegno]类型为2
     int start;       //开始反复的小结编号
     int end;         //小结结束后，需要反复，记录当前小结   
 } zy_repeate_info_t;
@@ -85,8 +91,7 @@ typedef struct zy_harmony_frame_note_info_s
 } zy_harmony_frame_note_info_t;
 
 typedef struct zy_harmony_info_s
-{
-    int  m_measure_cur;     
+{    
     char root_step[MAX_ATTRIBUTES_SIZE];
     char root_alter[MAX_ATTRIBUTES_SIZE];
     char kind[MAX_ATTRIBUTES_SIZE];
@@ -101,8 +106,10 @@ typedef struct zy_harmony_s
     int m_harmony_cur;
     int m_harmony_if_parsing;
     int m_is_parsing_note;        //当开始解析harmony时，就不在检测harmony内的note
-    int m_repeate_total;
-    int m_measure_total;          //表示所有小节数量
+    int m_repeate_total;          //表示所有反复数量
+    int m_repeate_cur; 
+    int m_sound_cur; 
+    int m_ending_number;
     zy_repeate_info_t m_repeate_info[MAX_ATTRIBUTES_SIZE];    //保存所有反复的小节段落
     zy_harmony_info_t m_harmony_info[];
 } zy_harmony_t;

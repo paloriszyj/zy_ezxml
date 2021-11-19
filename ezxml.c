@@ -724,6 +724,7 @@ ezxml_t ezxml_parse_fd(int fd)
         notestr = m;
         harmonystr = m;
 
+        //查找前奏部分有多少个节拍
         for (;;)
         {
             p = strstr(notestr, NOTE_LABEL);
@@ -1307,7 +1308,7 @@ int parse_note_dump(void)
     int z_step = 0;
     static int num = 0;
 
-    if(ptr_score->m_note_cur <  0)
+    if(0 == ptr_score->m_note_total)
     {
         printf("--------------------没有前奏-------------\n");
         ptr_solo = malloc(sizeof(zy_solo_t));
@@ -1317,13 +1318,14 @@ int parse_note_dump(void)
 
     ptr_solo = malloc(sizeof(zy_solo_t) + ptr_score->m_note_cur * sizeof(zy_solo_beat_t));
     ptr_solo->zy_beats_total = 0;
-
-    printf("-----------> ptr_score->m_note_cur: %d <----------\n",ptr_score->m_note_cur);
+    
     for (int i = 0; i < zy_note_num; i++)
     {
         if (1 == ptr_score->m_note_info[i].rest)
         {
-            // printf("note id: %3d,    rest\n", i);
+            ptr_solo->zy_beats_total--;
+            printf("note id: %3d,    rest\n", i);
+            continue;
         }
         else
         {
@@ -1397,7 +1399,7 @@ int parse_note_dump(void)
         }
         printf("\n");
     }
-
+    return 1;
 }
 
 void parse_harmony_dump(void)
@@ -1410,17 +1412,15 @@ void parse_harmony_dump(void)
     int m_framenote_total = 0;
     int zy_chord_cur = 0;
     char *p = NULL;
-
+    int end_num = 0;
     
     if(ptr_harmony->m_harmony_total < 0) 
     {
         ptr_harmony->m_harmony_total = 0;
     }
 
-    ptr_chord = malloc(sizeof(zy_chord_t) + (ptr_harmony->m_harmony_total * sizeof(zy_chord_strings_t)) * 2);
+    ptr_chord = malloc(sizeof(zy_chord_t) + (ptr_harmony->m_harmony_total * sizeof(zy_chord_strings_t)) * 10);
     ptr_chord->zy_chord_total = 0;
-
-    printf("total: %d\n",ptr_harmony->m_harmony_total);
 
     for (int i = 0; i < ptr_harmony->m_harmony_total; i++)
     {
@@ -1436,8 +1436,7 @@ void parse_harmony_dump(void)
         // usleep(500*1000);
 
         m_framenote_total = ptr_harmony->m_harmony_info[i].m_framenote_total;
-        printf("m_measure_cur: %d, note id: %3d,    root_step: %s, root_alter: %s,  kind: %s ending_number: %d \n",
-                ptr_harmony->m_harmony_info[i].m_measure_cur,
+        printf("note id: %3d,    root_step: %s, root_alter: %s,  kind: %s ending_number: %d \n",
                 i,
                 ptr_harmony->m_harmony_info[i].root_step,
                 ptr_harmony->m_harmony_info[i].root_alter,
@@ -1487,7 +1486,6 @@ void parse_harmony_dump(void)
         strings_total = 0;
         chord_total++;
         m_framenote_total--;
-
         if(ptr_harmony->m_repeate_total > repeate_cur)
         {
             if(i == ptr_harmony->m_repeate_info[repeate_cur].start)
@@ -1496,13 +1494,20 @@ void parse_harmony_dump(void)
             }
             if(i == ptr_harmony->m_repeate_info[repeate_cur].end)
             {
-                i = ptr_harmony->m_repeate_info[repeate_cur].start - 1;
-                repeate_cur++;
-            }
-            
-        }
-
+                end_num++;
+                if(end_num > 1)
+                {
+                    end_num = 0;
+                    repeate_cur++;
+                }
+                else
+                {
+                    i = ptr_harmony->m_repeate_info[repeate_cur].start - 1; 
+                }
+            }  
+        }   
     };
+#if 0
     ptr_chord->zy_chord_total = chord_total;
     for(int i = 0; i < ptr_chord->zy_chord_total; i++)
     {
@@ -1513,6 +1518,7 @@ void parse_harmony_dump(void)
         }
         // printf("\n");
     }
+#endif
 }
 
 void parse_repeate_dump(void)
@@ -1526,6 +1532,28 @@ void parse_repeate_dump(void)
     };
 }
 
+void is_repetition_nested(void)
+{
+    int  repeate_cur,repeate_pre;
+    //需要判断a[i+1]反复是不是嵌套在a[i]反复里面
+    if(ptr_harmony->m_repeate_total > 1)
+    {
+        repeate_cur = ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].end;
+        repeate_pre = ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur - 1].end;
+        int start = 0, end = 0;
+        if(repeate_cur < repeate_pre)
+        {
+            start = ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur - 1].start;
+            end =   ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur - 1].end;
+
+            ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur - 1].start = ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].start;
+            ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur - 1].end = ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].end;
+
+            ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].start = start;
+            ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].end = end;
+        }
+    }
+}
 void xml_parse_note(ezxml_t xml)
 {
     if (NULL == xml)
@@ -1534,18 +1562,13 @@ void xml_parse_note(ezxml_t xml)
     }
     else
     {
-        if(0 == strcmp(xml->name, "measure"))
-        {      
-            (ptr_harmony->m_measure_total)++;
-        }
         if (0 == strcmp(xml->name, "harmony"))
         {
             ptr_harmony->m_is_parsing_note = 1;
             ptr_harmony->m_harmony_if_parsing = 1;
             (ptr_harmony->m_harmony_cur)++;
             ptr_harmony->m_harmony_info[ptr_harmony->m_harmony_cur].m_framenote_total = 0;
-            ptr_harmony->m_harmony_info[ptr_harmony->m_harmony_cur].m_measure_cur = ptr_harmony->m_measure_total;
-            ptr_harmony->m_harmony_info[ptr_harmony->m_harmony_cur].ending_number = 0;
+            ptr_harmony->m_harmony_info[ptr_harmony->m_harmony_cur].ending_number = ptr_harmony->m_ending_number;
         }
         else if (1 == ptr_harmony->m_harmony_if_parsing)
         {
@@ -1564,49 +1587,60 @@ void xml_parse_note(ezxml_t xml)
 
         if(0 == strcmp(xml->name, "repeat")) //repeat只会标记在每个小结最后
         {
-            int i,j,z_measure_cur;
+            int i;
             for (i=0; xml->attr[i] != NULL; i++)
             {      
                 if(0 == strcmp(xml->attr[i], "forward"))
-                {
-                    z_measure_cur = ptr_harmony->m_measure_total;
-                    for(j = ptr_harmony->m_harmony_cur; j > 0; j--)
-                    {
-                        if(z_measure_cur != ptr_harmony->m_harmony_info[j].m_measure_cur)
-                        {
-                            break;
-                        }
-                    }
-                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_total].start = j + 1;
+                {                
+                    (ptr_harmony->m_repeate_total)++;
+                    ptr_harmony->m_repeate_cur = ptr_harmony->m_repeate_total - 1;   
+                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].repeate_type = FORWARDTOBACKWARD;        
+                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].start = ptr_harmony->m_harmony_cur + 1;                                                      
                 }
                 else if(0 == strcmp(xml->attr[i], "backward"))
                 {
-                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_total].end = ptr_harmony->m_harmony_cur;
-                    (ptr_harmony->m_repeate_total)++;
+                    if(0 == ptr_harmony->m_repeate_total  && 0 == ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].start) 
+                    {
+                        //第一个反复只有结束标志
+                        (ptr_harmony->m_repeate_total)++; 
+                        ptr_harmony->m_repeate_cur = ptr_harmony->m_repeate_total - 1;
+                    }
+                    if( SEGNOTODALSEGNO == ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].repeate_type  )
+                    {
+                        //交叉反复只有结束标志
+                        if(ptr_harmony->m_repeate_total < 2)
+                        {
+                            (ptr_harmony->m_repeate_total)++; 
+                            ptr_harmony->m_repeate_cur = ptr_harmony->m_repeate_total - 1;
+                        }      
+                    }
+
+                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].end = ptr_harmony->m_harmony_cur;
+                    is_repetition_nested();          
                 }
             }
         }
         else if(0 == strcmp(xml->name, "ending"))  //ending只会标记在每个小结最后
         {
-            int i,j,z_measure_cur;
+            int i,ending_number;
             for (i=0; xml->attr[i] != NULL; i++)
             {
                 if(0 == strcmp(xml->attr[i], "number"))
                 {
                     i++;
-                    z_measure_cur = ptr_harmony->m_measure_total;
-                    for(j = ptr_harmony->m_harmony_cur; j > 0; j--)
+                    ending_number = atoi(xml->attr[i]);
+                }
+                else if(0 == strcmp(xml->attr[i], "type"))
+                {
+                    i++;
+                    if(0 == strcmp(xml->attr[i], "start"))
                     {
-                        if(z_measure_cur != ptr_harmony->m_harmony_info[j].m_measure_cur)
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            ptr_harmony->m_harmony_info[j].ending_number = atoi(xml->attr[i]);
-                        }
-                    } 
-                    break;
+                        ptr_harmony->m_ending_number = ending_number;
+                    }
+                    else if(0 == strcmp(xml->attr[i], "stop"))
+                    {
+                        ptr_harmony->m_ending_number = 0;
+                    }
                 }
             }
         }
@@ -1617,14 +1651,18 @@ void xml_parse_note(ezxml_t xml)
             {
                 if((0 == strcmp(xml->attr[0], "segno")) && (0 == strcmp(xml->attr[1], "segno")))
                 {
-                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_total].start = ptr_harmony->m_harmony_cur + 1;
+                    (ptr_harmony->m_repeate_total)++;
+                    ptr_harmony->m_sound_cur = ptr_harmony->m_repeate_total - 1;
+                    printf("-------segno----------: %d\n",ptr_harmony->m_sound_cur);
+                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].repeate_type = SEGNOTODALSEGNO; 
+                    ptr_harmony->m_repeate_info[ptr_harmony->m_sound_cur].start = ptr_harmony->m_harmony_cur + 1;        
                 }
                 else if((0 == strcmp(xml->attr[0], "dalsegno")) && (0 == strcmp(xml->attr[1], "segno")))
                 {
-                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_total].end = ptr_harmony->m_harmony_cur;
-                    (ptr_harmony->m_repeate_total)++;
-                }
-                
+                    printf("-------dalsegno----------: %d\n",ptr_harmony->m_sound_cur);
+                    ptr_harmony->m_repeate_info[ptr_harmony->m_sound_cur].end = ptr_harmony->m_harmony_cur;
+                    is_repetition_nested();            
+                }           
             }
         }
 
@@ -1682,9 +1720,10 @@ void xml_parse_init(void)
     ptr_harmony->m_harmony_cur = -1;
     ptr_harmony->m_harmony_if_parsing = 0;
     ptr_harmony->m_is_parsing_note = 0;
-    ptr_harmony->m_repeate_total = 0;
-    ptr_harmony->m_measure_total = 0;
-    
+    ptr_harmony->m_repeate_total = 0;   
+    ptr_harmony->m_ending_number = 0;
+    ptr_harmony->m_repeate_cur = 0;
+    ptr_harmony->m_sound_cur = 0;
 }
 
 void xml_parse_node(ezxml_t xml)
