@@ -1507,8 +1507,9 @@ void parse_harmony_dump(void)
             }  
         }   
     };
-#if 0
+
     ptr_chord->zy_chord_total = chord_total;
+#if 0
     for(int i = 0; i < ptr_chord->zy_chord_total; i++)
     {
         printf("----i: %d----> chordname: %s <------------\n",i,ptr_chord->m_chord_info[i].chordname);
