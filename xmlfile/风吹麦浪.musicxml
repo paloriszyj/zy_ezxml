@@ -1,0 +1,3813 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 3.1 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
+<score-partwise version="3.1">
+  <work>
+    <work-title>风吹麦浪</work-title>
+    </work>
+  <identification>
+    <encoding>
+      <software>MuseScore 3.6.2</software>
+      <encoding-date>2021-11-17</encoding-date>
+      <supports element="accidental" type="yes"/>
+      <supports element="beam" type="yes"/>
+      <supports element="print" attribute="new-page" type="yes" value="yes"/>
+      <supports element="print" attribute="new-system" type="yes" value="yes"/>
+      <supports element="stem" type="yes"/>
+      </encoding>
+    </identification>
+  <defaults>
+    <scaling>
+      <millimeters>7</millimeters>
+      <tenths>40</tenths>
+      </scaling>
+    <page-layout>
+      <page-height>1697.14</page-height>
+      <page-width>1200</page-width>
+      <page-margins type="even">
+        <left-margin>85.7143</left-margin>
+        <right-margin>85.7143</right-margin>
+        <top-margin>85.7143</top-margin>
+        <bottom-margin>85.7143</bottom-margin>
+        </page-margins>
+      <page-margins type="odd">
+        <left-margin>85.7143</left-margin>
+        <right-margin>85.7143</right-margin>
+        <top-margin>85.7143</top-margin>
+        <bottom-margin>85.7143</bottom-margin>
+        </page-margins>
+      </page-layout>
+    <word-font font-family="Edwin" font-size="10"/>
+    <lyric-font font-family="Edwin" font-size="10"/>
+    </defaults>
+  <credit page="1">
+    <credit-type>title</credit-type>
+    <credit-words default-x="600" default-y="1611.43" justify="center" valign="top" font-size="22">风吹麦浪</credit-words>
+    </credit>
+  <credit page="1">
+    <credit-type>subtitle</credit-type>
+    <credit-words default-x="600" default-y="1554.29" justify="center" valign="top" font-size="16">初级</credit-words>
+    </credit>
+  <part-list>
+    <score-part id="P1">
+      <part-name>Guitar</part-name>
+      <part-abbreviation>Guit.</part-abbreviation>
+      <score-instrument id="P1-I1">
+        <instrument-name>Classical Guitar [Tablature]</instrument-name>
+        </score-instrument>
+      <midi-device id="P1-I1" port="1"></midi-device>
+      <midi-instrument id="P1-I1">
+        <midi-channel>1</midi-channel>
+        <midi-program>25</midi-program>
+        <volume>78.7402</volume>
+        <pan>0</pan>
+        </midi-instrument>
+      </score-part>
+    </part-list>
+  <part id="P1">
+    <measure number="1" width="146.90">
+      <print>
+        <system-layout>
+          <system-margins>
+            <left-margin>50.00</left-margin>
+            <right-margin>0.00</right-margin>
+            </system-margins>
+          <top-system-distance>186.72</top-system-distance>
+          </system-layout>
+        </print>
+      <attributes>
+        <divisions>1</divisions>
+        <key>
+          <fifths>0</fifths>
+          </key>
+        <time>
+          <beats>4</beats>
+          <beat-type>4</beat-type>
+          </time>
+        <clef>
+          <sign>TAB</sign>
+          <line>5</line>
+          </clef>
+        <staff-details>
+          <staff-lines>6</staff-lines>
+          <staff-tuning line="1">
+            <tuning-step>E</tuning-step>
+            <tuning-octave>2</tuning-octave>
+            </staff-tuning>
+          <staff-tuning line="2">
+            <tuning-step>A</tuning-step>
+            <tuning-octave>2</tuning-octave>
+            </staff-tuning>
+          <staff-tuning line="3">
+            <tuning-step>D</tuning-step>
+            <tuning-octave>3</tuning-octave>
+            </staff-tuning>
+          <staff-tuning line="4">
+            <tuning-step>G</tuning-step>
+            <tuning-octave>3</tuning-octave>
+            </staff-tuning>
+          <staff-tuning line="5">
+            <tuning-step>B</tuning-step>
+            <tuning-octave>3</tuning-octave>
+            </staff-tuning>
+          <staff-tuning line="6">
+            <tuning-step>E</tuning-step>
+            <tuning-octave>4</tuning-octave>
+            </staff-tuning>
+          </staff-details>
+        </attributes>
+      <note default-x="53.46" default-y="-45.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>4</duration>
+        <voice>1</voice>
+        <type>whole</type>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          </notations>
+        <lyric number="1" default-x="6.50" default-y="-112.08" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>远处</text>
+          </lyric>
+        <lyric number="2" default-x="6.50" default-y="-133.25" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>我们</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="2" width="286.70">
+      <harmony print-frame="no">
+        <root>
+          <root-step>G</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>3</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="26.50" default-y="-112.08" relative-x="20.00" relative-y="-27.40">
+          <syllabic>single</syllabic>
+          <text>蔚蓝天空下</text>
+          </lyric>
+        <lyric number="2" default-x="22.50" default-y="-133.25" relative-x="16.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>曾在田野</text>
+          </lyric>
+        </note>
+      <note default-x="31.02" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="159.41" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="16.50" default-y="-112.08" relative-x="10.00" relative-y="-26.50">
+          <syllabic>single</syllabic>
+          <text>涌动着</text>
+          </lyric>
+        <lyric number="2" default-x="17.50" default-y="-133.25" relative-x="11.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>里歌唱</text>
+          </lyric>
+        </note>
+      <note default-x="159.41" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="159.41" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="159.41" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="159.41" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="159.41" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="3" width="260.68">
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="21.50" default-y="-112.08" relative-x="15.00" relative-y="-27.40">
+          <syllabic>single</syllabic>
+          <text>金色的麦</text>
+          </lyric>
+        <lyric number="2" default-x="21.50" default-y="-133.25" relative-x="15.00" relative-y="-27.40">
+          <syllabic>single</syllabic>
+          <text>在冬季盼</text>
+          </lyric>
+        </note>
+      <note default-x="31.02" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="146.40" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="16.80" default-y="-112.08" relative-x="10.30" relative-y="-27.40">
+          <syllabic>single</syllabic>
+          <text>浪，就</text>
+          </lyric>
+        <lyric number="2" default-x="16.80" default-y="-133.25" relative-x="10.30" relative-y="-27.40">
+          <syllabic>single</syllabic>
+          <text>望，却</text>
+          </lyric>
+        </note>
+      <note default-x="146.40" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="146.40" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="146.40" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="146.40" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="146.40" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="4" width="284.30">
+      <harmony print-frame="no">
+        <root>
+          <root-step>A</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-60.00" print-object="no">
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="21.50" default-y="-112.08" relative-x="15.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>在那里是</text>
+          </lyric>
+        <lyric number="2" default-x="21.50" default-y="-133.25" relative-x="15.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>没能等到</text>
+          </lyric>
+        </note>
+      <note default-x="31.02" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="158.21" default-y="-60.00" print-object="no">
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="16.50" default-y="-112.08" relative-x="10.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>你和我</text>
+          </lyric>
+        <lyric number="2" default-x="21.50" default-y="-133.25" relative-x="15.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>阳光下这</text>
+          </lyric>
+        </note>
+      <note default-x="158.21" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="158.21" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="158.21" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="158.21" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="5" width="263.35">
+      <print new-system="yes">
+        <system-layout>
+          <system-margins>
+            <left-margin>0.00</left-margin>
+            <right-margin>0.00</right-margin>
+            </system-margins>
+          <system-distance>351.98</system-distance>
+          </system-layout>
+        </print>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="53.46" default-y="-45.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="21.50" default-y="-112.08" relative-x="15.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>爱过的地</text>
+          </lyric>
+        <lyric number="2" default-x="21.50" default-y="-133.25" relative-x="15.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>秋天的景</text>
+          </lyric>
+        </note>
+      <note default-x="53.46" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="53.46" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="53.46" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="158.96" default-y="-45.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="16.50" default-y="-112.08" relative-x="10.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>方当微</text>
+          </lyric>
+        <lyric number="2" default-x="16.50" default-y="-133.25" relative-x="10.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>像就让</text>
+          </lyric>
+        </note>
+      <note default-x="158.96" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="158.96" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="158.96" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="6" width="264.04">
+      <harmony print-frame="no">
+        <root>
+          <root-step>G</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>3</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="26.50" default-y="-112.08" relative-x="20.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>风带着收获</text>
+          </lyric>
+        <lyric number="2" default-x="26.50" default-y="-133.25" relative-x="20.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>失散的誓言</text>
+          </lyric>
+        </note>
+      <note default-x="31.02" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="148.08" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="16.50" default-y="-112.08" relative-x="10.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>的味道</text>
+          </lyric>
+        <lyric number="2" default-x="16.50" default-y="-133.25" relative-x="10.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>飞舞吧</text>
+          </lyric>
+        </note>
+      <note default-x="148.08" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="148.08" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="148.08" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="148.08" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="148.08" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="7" width="240.19">
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="21.50" default-y="-112.08" relative-x="15.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>吹向我脸</text>
+          </lyric>
+        <lyric number="2" default-x="21.50" default-y="-133.25" relative-x="15.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>随西风飘</text>
+          </lyric>
+        </note>
+      <note default-x="31.02" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="136.15" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="16.50" default-y="-112.08" relative-x="10.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>庞，想</text>
+          </lyric>
+        <lyric number="2" default-x="16.50" default-y="-133.25" relative-x="10.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>荡，就</text>
+          </lyric>
+        </note>
+      <note default-x="136.15" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="136.15" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="136.15" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="136.15" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="136.15" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="8" width="260.99">
+      <harmony print-frame="no">
+        <root>
+          <root-step>A</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-60.00" print-object="no">
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="21.50" default-y="-112.08" relative-x="15.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>起你温柔</text>
+          </lyric>
+        <lyric number="2" default-x="21.50" default-y="-133.25" relative-x="15.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>像你柔软</text>
+          </lyric>
+        </note>
+      <note default-x="31.02" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="146.56" default-y="-60.00" print-object="no">
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="21.50" default-y="-112.08" relative-x="15.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>的话语曾</text>
+          </lyric>
+        <lyric number="2" default-x="21.50" default-y="-133.25" relative-x="15.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>的长发曾</text>
+          </lyric>
+        </note>
+      <note default-x="146.56" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="146.56" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="146.56" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="146.56" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="9" width="150.62">
+      <print new-system="yes">
+        <system-layout>
+          <system-margins>
+            <left-margin>0.00</left-margin>
+            <right-margin>0.00</right-margin>
+            </system-margins>
+          <system-distance>351.98</system-distance>
+          </system-layout>
+        </print>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="53.46" default-y="-45.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="21.50" default-y="-112.08" relative-x="15.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>打湿我眼</text>
+          </lyric>
+        <lyric number="2" default-x="21.50" default-y="-133.25" relative-x="15.00" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text>芬芳我梦</text>
+          </lyric>
+        </note>
+      <note default-x="53.46" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="53.46" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="53.46" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="102.59" default-y="-45.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="102.59" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="102.59" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="102.59" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="10" width="107.61">
+      <harmony print-frame="no">
+        <root>
+          <root-step>G</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>3</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        <lyric number="1" default-x="6.50" default-y="-112.08" relative-y="-30.00">
+          <syllabic>end</syllabic>
+          <text>嗯</text>
+          </lyric>
+        <lyric number="2" default-x="6.50" default-y="-133.25" relative-y="-30.00">
+          <syllabic>end</syllabic>
+          <text>嗯</text>
+          </lyric>
+        </note>
+      <note default-x="31.02" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="11" width="107.61">
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="12" width="107.61">
+      <harmony print-frame="no">
+        <root>
+          <root-step>A</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-60.00" print-object="no">
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-60.00" print-object="no">
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="13" width="107.61">
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-45.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-45.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="14" width="107.61">
+      <harmony print-frame="no">
+        <root>
+          <root-step>G</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>3</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="15" width="107.61">
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-75.00" print-object="no">
+        <pitch>
+          <step>E</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>6</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-60.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="16" width="107.61">
+      <harmony print-frame="no">
+        <root>
+          <root-step>A</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-60.00" print-object="no">
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-60.00" print-object="no">
+        <pitch>
+          <step>A</step>
+          <octave>2</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>5</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-45.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="17" width="124.66">
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-45.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="31.02" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-45.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-30.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>G</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>3</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="-15.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>B</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>2</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <note default-x="69.87" default-y="0.00" print-object="no">
+        <chord/>
+        <pitch>
+          <step>E</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notations>
+          <technical>
+            <string>1</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="5.30" relative-x="17.60"/>
+          </notations>
+        </note>
+      <barline location="right">
+        <bar-style>light-heavy</bar-style>
+        <repeat direction="backward"/>
+        </barline>
+      </measure>
+    </part>
+  </score-partwise>

@@ -36,6 +36,7 @@
 #endif // EZXML_NOMMAP
 #include <sys/stat.h>
 #include "ezxml.h"
+#include "zy_os_debug.h"
 
 #define EZXML_WS   "\t\r\n "  // whitespace
 #define EZXML_ERRL 128        // maximum error string length
@@ -50,7 +51,16 @@
 #define STRINS5 5
 #define STRINS6 6
 
+#define ZY_E2 40
+#define ZY_A2 45
+#define ZY_D3 50
+#define ZY_G3 55
+#define ZY_B3 59
+#define ZY_E4 64
+
 // #define MAX_FRAME_SIZE    10
+
+static zy_dbg_module_info s_this_module={ZY_DBG_ERROR,NULL,0};
 
 static int tie_len = 0;
 static int zy_note_num = 0;      //前奏部分节拍数量
@@ -107,6 +117,7 @@ void parse_harmony_alter(ezxml_t xml);
 void parse_harmony_kind(ezxml_t xml);
 void parse_harmony_string(ezxml_t xml);
 void parse_harmony_fret(ezxml_t xml);
+void parse_harmony_barre(ezxml_t xml);
 
 zy_harmony_parse_t g_harmony_parse[] = {
     {"root-step", parse_harmony_step},
@@ -114,6 +125,7 @@ zy_harmony_parse_t g_harmony_parse[] = {
     {"kind", parse_harmony_kind},
     {"string", parse_harmony_string},
     {"fret", parse_harmony_fret},
+    {"barre", parse_harmony_barre},
     {"", NULL},
 };
 
@@ -132,7 +144,7 @@ ezxml_t ezxml_child(ezxml_t xml, const char *name)
     while (xml && strcmp(name, xml->name)) xml = xml->sibling;
     return xml;
 }
-
+ 
 // returns the Nth tag with the same name in the same subsection or NULL if not
 // found
 ezxml_t ezxml_idx(ezxml_t xml, int idx)
@@ -770,9 +782,9 @@ ezxml_t ezxml_parse_fd(int fd)
                 break;
             }
         }
-        printf("----------->  zy_note_num: %d  <-----num: %d --------\n",zy_note_num,num);
+        ZY_DEBUG(("----------->  zy_note_num: %d  <-----num: %d --------\n",zy_note_num,num));
         zy_note_num = zy_note_num - num;
-        printf("----------->  zy_note_num: %d  <-----zy_harmony_num: %d --------\n",zy_note_num,zy_harmony_num);
+        ZY_DEBUG(("----------->  zy_note_num: %d  <-----zy_harmony_num: %d --------\n",zy_note_num,zy_harmony_num));
         root = (ezxml_root_t)ezxml_parse_str(m, l);
         root->len = -1; // so we know to free s in ezxml_free()
 #ifndef EZXML_NOMMAP
@@ -1160,21 +1172,14 @@ void parse_note_tie(ezxml_t xml)
     int note_num = ptr_score->m_note_cur;
     char *ptr = ptr_score->m_note_info[note_num].tie;
     char buf[MAX_ATTRIBUTES_SIZE] = {0};
-    // printf("note id: %d  ",  ptr_score->m_note_cur);
     int tie_i;
     for (tie_i=0; xml->attr[tie_i] != NULL; tie_i++)
     {    
         sprintf(buf+strlen(buf),"%s    ", xml->attr[tie_i]);    
-        // printf("%s   ", xml->attr[tie_i]);
     }
     
-    // printf("\n");
-    // printf("buf: %s\n", buf);
-    // printf("strlen(ptr): %d\n", strlen(buf));
     strncpy(ptr+tie_len, buf,strlen(buf));
-    tie_len = tie_len + strlen(buf);
-    // printf("\n");
-    
+    tie_len = tie_len + strlen(buf);   
 }
 
 void parse_note_rest(ezxml_t xml)
@@ -1227,8 +1232,8 @@ void parse_harmony_string(ezxml_t xml)
     if (NULL != xml->txt)
     {
         strcpy(ptr, xml->txt);
-    }
-    
+    } 
+
 }
 
 void parse_harmony_fret(ezxml_t xml)
@@ -1241,6 +1246,21 @@ void parse_harmony_fret(ezxml_t xml)
         strcpy(ptr, xml->txt);
     }
     (*m_framenote_total)++; 
+}
+
+void parse_harmony_barre(ezxml_t xml)
+{
+    int harmony_num = ptr_harmony->m_harmony_cur;
+    int m_framenote_total = ptr_harmony->m_harmony_info[harmony_num].m_framenote_total - 1;
+    char *ptr = ptr_harmony->m_harmony_info[harmony_num].framenote[m_framenote_total].barre;
+    for (int i = 0; xml->attr[i] != NULL; i++)
+    {          
+        if( 0 == strcmp(xml->attr[i],"type"))
+        {
+            i++; 
+            strcpy(ptr, xml->attr[i]);
+        }        
+    }
 }
 
 void parse_note_loop(ezxml_t xml)
@@ -1310,7 +1330,7 @@ int parse_note_dump(void)
 
     if(0 == ptr_score->m_note_total)
     {
-        printf("--------------------没有前奏-------------\n");
+        ZY_DEBUG(("--------------------没有前奏-------------\n"));
         ptr_solo = malloc(sizeof(zy_solo_t));
         ptr_solo->zy_beats_total = -1;
         return 0;
@@ -1323,19 +1343,19 @@ int parse_note_dump(void)
     {
         if (1 == ptr_score->m_note_info[i].rest)
         {
-            ptr_solo->zy_beats_total--;
-            printf("note id: %3d,    rest\n", i);
+            num--;
+            ZY_DEBUG(("note id: %3d,    rest\n", i));
             continue;
         }
         else
         {
-            printf("note id: %3d,    step: %s, octave: %s,  alter: %s, tie: %s, chordsign: %d\n",
+            ZY_DEBUG(("note id: %3d,    step: %s, octave: %s,  alter: %s, tie: %s, chordsign: %d\n",
                    i,
                    ptr_score->m_note_info[i].step,
                    ptr_score->m_note_info[i].octave,
                    ptr_score->m_note_info[i].alter,
                    ptr_score->m_note_info[i].tie,
-                   ptr_score->m_note_info[i].chordsign);
+                   ptr_score->m_note_info[i].chordsign));
         }
         if(!strcmp(ptr_score->m_note_info[i].step,"C"))
         {
@@ -1365,26 +1385,20 @@ int parse_note_dump(void)
         {
             z_step = 11;
         }
-        // printf("------------->   chordsign: %d i: %d   <-----------------\n",ptr_score->m_note_info[i].chordsign,i);
         if(!ptr_score->m_note_info[i].chordsign && i)
         {              
             ptr_solo->m_beat_info[val].zy_strings_total =  zy_string;
             val++;
             zy_string = 0;
             num++;
-            // printf("num: %d  保存到下一个\n",num);
         }
         if(NULL != strstr(ptr_score->m_note_info[i].tie,"stop"))
         {
             continue;
         }
-        // printf("octave: %d\n",atoi((ptr_score->m_note_info[i].octave)));
-        // printf("alter: %d\n",atoi(ptr_score->m_note_info[i].alter));
         int a = (12 * (atoi(ptr_score->m_note_info[i].octave)+1)+z_step) + atoi(ptr_score->m_note_info[i].alter) ;
-        // printf("-----------------a: %d\n",a);
         ptr_solo->m_beat_info[val].zy_beats[zy_string]= a;
         zy_string++;
-
     }
 
     ptr_solo->zy_beats_total = num;
@@ -1395,9 +1409,9 @@ int parse_note_dump(void)
         int k = ptr_solo->m_beat_info[i].zy_strings_total;
         for(int j =0;j<k;j++)
         {
-            printf("%d   ",ptr_solo->m_beat_info[i].zy_beats[j]);
+            ZY_DEBUG(("%d   ",ptr_solo->m_beat_info[i].zy_beats[j]));
         }
-        printf("\n");
+        ZY_DEBUG(("\n"));
     }
     return 1;
 }
@@ -1413,6 +1427,7 @@ void parse_harmony_dump(void)
     int zy_chord_cur = 0;
     char *p = NULL;
     int end_num = 0;
+    int words = 0;
     
     if(ptr_harmony->m_harmony_total < 0) 
     {
@@ -1436,46 +1451,78 @@ void parse_harmony_dump(void)
         // usleep(500*1000);
 
         m_framenote_total = ptr_harmony->m_harmony_info[i].m_framenote_total;
-        printf("note id: %3d,    root_step: %s, root_alter: %s,  kind: %s ending_number: %d \n",
+        ZY_DEBUG(("note id: %3d,    root_step: %s, root_alter: %s,  kind: %s ending_number: %d words: %d\n",
                 i,
                 ptr_harmony->m_harmony_info[i].root_step,
                 ptr_harmony->m_harmony_info[i].root_alter,
                 ptr_harmony->m_harmony_info[i].kind,
-                ptr_harmony->m_harmony_info[i].ending_number);
+                ptr_harmony->m_harmony_info[i].ending_number,
+                ptr_harmony->m_harmony_info[i].words));
                 for(int j = 0;j < m_framenote_total; j++)
                 {
-                    // printf("m_framenote_total: %d,    string: %s, fret: %s \n",
-                    //         m_framenote_total,
-                    //         ptr_harmony->m_harmony_info[i].framenote[j].string,
-                    //         ptr_harmony->m_harmony_info[i].framenote[j].fret);
+                    ZY_DEBUG(("m_framenote_total: %d,    string: %s, fret: %s barre: %s\n",
+                            m_framenote_total,
+                            ptr_harmony->m_harmony_info[i].framenote[j].string,
+                            ptr_harmony->m_harmony_info[i].framenote[j].fret,
+                            ptr_harmony->m_harmony_info[i].framenote[j].barre));
                     string = atoi(ptr_harmony->m_harmony_info[i].framenote[j].string);
                     fret = atoi(ptr_harmony->m_harmony_info[i].framenote[j].fret);
-
+        
+                    if(0 == strcmp(ptr_harmony->m_harmony_info[i].framenote[j].barre, "start"))
+                    {
+                        if(0 == ptr_harmony->m_harmony_info[i].words)
+                        {
+                            words = 1;
+                            for(int i = m_framenote_total; i >= 0 ; i--)
+                            {
+                                if( i > STRINS3 )
+                                {
+                                    ptr_chord->m_chord_info[zy_chord_cur].zy_strings[i] =i * (ZY_A2 - ZY_E2) +  ZY_E2 + words - 1;
+                                }
+                                else
+                                {
+                                    ptr_chord->m_chord_info[zy_chord_cur].zy_strings[i] =i * (ZY_A2 - ZY_E2) +  ZY_E2 + words;
+                                }
+                            }
+                            words--;
+                        }
+                        else
+                        {
+                            words = ptr_harmony->m_harmony_info[i].words;
+                            words = words - fret;
+                        }                      
+                    }
+                    
                     if(STRINS1 == string)
                     {
-                        ptr_chord->m_chord_info[zy_chord_cur].zy_strings[j] = 40 + fret;
+                        ptr_chord->m_chord_info[zy_chord_cur].zy_strings[5] = ZY_E4 + fret + words;
                     }
                     else if(STRINS2 == string)
                     {
-                        ptr_chord->m_chord_info[zy_chord_cur].zy_strings[j] = 45 + fret;
+                        ptr_chord->m_chord_info[zy_chord_cur].zy_strings[4] = ZY_B3 + fret + words;
                     }
                     else if(STRINS3 == string)
                     {
-                        ptr_chord->m_chord_info[zy_chord_cur].zy_strings[j] = 50 + fret;
+                        ptr_chord->m_chord_info[zy_chord_cur].zy_strings[3] = ZY_G3 + fret + words;
                     }
                     else if(STRINS4 == string)
                     {
-                        ptr_chord->m_chord_info[zy_chord_cur].zy_strings[j] = 55 + fret;
+                        ptr_chord->m_chord_info[zy_chord_cur].zy_strings[2] = ZY_D3 + fret + words;
                     }
                     else if(STRINS5 == string)
                     {
-                        ptr_chord->m_chord_info[zy_chord_cur].zy_strings[j] = 59 + fret;
+                        ptr_chord->m_chord_info[zy_chord_cur].zy_strings[1] = ZY_A2 + fret + words;
                     }
                     else if(STRINS6 == string)
                     {
-                        ptr_chord->m_chord_info[zy_chord_cur].zy_strings[j] = 64 + fret;
+                        ptr_chord->m_chord_info[zy_chord_cur].zy_strings[0] = ZY_E2 + fret + words;
                     }
                     strings_total++;
+
+                    if(0 == strcmp(ptr_harmony->m_harmony_info[i].framenote[j].barre, "stop"))
+                    {
+                        words = 0;
+                    }
                 }
         sprintf(p,"%s%s-%s",ptr_harmony->m_harmony_info[i].root_step, \
                             ptr_harmony->m_harmony_info[i].root_alter, \
@@ -1512,8 +1559,17 @@ void parse_harmony_dump(void)
 #if 0
     for(int i = 0; i < ptr_chord->zy_chord_total; i++)
     {
+        for(int j = 0;j < 6; j++)
+        {
+            printf("m_framenote_total: %d,    string: %s, fret: %s barre: %s\n",
+                    m_framenote_total,
+                    ptr_harmony->m_harmony_info[i].framenote[j].string,
+                    ptr_harmony->m_harmony_info[i].framenote[j].fret,
+                    ptr_harmony->m_harmony_info[i].framenote[j].barre);
+        }
+
         printf("----i: %d----> chordname: %s <------------\n",i,ptr_chord->m_chord_info[i].chordname);
-        for(int j = 0; j < ptr_chord->m_chord_info[i].zy_strings_total; j++)
+        for(int j = 0; j < 6; j++)
         {
             printf("------ chord pitch: %d -------------\n",ptr_chord->m_chord_info[i].zy_strings[j]);
         }
@@ -1524,12 +1580,12 @@ void parse_harmony_dump(void)
 
 void parse_repeate_dump(void)
 {
-    printf("ptr_harmony->m_repeate_total: %d\n",ptr_harmony->m_repeate_total);
+    ZY_DEBUG(("ptr_harmony->m_repeate_total: %d\n",ptr_harmony->m_repeate_total));
     for (int i = 0; i < ptr_harmony->m_repeate_total; i++)
     {
-        printf("start: %d, end: %d,\n",
+        ZY_DEBUG(("start: %d, end: %d,\n",
                 ptr_harmony->m_repeate_info[i].start,
-                ptr_harmony->m_repeate_info[i].end);
+                ptr_harmony->m_repeate_info[i].end));
     };
 }
 
@@ -1574,6 +1630,11 @@ void xml_parse_note(ezxml_t xml)
         else if (1 == ptr_harmony->m_harmony_if_parsing)
         {
             parse_harmony_loop(xml);
+        }
+
+        if (0 == strcmp(xml->name, "words"))
+        {
+            ptr_harmony->m_harmony_info[ptr_harmony->m_harmony_cur].words = atoi(xml->txt);
         }
 
         if (0 == strcmp(xml->name, "note") && (0 == ptr_harmony->m_is_parsing_note))
@@ -1654,13 +1715,13 @@ void xml_parse_note(ezxml_t xml)
                 {
                     (ptr_harmony->m_repeate_total)++;
                     ptr_harmony->m_sound_cur = ptr_harmony->m_repeate_total - 1;
-                    printf("-------segno----------: %d\n",ptr_harmony->m_sound_cur);
+                    ZY_DEBUG(("-------segno----------: %d\n",ptr_harmony->m_sound_cur));
                     ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].repeate_type = SEGNOTODALSEGNO; 
                     ptr_harmony->m_repeate_info[ptr_harmony->m_sound_cur].start = ptr_harmony->m_harmony_cur + 1;        
                 }
                 else if((0 == strcmp(xml->attr[0], "dalsegno")) && (0 == strcmp(xml->attr[1], "segno")))
                 {
-                    printf("-------dalsegno----------: %d\n",ptr_harmony->m_sound_cur);
+                    ZY_DEBUG(("-------dalsegno----------: %d\n",ptr_harmony->m_sound_cur));
                     ptr_harmony->m_repeate_info[ptr_harmony->m_sound_cur].end = ptr_harmony->m_harmony_cur;
                     is_repetition_nested();            
                 }           

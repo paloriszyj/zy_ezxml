@@ -1,0 +1,4633 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE score-partwise PUBLIC "-//Recordare//DTD MusicXML 3.1 Partwise//EN" "http://www.musicxml.org/dtds/partwise.dtd">
+<score-partwise version="3.1">
+  <work>
+    <work-title>天使的翅膀</work-title>
+    </work>
+  <identification>
+    <encoding>
+      <software>MuseScore 3.6.2</software>
+      <encoding-date>2021-11-24</encoding-date>
+      <supports element="accidental" type="yes"/>
+      <supports element="beam" type="yes"/>
+      <supports element="print" attribute="new-page" type="yes" value="yes"/>
+      <supports element="print" attribute="new-system" type="yes" value="yes"/>
+      <supports element="stem" type="yes"/>
+      </encoding>
+    </identification>
+  <defaults>
+    <scaling>
+      <millimeters>7</millimeters>
+      <tenths>40</tenths>
+      </scaling>
+    <page-layout>
+      <page-height>1697.14</page-height>
+      <page-width>1200</page-width>
+      <page-margins type="even">
+        <left-margin>85.7143</left-margin>
+        <right-margin>85.7143</right-margin>
+        <top-margin>85.7143</top-margin>
+        <bottom-margin>85.7143</bottom-margin>
+        </page-margins>
+      <page-margins type="odd">
+        <left-margin>85.7143</left-margin>
+        <right-margin>85.7143</right-margin>
+        <top-margin>85.7143</top-margin>
+        <bottom-margin>85.7143</bottom-margin>
+        </page-margins>
+      </page-layout>
+    <word-font font-family="Edwin" font-size="10"/>
+    <lyric-font font-family="Edwin" font-size="10"/>
+    </defaults>
+  <credit page="1">
+    <credit-type>title</credit-type>
+    <credit-words default-x="600" default-y="1611.43" justify="center" valign="top" font-size="22">天使的翅膀</credit-words>
+    </credit>
+  <credit page="1">
+    <credit-type>subtitle</credit-type>
+    <credit-words default-x="600" default-y="1554.29" justify="center" valign="top" font-size="16">初级</credit-words>
+    </credit>
+  <part-list>
+    <score-part id="P1">
+      <part-name>Guitar</part-name>
+      <part-abbreviation>Guit.</part-abbreviation>
+      <score-instrument id="P1-I1">
+        <instrument-name>Classical Guitar [Tablature]</instrument-name>
+        </score-instrument>
+      <midi-device id="P1-I1" port="1"></midi-device>
+      <midi-instrument id="P1-I1">
+        <midi-channel>1</midi-channel>
+        <midi-program>25</midi-program>
+        <volume>78.7402</volume>
+        <pan>0</pan>
+        </midi-instrument>
+      </score-part>
+    </part-list>
+  <part id="P1">
+    <measure number="1" width="297.78">
+      <print>
+        <system-layout>
+          <system-margins>
+            <left-margin>50.00</left-margin>
+            <right-margin>0.00</right-margin>
+            </system-margins>
+          <top-system-distance>186.72</top-system-distance>
+          </system-layout>
+        </print>
+      <attributes>
+        <divisions>2</divisions>
+        <key>
+          <fifths>0</fifths>
+          </key>
+        <time>
+          <beats>4</beats>
+          <beat-type>4</beat-type>
+          </time>
+        <clef>
+          <sign>TAB</sign>
+          <line>5</line>
+          </clef>
+        <staff-details>
+          <staff-lines>6</staff-lines>
+          <staff-tuning line="1">
+            <tuning-step>E</tuning-step>
+            <tuning-octave>2</tuning-octave>
+            </staff-tuning>
+          <staff-tuning line="2">
+            <tuning-step>A</tuning-step>
+            <tuning-octave>2</tuning-octave>
+            </staff-tuning>
+          <staff-tuning line="3">
+            <tuning-step>D</tuning-step>
+            <tuning-octave>3</tuning-octave>
+            </staff-tuning>
+          <staff-tuning line="4">
+            <tuning-step>G</tuning-step>
+            <tuning-octave>3</tuning-octave>
+            </staff-tuning>
+          <staff-tuning line="5">
+            <tuning-step>B</tuning-step>
+            <tuning-octave>3</tuning-octave>
+            </staff-tuning>
+          <staff-tuning line="6">
+            <tuning-step>E</tuning-step>
+            <tuning-octave>4</tuning-octave>
+            </staff-tuning>
+          </staff-details>
+        </attributes>
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="68.44" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        </note>
+      <note default-x="126.50" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        </note>
+      <note default-x="184.56" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        </note>
+      <note default-x="242.62" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="2" width="412.08">
+      <barline location="left">
+        <bar-style>heavy-light</bar-style>
+        <repeat direction="forward"/>
+        </barline>
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="52.28" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">落叶</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">爱曾</text>
+          </lyric>
+        </note>
+      <note default-x="142.50" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">随风</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">经来</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="232.73" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">将要去</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">到过的</text>
+          </lyric>
+        </note>
+      <note default-x="322.96" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">何</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">地</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="3" width="268.71">
+      <harmony print-frame="no">
+        <root>
+          <root-step>C</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="37.56" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">方</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">方</text>
+          </lyric>
+        </note>
+      <note default-x="95.62" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        </note>
+      <note default-x="153.68" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        </note>
+      <note default-x="211.74" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="4" width="421.15">
+      <print new-system="yes">
+        <system-layout>
+          <system-margins>
+            <left-margin>0.00</left-margin>
+            <right-margin>0.00</right-margin>
+            </system-margins>
+          <system-distance>200.51</system-distance>
+          </system-layout>
+        </print>
+      <harmony print-frame="no">
+        <root>
+          <root-step>A</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="68.44" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">只留</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">依稀</text>
+          </lyric>
+        </note>
+      <note default-x="156.89" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">给天</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">留着</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="245.35" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">空美</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">昨天</text>
+          </lyric>
+        </note>
+      <note default-x="333.80" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">丽一</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">的芬</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="5" width="269.52">
+      <harmony print-frame="no">
+        <root>
+          <root-step>G</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>3</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="37.36" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">场</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">芳</text>
+          </lyric>
+        </note>
+      <note default-x="95.67" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        </note>
+      <note default-x="153.99" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        </note>
+      <note default-x="212.30" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">曾</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">那</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="6" width="337.90">
+      <harmony print-frame="no">
+        <root>
+          <root-step>A</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="66.59" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">飞舞的</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">熟悉的</text>
+          </lyric>
+        </note>
+      <note default-x="134.69" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">声</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">温</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="202.80" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">影</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">暖</text>
+          </lyric>
+        </note>
+      <note default-x="270.90" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">像</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">像</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="7" width="315.93">
+      <print new-system="yes">
+        <system-layout>
+          <system-margins>
+            <left-margin>0.00</left-margin>
+            <right-margin>0.00</right-margin>
+            </system-margins>
+          <system-distance>217.15</system-distance>
+          </system-layout>
+        </print>
+      <harmony print-frame="no">
+        <root>
+          <root-step>B</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>1</fret>
+            <barre type="start"/>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>1</fret>
+            <barre type="stop"/>
+            </frame-note>
+          </frame>
+        </harmony>
+      <direction placement="above">
+        <direction-type>
+          <words relative-x="-20.90" relative-y="47.00" font-size="7">2</words>
+          </direction-type>
+        </direction>
+      <note default-x="68.44" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">天使的</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">天使的</text>
+          </lyric>
+        </note>
+      <note default-x="130.59" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">翅</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">翅</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="192.73" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">膀</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">膀</text>
+          </lyric>
+        </note>
+      <note default-x="254.88" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">划过</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">划过</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="8" width="252.76">
+      <harmony print-frame="no">
+        <root>
+          <root-step>A</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="37.56" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">我</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">我</text>
+          </lyric>
+        </note>
+      <note default-x="91.64" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">幸福</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">无边</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="145.71" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">的</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">的</text>
+          </lyric>
+        </note>
+      <note default-x="199.79" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">过</text>
+          </lyric>
+        <lyric number="2" default-y="-130.57" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">心</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="9" width="233.06">
+      <barline location="left">
+        <ending number="1" type="start" default-y="33.10"/>
+        </barline>
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="37.56" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">往</text>
+          </lyric>
+        </note>
+      <note default-x="82.45" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        </note>
+      <note default-x="127.34" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        </note>
+      <note default-x="172.23" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        </note>
+      <barline location="right">
+        <bar-style>light-heavy</bar-style>
+        <ending number="1" type="stop"/>
+        <repeat direction="backward"/>
+        </barline>
+      </measure>
+    <measure number="10" width="226.82">
+      <barline location="left">
+        <ending number="2" type="start" default-y="33.10"/>
+        </barline>
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="37.36" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">上</text>
+          </lyric>
+        </note>
+      <note default-x="85.00" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        </note>
+      <note default-x="132.64" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        </note>
+      <note default-x="180.28" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="-0.30" relative-y="78.60"/>
+          </notations>
+        <lyric number="1" default-y="-95.79" relative-x="-6.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">相信</text>
+          </lyric>
+        </note>
+      <barline location="right">
+        <ending number="2" type="stop"/>
+        </barline>
+      </measure>
+    <measure number="11" width="328.76">
+      <print new-system="yes">
+        <system-layout>
+          <system-margins>
+            <left-margin>0.00</left-margin>
+            <right-margin>0.00</right-margin>
+            </system-margins>
+          <system-distance>200.51</system-distance>
+          </system-layout>
+        </print>
+      <harmony print-frame="no">
+        <root>
+          <root-step>C</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="53.46" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="5.00" default-y="-122.09" relative-x="-1.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">你还在</text>
+          </lyric>
+        </note>
+      <note default-x="114.88" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="153.27" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">这</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="191.66" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">里</text>
+          </lyric>
+        </note>
+      <note default-x="253.08" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="291.47" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="12" width="326.33">
+      <harmony print-frame="no">
+        <root>
+          <root-step>G</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>3</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="51.98" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">从不曾</text>
+          </lyric>
+        </note>
+      <note default-x="113.19" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="151.45" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">离</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="189.71" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">去</text>
+          </lyric>
+        </note>
+      <note default-x="250.92" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="289.17" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="13" width="373.48">
+      <harmony print-frame="no">
+        <root>
+          <root-step>C</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="53.19" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">我的爱</text>
+          </lyric>
+        </note>
+      <note default-x="120.30" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="162.24" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">像</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="223.59" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">天使守</text>
+          </lyric>
+        </note>
+      <note default-x="290.70" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="332.64" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">护</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="14" width="345.36">
+      <print new-system="yes">
+        <system-layout>
+          <system-margins>
+            <left-margin>0.00</left-margin>
+            <right-margin>0.00</right-margin>
+            </system-margins>
+          <system-distance>192.04</system-distance>
+          </system-layout>
+        </print>
+      <harmony print-frame="no">
+        <root>
+          <root-step>G</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>3</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="53.46" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">你</text>
+          </lyric>
+        </note>
+      <note default-x="118.57" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="159.27" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="199.96" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="265.07" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">若</text>
+          </lyric>
+        </note>
+      <note default-x="305.77" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">生</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="15" width="334.75">
+      <harmony print-frame="no">
+        <root>
+          <root-step>C</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="52.99" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">命只到</text>
+          </lyric>
+        </note>
+      <note default-x="115.85" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="155.13" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">这</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="194.42" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">里</text>
+          </lyric>
+        </note>
+      <note default-x="257.28" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="296.56" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="16" width="348.46">
+      <harmony print-frame="no">
+        <root>
+          <root-step>G</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>3</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="53.19" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">从此没</text>
+          </lyric>
+        </note>
+      <note default-x="119.05" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="160.22" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">有</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="201.38" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">我</text>
+          </lyric>
+        </note>
+      <note default-x="267.24" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">我</text>
+          </lyric>
+        </note>
+      <note default-x="308.40" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">会</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="17" width="377.10">
+      <print new-page="yes">
+        <system-layout>
+          <system-margins>
+            <left-margin>0.00</left-margin>
+            <right-margin>0.00</right-margin>
+            </system-margins>
+          <top-system-distance>86.72</top-system-distance>
+          </system-layout>
+        </print>
+      <harmony print-frame="no">
+        <root>
+          <root-step>C</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="53.46" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">找个天</text>
+          </lyric>
+        </note>
+      <note default-x="121.54" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="164.08" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">使</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="225.03" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">替我去</text>
+          </lyric>
+        </note>
+      <note default-x="293.10" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="335.65" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">爱</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="18" width="319.34">
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">你</text>
+          </lyric>
+        </note>
+      <note default-x="95.34" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="135.53" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="175.73" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="240.05" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">相</text>
+          </lyric>
+        </note>
+      <note default-x="280.24" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">信</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="19" width="332.13">
+      <harmony print-frame="no">
+        <root>
+          <root-step>C</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="52.99" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">你还在</text>
+          </lyric>
+        </note>
+      <note default-x="115.27" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="154.19" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">这</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="193.11" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">里</text>
+          </lyric>
+        </note>
+      <note default-x="255.39" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="294.31" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="20" width="331.41">
+      <print new-system="yes">
+        <system-layout>
+          <system-margins>
+            <left-margin>0.00</left-margin>
+            <right-margin>0.00</right-margin>
+            </system-margins>
+          <system-distance>323.54</system-distance>
+          </system-layout>
+        </print>
+      <harmony print-frame="no">
+        <root>
+          <root-step>G</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>3</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="53.46" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">从不曾</text>
+          </lyric>
+        </note>
+      <note default-x="115.47" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="154.23" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">离</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="192.98" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">去</text>
+          </lyric>
+        </note>
+      <note default-x="255.00" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="293.75" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="21" width="377.09">
+      <harmony print-frame="no">
+        <root>
+          <root-step>C</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="53.19" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">我的爱</text>
+          </lyric>
+        </note>
+      <note default-x="121.23" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="163.75" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">像</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="225.10" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">天使守</text>
+          </lyric>
+        </note>
+      <note default-x="293.14" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="335.66" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">护</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="22" width="320.08">
+      <harmony print-frame="no">
+        <root>
+          <root-step>G</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>3</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="31.02" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">你</text>
+          </lyric>
+        </note>
+      <note default-x="95.50" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="135.80" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="176.10" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="240.58" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">若</text>
+          </lyric>
+        </note>
+      <note default-x="280.88" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">生</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="23" width="323.63">
+      <print new-system="yes">
+        <system-layout>
+          <system-margins>
+            <left-margin>0.00</left-margin>
+            <right-margin>0.00</right-margin>
+            </system-margins>
+          <system-distance>323.54</system-distance>
+          </system-layout>
+        </print>
+      <harmony print-frame="no">
+        <root>
+          <root-step>C</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="53.46" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">命只到</text>
+          </lyric>
+        </note>
+      <note default-x="113.74" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="151.42" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">这</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="189.09" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">里</text>
+          </lyric>
+        </note>
+      <note default-x="249.38" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="287.05" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      </measure>
+    <measure number="24" width="336.88">
+      <harmony print-frame="no">
+        <root>
+          <root-step>G</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>3</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="53.19" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">从此没</text>
+          </lyric>
+        </note>
+      <note default-x="116.48" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="156.03" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">有</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="195.59" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">我</text>
+          </lyric>
+        </note>
+      <note default-x="258.87" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">我</text>
+          </lyric>
+        </note>
+      <note default-x="298.42" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">会</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="25" width="368.07">
+      <harmony print-frame="no">
+        <root>
+          <root-step>C</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="53.40" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">找个天</text>
+          </lyric>
+        </note>
+      <note default-x="119.16" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="160.26" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">使</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="221.20" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">替我去</text>
+          </lyric>
+        </note>
+      <note default-x="286.96" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="328.06" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-122.09" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">爱</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="26" width="370.68">
+      <print new-system="yes">
+        <system-layout>
+          <system-margins>
+            <left-margin>0.00</left-margin>
+            <right-margin>0.00</right-margin>
+            </system-margins>
+          <system-distance>323.54</system-distance>
+          </system-layout>
+        </print>
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="53.46" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>2</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-120.14" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">你</text>
+          </lyric>
+        </note>
+      <note default-x="141.27" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">begin</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="196.15" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>eighth</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <beam number="1">end</beam>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="down" default-x="-15.12" default-y="-79.70" relative-x="18.00" relative-y="40.00"/>
+          </notations>
+        </note>
+      <note default-x="251.04" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>4</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-19.72" default-y="-79.70" relative-x="20.37" relative-y="24.88"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-120.14" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">我会</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="27" width="411.99">
+      <harmony print-frame="no">
+        <root>
+          <root-step>C</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>5</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>1</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="68.31" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>4</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-19.72" default-y="-79.70" relative-x="17.45" relative-y="7.48"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-120.14" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">找个天使</text>
+          </lyric>
+        </note>
+      <harmony print-frame="no">
+        <root>
+          <root-step>D</root-step>
+          </root>
+        <kind>major</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>4</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>3</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>2</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="240.70" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>4</duration>
+        <voice>1</voice>
+        <type>half</type>
+        <stem>down</stem>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-19.72" default-y="-79.70" relative-x="21.33" relative-y="9.97"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-120.14" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">替我去</text>
+          </lyric>
+        </note>
+      </measure>
+    <measure number="28" width="245.91">
+      <harmony print-frame="no">
+        <root>
+          <root-step>E</root-step>
+          </root>
+        <kind text="m">minor</kind>
+        <frame>
+          <frame-strings>6</frame-strings>
+          <frame-frets>4</frame-frets>
+          <frame-note>
+            <string>6</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>5</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>4</string>
+            <fret>2</fret>
+            </frame-note>
+          <frame-note>
+            <string>3</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>2</string>
+            <fret>0</fret>
+            </frame-note>
+          <frame-note>
+            <string>1</string>
+            <fret>0</fret>
+            </frame-note>
+          </frame>
+        </harmony>
+      <note default-x="37.87" default-y="-85.00" print-object="no">
+        <pitch>
+          <step>D</step>
+          <octave>3</octave>
+          </pitch>
+        <duration>8</duration>
+        <voice>1</voice>
+        <type>whole</type>
+        <notehead color="#F9F9F9">normal</notehead>
+        <notations>
+          <technical>
+            <string>4</string>
+            <fret>0</fret>
+            </technical>
+          <arpeggiate direction="up" default-x="-19.72" default-y="-79.58" relative-x="24.38" relative-y="15.52"/>
+          </notations>
+        <lyric number="1" default-x="7.00" default-y="-120.14" relative-x="0.50" relative-y="-30.00">
+          <syllabic>single</syllabic>
+          <text font-size="15">爱你</text>
+          </lyric>
+        </note>
+      <barline location="right">
+        <bar-style>light-heavy</bar-style>
+        </barline>
+      </measure>
+    </part>
+  </score-partwise>

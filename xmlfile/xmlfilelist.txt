@@ -1,0 +1,11 @@
+number              Xmlmusic file name
+1                   ./xmlfile/xmlfilelist.txt
+2                   ./xmlfile/像我这样的人.musicxml
+3                   ./xmlfile/追光者.musicxml
+4                   ./xmlfile/天使的翅膀.musicxml
+5                   ./xmlfile/挪威的森林.musicxml
+6                   ./xmlfile/突然的自我.musicxml
+7                   ./xmlfile/我只在乎你.musicxml
+8                   ./xmlfile/真心英雄.musicxml
+9                   ./xmlfile/外婆的澎湖湾.musicxml
+10                  ./xmlfile/风吹麦浪.musicxml

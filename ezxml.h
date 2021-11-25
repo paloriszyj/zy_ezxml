@@ -88,6 +88,7 @@ typedef struct zy_harmony_frame_note_info_s
 {
     char string[MAX_ATTRIBUTES_SIZE];
     char fret[MAX_ATTRIBUTES_SIZE];
+    char barre[MAX_ATTRIBUTES_SIZE];
 } zy_harmony_frame_note_info_t;
 
 typedef struct zy_harmony_info_s
@@ -98,6 +99,7 @@ typedef struct zy_harmony_info_s
     zy_harmony_frame_note_info_t framenote[6];    //表示构成和弦内的所有音高
     int m_framenote_total;
     int ending_number;
+    int words;
 } zy_harmony_info_t;
 
 typedef struct zy_harmony_s
