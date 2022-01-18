@@ -60,7 +60,7 @@
 
 // #define MAX_FRAME_SIZE    10
 
-static zy_dbg_module_info s_this_module={ZY_DBG_ERROR,NULL,0};
+static zy_dbg_module_info s_this_module={ZY_DBG_DEBUG,NULL,0};
 
 static int tie_len = 0;
 static int zy_note_num = 0;      //前奏部分节拍数量
@@ -1359,31 +1359,31 @@ int parse_note_dump(void)
         }
         if(!strcmp(ptr_score->m_note_info[i].step,"C"))
         {
-            z_step = 0;
+            z_step = STEP_C;
         }
         else if(!strcmp(ptr_score->m_note_info[i].step,"D"))
         {
-            z_step = 2;
+            z_step = STEP_D;
         }
         else if(!strcmp(ptr_score->m_note_info[i].step,"E"))
         {
-            z_step = 4;
+            z_step = STEP_E;
         }
         else if(!strcmp(ptr_score->m_note_info[i].step,"F"))
         {
-            z_step = 5;
+            z_step = STEP_F;
         }
         else if(!strcmp(ptr_score->m_note_info[i].step,"G"))
         {
-            z_step = 7;
+            z_step = STEP_G;
         }
         else if(!strcmp(ptr_score->m_note_info[i].step,"A"))
         {
-            z_step = 9;
+            z_step = STEP_A;
         }        
         else if(!strcmp(ptr_score->m_note_info[i].step,"B"))
         {
-            z_step = 11;
+            z_step = STEP_B;
         }
         if(!ptr_score->m_note_info[i].chordsign && i)
         {              
@@ -1396,7 +1396,7 @@ int parse_note_dump(void)
         {
             continue;
         }
-        int a = (12 * (atoi(ptr_score->m_note_info[i].octave)+1)+z_step) + atoi(ptr_score->m_note_info[i].alter) ;
+        int a = (12 * (atoi(ptr_score->m_note_info[i].octave)+Z_OCTAVE)+z_step) + atoi(ptr_score->m_note_info[i].alter) ;
         ptr_solo->m_beat_info[val].zy_beats[zy_string]= a;
         zy_string++;
     }
@@ -1404,6 +1404,7 @@ int parse_note_dump(void)
     ptr_solo->zy_beats_total = num;
     ptr_solo->m_beat_info[val].zy_strings_total =  zy_string;
 
+    //printf,可注释
     for(int i =0;i<num+1;i++)
     {   
         int k = ptr_solo->m_beat_info[i].zy_strings_total;
@@ -1425,7 +1426,7 @@ void parse_harmony_dump(void)
     int repeate_cur = 0;
     int m_framenote_total = 0;
     int zy_chord_cur = 0;
-    char *p = NULL;
+    char *chordname = NULL;
     int end_num = 0;
     int words = 0;
     
@@ -1439,7 +1440,7 @@ void parse_harmony_dump(void)
 
     for (int i = 0; i < ptr_harmony->m_harmony_total; i++)
     {
-        p = ptr_chord->m_chord_info[zy_chord_cur].chordname;
+        chordname = ptr_chord->m_chord_info[zy_chord_cur].chordname;
         if(0 != ptr_harmony->m_harmony_info[i].ending_number &&  repeattime != ptr_harmony->m_harmony_info[i].ending_number)
         {
             if(repeattime > 2) 
@@ -1524,7 +1525,7 @@ void parse_harmony_dump(void)
                         words = 0;
                     }
                 }
-        sprintf(p,"%s%s-%s",ptr_harmony->m_harmony_info[i].root_step, \
+        sprintf(chordname,"%s%s-%s",ptr_harmony->m_harmony_info[i].root_step, \
                             ptr_harmony->m_harmony_info[i].root_alter, \
                             ptr_harmony->m_harmony_info[i].kind);
 

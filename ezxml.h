@@ -40,6 +40,17 @@ extern "C" {
 #define EZXML_DUP     0x20 // attribute name and value are strduped
 #define MAX_ATTRIBUTES_SIZE    64
 
+#define STEP_C 0
+#define STEP_D 2
+#define STEP_E 4
+#define STEP_F 5
+#define STEP_G 7
+#define STEP_A 9
+#define STEP_B 11
+
+#define Z_OCTAVE 1
+
+
 typedef struct ezxml *ezxml_t;
 struct ezxml {
     char *name;      // tag name
@@ -56,12 +67,12 @@ struct ezxml {
 
 typedef struct zy_note_info_s
 {
-    char step[MAX_ATTRIBUTES_SIZE];
-    char octave[MAX_ATTRIBUTES_SIZE];
-    char alter[MAX_ATTRIBUTES_SIZE]; 
-    char tie[MAX_ATTRIBUTES_SIZE];
-    int  rest;
-    int chordsign;
+    char step[MAX_ATTRIBUTES_SIZE];    //音阶
+    char octave[MAX_ATTRIBUTES_SIZE];  //八度
+    char alter[MAX_ATTRIBUTES_SIZE];   //表示升降音，-1 表示降音，1 表示升音
+    char tie[MAX_ATTRIBUTES_SIZE];     //表示一个连音的开始和结束
+    int  rest;                         //休止符
+    int chordsign;                     //和弦，叠音，也就是说当这个标签出现的时候，竖直方向是有多个音的              
 } zy_note_info_t;
 
 typedef struct zy_score_s
@@ -99,7 +110,7 @@ typedef struct zy_harmony_info_s
     zy_harmony_frame_note_info_t framenote[6];    //表示构成和弦内的所有音高
     int m_framenote_total;
     int ending_number;
-    int words;
+    int words;   //为解析横按添加的文字说明
 } zy_harmony_info_t;
 
 typedef struct zy_harmony_s
