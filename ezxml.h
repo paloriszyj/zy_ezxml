@@ -39,6 +39,8 @@ extern "C" {
 #define EZXML_TXTM    0x40 // txt is malloced
 #define EZXML_DUP     0x20 // attribute name and value are strduped
 #define MAX_ATTRIBUTES_SIZE    64
+#define DISPLAYMAX    10
+#define STRINGSNUM    6
 
 #define STEP_C 0
 #define STEP_D 2
@@ -72,7 +74,10 @@ typedef struct zy_note_info_s
     char alter[MAX_ATTRIBUTES_SIZE];   //表示升降音，-1 表示降音，1 表示升音
     char tie[MAX_ATTRIBUTES_SIZE];     //表示一个连音的开始和结束
     int  rest;                         //休止符
-    int chordsign;                     //和弦，叠音，也就是说当这个标签出现的时候，竖直方向是有多个音的              
+    int chordsign;                     //和弦，叠音，也就是说当这个标签出现的时候，竖直方向是有多个音的  
+    int measure;	//小节序号 0 based
+    int chords;		//小节序号内的和弦序号(新小节，该序号清零)
+    int note;		//和弦序号内的音符序号(新和弦，该序号清零)            
 } zy_note_info_t;
 
 typedef struct zy_score_s
@@ -102,15 +107,27 @@ typedef struct zy_harmony_frame_note_info_s
     char barre[MAX_ATTRIBUTES_SIZE];
 } zy_harmony_frame_note_info_t;
 
+typedef struct zy_harmony_notes_info_s
+{
+    char string[MAX_ATTRIBUTES_SIZE];
+    int measure;	//小节序号 0 based
+    int chords;		//小节序号内的和弦序号(新小节，该序号清零)
+    int note;		//和弦序号内的音符序号(新和弦，该序号清零)
+} zy_harmony_notes_info_t;
+
 typedef struct zy_harmony_info_s
 {    
+    int words;   //为解析横按添加的文字说明
+    int ending_number;
+    int m_framenote_total;
+    int harmony_notes_cur;
+    int harmony_notes_total;
+    int m_harmony_note_if_parsing;       //解析和弦内的note
     char root_step[MAX_ATTRIBUTES_SIZE];
     char root_alter[MAX_ATTRIBUTES_SIZE];
-    char kind[MAX_ATTRIBUTES_SIZE];
-    zy_harmony_frame_note_info_t framenote[6];    //表示构成和弦内的所有音高
-    int m_framenote_total;
-    int ending_number;
-    int words;   //为解析横按添加的文字说明
+    char kind[MAX_ATTRIBUTES_SIZE];   
+    zy_harmony_frame_note_info_t framenote[STRINGSNUM];    //表示构成和弦内的所有音高，记录的是品格图的内容
+    zy_harmony_notes_info_t notes[MAX_ATTRIBUTES_SIZE];   //表示构成和弦内弹奏顺序指法
 } zy_harmony_info_t;
 
 typedef struct zy_harmony_s
@@ -118,7 +135,7 @@ typedef struct zy_harmony_s
     int m_harmony_total;
     int m_harmony_cur;
     int m_harmony_if_parsing;
-    int m_is_parsing_note;        //当开始解析harmony时，就不在检测harmony内的note
+    int m_is_parsing_note;        //用来区分是属于前奏还是和弦的note
     int m_repeate_total;          //表示所有反复数量
     int m_repeate_cur; 
     int m_sound_cur; 
@@ -127,23 +144,45 @@ typedef struct zy_harmony_s
     zy_harmony_info_t m_harmony_info[];
 } zy_harmony_t;
 
+typedef struct zy_solo_display_site_s
+{
+    int measure;	//小节序号 0 based
+    int chords;		//小节序号内的和弦序号(新小节，该序号清零)
+    int note;		//和弦序号内的音符序号(新和弦，该序号清零)
+} zy_solo_display_site_t;
+
+typedef struct zy_solo_display_s
+{
+    int zy_display_total;    //显示信息，每个节拍上共有多少个和弦，即竖线信息，显示连音线连接的所以note
+    zy_solo_display_site_t zy_display[DISPLAYMAX];         //吉他最多只有6根弦
+} zy_solo_display_t;
+
 typedef struct zy_solo_beat_s
 {
-    int zy_strings_total;
-    int zy_beats[6];
+    int zy_strings_total;    //每个节拍上共有多少个和弦，即竖线信息,连音线只算第一个
+    int zy_beats[STRINGSNUM];         //吉他最多只有6根弦
+    zy_solo_display_t m_display_info;
 } zy_solo_beat_t;
 
 typedef struct zy_solo_s
 {
-    int zy_beats_total;
-    zy_solo_beat_t m_beat_info[];
+    int zy_beats_total;             //前奏所有note节点数量，连音线只算一个
+    zy_solo_beat_t m_beat_info[];   //前奏每个节拍信息
 } zy_solo_t;
+
+typedef struct zy_chord_display_site_s
+{
+    int stringnum;  //和弦内没根系弹奏的次数
+    int curnum;  //和弦内没根系弹奏的次数
+    zy_solo_display_site_t zy_display[DISPLAYMAX];  
+} zy_chord_display_site_t;
 
 typedef struct zy_chord_strings_s
 {
     char chordname[MAX_ATTRIBUTES_SIZE];
     int zy_strings_total;
-    int zy_strings[6];
+    int zy_strings[STRINGSNUM];
+    zy_chord_display_site_t zy_chord_display[STRINGSNUM]
 } zy_chord_strings_t;
 
 typedef struct zy_chord_s
@@ -151,6 +190,13 @@ typedef struct zy_chord_s
     int zy_chord_total;
     zy_chord_strings_t m_chord_info[];
 } zy_chord_t;
+
+static struct zy_playinfo_s {  
+    int measure;	//小节序号 0 based
+    int chords;		//小节序号内的和弦序号(新小节，该序号清零)
+    int note;		//和弦序号内的音符序号(新和弦，该序号清零)
+};
+
 
 // Given a string of xml data and its length, parses it and creates an ezxml
 // structure. For efficiency, modifies the data by adding null terminators
