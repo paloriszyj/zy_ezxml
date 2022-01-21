@@ -100,12 +100,12 @@ typedef struct zy_harmony_note_parse_s
     void (*process)(ezxml_t);
 } zy_harmony_note_parse_t;
 
-void parse_note_step(ezxml_t xml);
-void parse_note_octave(ezxml_t xml);
-void parse_note_alter(ezxml_t xml);
-void parse_note_tie(ezxml_t xml);
-void parse_note_rest(ezxml_t xml);
-void parse_note_chord(ezxml_t xml);
+FBC_API_LOCAL void parse_note_step(ezxml_t xml);
+FBC_API_LOCAL void parse_note_octave(ezxml_t xml);
+FBC_API_LOCAL void parse_note_alter(ezxml_t xml);
+FBC_API_LOCAL void parse_note_tie(ezxml_t xml);
+FBC_API_LOCAL void parse_note_rest(ezxml_t xml);
+FBC_API_LOCAL void parse_note_chord(ezxml_t xml);
 
 zy_note_parse_t g_note_parse[] = {
     {"step", parse_note_step},
@@ -117,12 +117,12 @@ zy_note_parse_t g_note_parse[] = {
     {"", NULL},
 };
 
-void parse_harmony_step(ezxml_t xml);
-void parse_harmony_alter(ezxml_t xml);
-void parse_harmony_kind(ezxml_t xml);
-void parse_harmony_string(ezxml_t xml);
-void parse_harmony_fret(ezxml_t xml);
-void parse_harmony_barre(ezxml_t xml);
+FBC_API_LOCAL void parse_harmony_step(ezxml_t xml);
+FBC_API_LOCAL void parse_harmony_alter(ezxml_t xml);
+FBC_API_LOCAL void parse_harmony_kind(ezxml_t xml);
+FBC_API_LOCAL void parse_harmony_string(ezxml_t xml);
+FBC_API_LOCAL void parse_harmony_fret(ezxml_t xml);
+FBC_API_LOCAL void parse_harmony_barre(ezxml_t xml);
 
 zy_harmony_parse_t g_harmony_parse[] = {
     {"root-step", parse_harmony_step},
@@ -134,7 +134,7 @@ zy_harmony_parse_t g_harmony_parse[] = {
     {"", NULL},
 };
 
-void parse_harmony_note_string(ezxml_t xml);
+FBC_API_LOCAL void parse_harmony_note_string(ezxml_t xml);
 
 zy_harmony_note_parse_t g_harmony_note_parse[] = {
     {"string", parse_harmony_note_string},
@@ -151,7 +151,7 @@ struct zy_playinfo_s playinfo;
 char *EZXML_NIL[] = { NULL }; // empty, null terminated array of strings
 
 // returns the first child tag with the given name or NULL if not found
-ezxml_t ezxml_child(ezxml_t xml, const char *name)
+FBC_API_LOCAL ezxml_t ezxml_child(ezxml_t xml, const char *name)
 {
     xml = (xml) ? xml->child : NULL;
     while (xml && strcmp(name, xml->name)) xml = xml->sibling;
@@ -160,14 +160,14 @@ ezxml_t ezxml_child(ezxml_t xml, const char *name)
  
 // returns the Nth tag with the same name in the same subsection or NULL if not
 // found
-ezxml_t ezxml_idx(ezxml_t xml, int idx)
+FBC_API_LOCAL ezxml_t ezxml_idx(ezxml_t xml, int idx)
 {
     for (; xml && idx; idx--) xml = xml->next;
     return xml;
 }
 
 // returns the value of the requested tag attribute or NULL if not found
-const char *ezxml_attr(ezxml_t xml, const char *attr)
+FBC_API_LOCAL const char *ezxml_attr(ezxml_t xml, const char *attr)
 {
     int i = 0, j = 1;
     ezxml_root_t root = (ezxml_root_t)xml;
@@ -184,7 +184,7 @@ const char *ezxml_attr(ezxml_t xml, const char *attr)
 }
 
 // same as ezxml_get but takes an already initialized va_list
-ezxml_t ezxml_vget(ezxml_t xml, va_list ap)
+FBC_API_LOCAL ezxml_t ezxml_vget(ezxml_t xml, va_list ap)
 {
     char *name = va_arg(ap, char *);
     int idx = -1;
@@ -202,7 +202,7 @@ ezxml_t ezxml_vget(ezxml_t xml, va_list ap)
 // title = ezxml_get(library, "shelf", 0, "book", 2, "title", -1);
 // This retrieves the title of the 3rd book on the 1st shelf of library.
 // Returns NULL if not found.
-ezxml_t ezxml_get(ezxml_t xml, ...)
+FBC_API_LOCAL ezxml_t ezxml_get(ezxml_t xml, ...)
 {
     va_list ap;
     ezxml_t r;
@@ -215,7 +215,7 @@ ezxml_t ezxml_get(ezxml_t xml, ...)
 
 // returns a null terminated array of processing instructions for the given
 // target
-const char **ezxml_pi(ezxml_t xml, const char *target)
+FBC_API_LOCAL const char **ezxml_pi(ezxml_t xml, const char *target)
 {
     ezxml_root_t root = (ezxml_root_t)xml;
     int i = 0;
@@ -227,7 +227,7 @@ const char **ezxml_pi(ezxml_t xml, const char *target)
 }
 
 // set an error string and return root
-ezxml_t ezxml_err(ezxml_root_t root, char *s, const char *err, ...)
+FBC_API_LOCAL ezxml_t ezxml_err(ezxml_root_t root, char *s, const char *err, ...)
 {
     va_list ap;
     int line = 1;
@@ -249,7 +249,7 @@ ezxml_t ezxml_err(ezxml_root_t root, char *s, const char *err, ...)
 // for cdata sections, ' ' for attribute normalization, or '*' for non-cdata
 // attribute normalization. Returns s, or if the decoded string is longer than
 // s, returns a malloced string that must be freed.
-char *ezxml_decode(char *s, char **ent, char t)
+FBC_API_LOCAL char *ezxml_decode(char *s, char **ent, char t)
 {
     char *e, *r = s, *m = s;
     long b, c, d, l;
@@ -312,7 +312,7 @@ char *ezxml_decode(char *s, char **ent, char t)
 }
 
 // called when parser finds start of new tag
-void ezxml_open_tag(ezxml_root_t root, char *name, char **attr)
+FBC_API_LOCAL void ezxml_open_tag(ezxml_root_t root, char *name, char **attr)
 {
     ezxml_t xml = root->cur;
     
@@ -324,7 +324,7 @@ void ezxml_open_tag(ezxml_root_t root, char *name, char **attr)
 }
 
 // called when parser finds character content between open and closing tag
-void ezxml_char_content(ezxml_root_t root, char *s, size_t len, char t)
+FBC_API_LOCAL void ezxml_char_content(ezxml_root_t root, char *s, size_t len, char t)
 {
     ezxml_t xml = root->cur;
     char *m = s;
@@ -348,7 +348,7 @@ void ezxml_char_content(ezxml_root_t root, char *s, size_t len, char t)
 }
 
 // called when parser finds closing tag
-ezxml_t ezxml_close_tag(ezxml_root_t root, char *name, char *s)
+FBC_API_LOCAL ezxml_t ezxml_close_tag(ezxml_root_t root, char *name, char *s)
 {
     if (! root->cur || ! root->cur->name || strcmp(name, root->cur->name))
         return ezxml_err(root, s, "unexpected closing tag </%s>", name);
@@ -359,7 +359,7 @@ ezxml_t ezxml_close_tag(ezxml_root_t root, char *name, char *s)
 
 // checks for circular entity references, returns non-zero if no circular
 // references are found, zero otherwise
-int ezxml_ent_ok(char *name, char *s, char **ent)
+FBC_API_LOCAL int ezxml_ent_ok(char *name, char *s, char **ent)
 {
     int i;
 
@@ -373,7 +373,7 @@ int ezxml_ent_ok(char *name, char *s, char **ent)
 }
 
 // called when the parser finds a processing instruction
-void ezxml_proc_inst(ezxml_root_t root, char *s, size_t len)
+FBC_API_LOCAL void ezxml_proc_inst(ezxml_root_t root, char *s, size_t len)
 {
     int i = 0, j = 1;
     char *target = s;
@@ -410,7 +410,7 @@ void ezxml_proc_inst(ezxml_root_t root, char *s, size_t len)
 }
 
 // called when the parser finds an internal doctype subset
-short ezxml_internal_dtd(ezxml_root_t root, char *s, size_t len)
+FBC_API_LOCAL short ezxml_internal_dtd(ezxml_root_t root, char *s, size_t len)
 {
     char q, *c, *t, *n = NULL, *v, **ent, **pe;
     int i, j;
@@ -513,7 +513,7 @@ short ezxml_internal_dtd(ezxml_root_t root, char *s, size_t len)
 
 // Converts a UTF-16 string to UTF-8. Returns a new string that must be freed
 // or NULL if no conversion was needed.
-char *ezxml_str2utf8(char **s, size_t *len)
+FBC_API_LOCAL char *ezxml_str2utf8(char **s, size_t *len)
 {
     char *u;
     size_t l = 0, sl, max = *len;
@@ -545,7 +545,7 @@ char *ezxml_str2utf8(char **s, size_t *len)
 }
 
 // frees a tag attribute list
-void ezxml_free_attr(char **attr) {
+FBC_API_LOCAL void ezxml_free_attr(char **attr) {
     int i = 0;
     char *m;
     
@@ -561,7 +561,7 @@ void ezxml_free_attr(char **attr) {
 }
 
 // parse the given xml string and return an ezxml structure
-ezxml_t ezxml_parse_str(char *s, size_t len)
+FBC_API_LOCAL ezxml_t ezxml_parse_str(char *s, size_t len)
 {
     ezxml_root_t root = (ezxml_root_t)ezxml_new(NULL);
     char q, e, *d, **attr, **a = NULL; // initialize a to avoid compile warning
@@ -696,7 +696,7 @@ ezxml_t ezxml_parse_str(char *s, size_t len)
 // Wrapper for ezxml_parse_str() that accepts a file stream. Reads the entire
 // stream into memory and then parses it. For xml files, use ezxml_parse_file()
 // or ezxml_parse_fd()
-ezxml_t ezxml_parse_fp(FILE *fp)
+FBC_API_LOCAL ezxml_t ezxml_parse_fp(FILE *fp)
 {
     ezxml_root_t root;
     size_t l, len = 0;
@@ -717,7 +717,7 @@ ezxml_t ezxml_parse_fp(FILE *fp)
 // A wrapper for ezxml_parse_str() that accepts a file descriptor. First
 // attempts to mem map the file. Failing that, reads the file into memory.
 // Returns NULL on failure.
-ezxml_t ezxml_parse_fd(int fd)
+FBC_API_LOCAL ezxml_t ezxml_parse_fd(int fd)
 {
     ezxml_root_t root;
     struct stat st;
@@ -728,6 +728,9 @@ ezxml_t ezxml_parse_fd(int fd)
     char *harmonystr = NULL;
     char *p = NULL;
     int num = 0;
+    zy_note_num = 0;
+    zy_harmony_num = 0;
+    tie_len = 0;
 
     if (fd < 0) return NULL;
     fstat(fd, &st);
@@ -807,7 +810,7 @@ ezxml_t ezxml_parse_fd(int fd)
 }
 
 // a wrapper for ezxml_parse_fd that accepts a file name
-ezxml_t ezxml_parse_file(const char *file)
+FBC_API_LOCAL ezxml_t ezxml_parse_file(const char *file)
 {
     int fd = open(file, O_RDONLY, 0);
     ezxml_t xml = ezxml_parse_fd(fd);
@@ -818,7 +821,7 @@ ezxml_t ezxml_parse_file(const char *file)
 
 // Encodes ampersand sequences appending the results to *dst, reallocating *dst
 // if length excedes max. a is non-zero for attribute encoding. Returns *dst
-char *ezxml_ampencode(const char *s, size_t len, char **dst, size_t *dlen,
+FBC_API_LOCAL char *ezxml_ampencode(const char *s, size_t len, char **dst, size_t *dlen,
                       size_t *max, short a)
 {
     const char *e;
@@ -844,7 +847,7 @@ char *ezxml_ampencode(const char *s, size_t len, char **dst, size_t *dlen,
 // Recursively converts each tag to xml appending it to *s. Reallocates *s if
 // its length excedes max. start is the location of the previous tag in the
 // parent tag's character content. Returns *s.
-char *ezxml_toxml_r(ezxml_t xml, char **s, size_t *len, size_t *max,
+FBC_API_LOCAL char *ezxml_toxml_r(ezxml_t xml, char **s, size_t *len, size_t *max,
                     size_t start, char ***attr)
 {
     int i, j;
@@ -896,7 +899,7 @@ char *ezxml_toxml_r(ezxml_t xml, char **s, size_t *len, size_t *max,
 
 // Converts an ezxml structure back to xml. Returns a string of xml data that
 // must be freed.
-char *ezxml_toxml(ezxml_t xml)
+FBC_API_LOCAL char *ezxml_toxml(ezxml_t xml)
 {
     ezxml_t p = (xml) ? xml->parent : NULL, o = (xml) ? xml->ordered : NULL;
     ezxml_root_t root = (ezxml_root_t)xml;
@@ -935,7 +938,7 @@ char *ezxml_toxml(ezxml_t xml)
 }
 
 // free the memory allocated for the ezxml structure
-void ezxml_free(ezxml_t xml)
+FBC_API_LOCAL void ezxml_free(ezxml_t xml)
 {
     ezxml_root_t root = (ezxml_root_t)xml;
     int i, j;
@@ -978,14 +981,14 @@ void ezxml_free(ezxml_t xml)
 }
 
 // return parser error message or empty string if none
-const char *ezxml_error(ezxml_t xml)
+FBC_API_LOCAL const char *ezxml_error(ezxml_t xml)
 {
     while (xml && xml->parent) xml = xml->parent; // find root tag
     return (xml) ? ((ezxml_root_t)xml)->err : "";
 }
 
 // returns a new empty ezxml structure with the given root tag name
-ezxml_t ezxml_new(const char *name)
+FBC_API_LOCAL ezxml_t ezxml_new(const char *name)
 {
     static char *ent[] = { "lt;", "&#60;", "gt;", "&#62;", "quot;", "&#34;",
                            "apos;", "&#39;", "amp;", "&#38;", NULL };
@@ -1000,7 +1003,7 @@ ezxml_t ezxml_new(const char *name)
 }
 
 // inserts an existing tag into an ezxml structure
-ezxml_t ezxml_insert(ezxml_t xml, ezxml_t dest, size_t off)
+FBC_API_LOCAL ezxml_t ezxml_insert(ezxml_t xml, ezxml_t dest, size_t off)
 {
     ezxml_t cur, prev, head;
 
@@ -1043,7 +1046,7 @@ ezxml_t ezxml_insert(ezxml_t xml, ezxml_t dest, size_t off)
 
 // Adds a child tag. off is the offset of the child tag relative to the start
 // of the parent tag's character content. Returns the child tag.
-ezxml_t ezxml_add_child(ezxml_t xml, const char *name, size_t off)
+FBC_API_LOCAL ezxml_t ezxml_add_child(ezxml_t xml, const char *name, size_t off)
 {
     ezxml_t child;
 
@@ -1058,7 +1061,7 @@ ezxml_t ezxml_add_child(ezxml_t xml, const char *name, size_t off)
 }
 
 // sets the character content for the given tag and returns the tag
-ezxml_t ezxml_set_txt(ezxml_t xml, const char *txt)
+FBC_API_LOCAL ezxml_t ezxml_set_txt(ezxml_t xml, const char *txt)
 {
     if (! xml) return NULL;
     if (xml->flags & EZXML_TXTM) free(xml->txt); // existing txt was malloced
@@ -1069,7 +1072,7 @@ ezxml_t ezxml_set_txt(ezxml_t xml, const char *txt)
 
 // Sets the given tag attribute or adds a new attribute if not found. A value
 // of NULL will remove the specified attribute. Returns the tag given.
-ezxml_t ezxml_set_attr(ezxml_t xml, const char *name, const char *value)
+FBC_API_LOCAL ezxml_t ezxml_set_attr(ezxml_t xml, const char *name, const char *value)
 {
     int l = 0, c;
 
@@ -1110,14 +1113,14 @@ ezxml_t ezxml_set_attr(ezxml_t xml, const char *name, const char *value)
 }
 
 // sets a flag for the given tag and returns the tag
-ezxml_t ezxml_set_flag(ezxml_t xml, short flag)
+FBC_API_LOCAL ezxml_t ezxml_set_flag(ezxml_t xml, short flag)
 {
     if (xml) xml->flags |= flag;
     return xml;
 }
 
 // removes a tag along with its subtags without freeing its memory
-ezxml_t ezxml_cut(ezxml_t xml)
+FBC_API_LOCAL ezxml_t ezxml_cut(ezxml_t xml)
 {
     ezxml_t cur;
 
@@ -1150,7 +1153,7 @@ ezxml_t ezxml_cut(ezxml_t xml)
     return xml;
 }
 
-void parse_note_step(ezxml_t xml)
+FBC_API_LOCAL void parse_note_step(ezxml_t xml)
 {
     int note_num = ptr_score->m_note_cur;
     char *ptr = ptr_score->m_note_info[note_num].step;
@@ -1160,7 +1163,7 @@ void parse_note_step(ezxml_t xml)
     }
 }
 
-void parse_note_octave(ezxml_t xml)
+FBC_API_LOCAL void parse_note_octave(ezxml_t xml)
 {
     int note_num = ptr_score->m_note_cur;
     char *ptr = ptr_score->m_note_info[note_num].octave;
@@ -1170,7 +1173,7 @@ void parse_note_octave(ezxml_t xml)
     }
 }
 
-void parse_note_alter(ezxml_t xml)
+FBC_API_LOCAL void parse_note_alter(ezxml_t xml)
 {
     int note_num = ptr_score->m_note_cur;
     char *ptr = ptr_score->m_note_info[note_num].alter;
@@ -1180,7 +1183,7 @@ void parse_note_alter(ezxml_t xml)
     }
 }
 
-void parse_note_tie(ezxml_t xml)
+FBC_API_LOCAL void parse_note_tie(ezxml_t xml)
 {
     int note_num = ptr_score->m_note_cur;
     char *ptr = ptr_score->m_note_info[note_num].tie;
@@ -1195,21 +1198,21 @@ void parse_note_tie(ezxml_t xml)
     tie_len = tie_len + strlen(buf);   
 }
 
-void parse_note_rest(ezxml_t xml)
+FBC_API_LOCAL void parse_note_rest(ezxml_t xml)
 {
     int note_num = ptr_score->m_note_cur;
     int *rest = &(ptr_score->m_note_info[note_num].rest);
     *rest = 1;
 }
 
-void parse_note_chord(ezxml_t xml)
+FBC_API_LOCAL void parse_note_chord(ezxml_t xml)
 {
     int note_num = ptr_score->m_note_cur;
     int *chordsign = &(ptr_score->m_note_info[note_num].chordsign);
     *chordsign = 1;
 }
 
-void parse_harmony_step(ezxml_t xml)
+FBC_API_LOCAL void parse_harmony_step(ezxml_t xml)
 {
     int harmony_num = ptr_harmony->m_harmony_cur;
     char *ptr = ptr_harmony->m_harmony_info[harmony_num].root_step;
@@ -1218,7 +1221,7 @@ void parse_harmony_step(ezxml_t xml)
         strcpy(ptr, xml->txt);
     }
 }
-void parse_harmony_alter(ezxml_t xml)
+FBC_API_LOCAL void parse_harmony_alter(ezxml_t xml)
 {
     int harmony_num = ptr_harmony->m_harmony_cur;
     char *ptr = ptr_harmony->m_harmony_info[harmony_num].root_alter;
@@ -1227,7 +1230,7 @@ void parse_harmony_alter(ezxml_t xml)
         strcpy(ptr, xml->txt);
     }
 }
-void parse_harmony_kind(ezxml_t xml)
+FBC_API_LOCAL void parse_harmony_kind(ezxml_t xml)
 {
     int harmony_num = ptr_harmony->m_harmony_cur;
     char *ptr = ptr_harmony->m_harmony_info[harmony_num].kind;
@@ -1237,7 +1240,7 @@ void parse_harmony_kind(ezxml_t xml)
     }
 }
     
-void parse_harmony_string(ezxml_t xml)
+FBC_API_LOCAL void parse_harmony_string(ezxml_t xml)
 {
     int harmony_num = ptr_harmony->m_harmony_cur;
     int m_framenote_total = ptr_harmony->m_harmony_info[harmony_num].m_framenote_total;
@@ -1249,7 +1252,7 @@ void parse_harmony_string(ezxml_t xml)
 
 }
 
-void parse_harmony_fret(ezxml_t xml)
+FBC_API_LOCAL void parse_harmony_fret(ezxml_t xml)
 {
     int harmony_num = ptr_harmony->m_harmony_cur;
     int *m_framenote_total = &(ptr_harmony->m_harmony_info[harmony_num].m_framenote_total);
@@ -1261,7 +1264,7 @@ void parse_harmony_fret(ezxml_t xml)
     (*m_framenote_total)++; 
 }
 
-void parse_harmony_barre(ezxml_t xml)
+FBC_API_LOCAL void parse_harmony_barre(ezxml_t xml)
 {
     int harmony_num = ptr_harmony->m_harmony_cur;
     int m_framenote_total = ptr_harmony->m_harmony_info[harmony_num].m_framenote_total - 1;
@@ -1276,7 +1279,7 @@ void parse_harmony_barre(ezxml_t xml)
     }
 }
 
-void parse_harmony_note_string(ezxml_t xml)
+FBC_API_LOCAL void parse_harmony_note_string(ezxml_t xml)
 {
         int harmony_num = ptr_harmony->m_harmony_cur;
         int harmony_notes_cur = ptr_harmony->m_harmony_info[harmony_num].harmony_notes_cur;
@@ -1287,7 +1290,7 @@ void parse_harmony_note_string(ezxml_t xml)
         } 
 }
 
-void parse_note_loop(ezxml_t xml)
+FBC_API_LOCAL void parse_note_loop(ezxml_t xml)
 {
     zy_note_parse_t *pfunc = g_note_parse;
 
@@ -1301,7 +1304,7 @@ void parse_note_loop(ezxml_t xml)
     }
 }
 
-void parse_harmony_loop(ezxml_t xml)
+FBC_API_LOCAL void parse_harmony_loop(ezxml_t xml)
 {
     zy_harmony_parse_t *pfunc = g_harmony_parse;
 
@@ -1315,7 +1318,7 @@ void parse_harmony_loop(ezxml_t xml)
     }
 }
 
-void parse_harmony_note_loop(ezxml_t xml)
+FBC_API_LOCAL void parse_harmony_note_loop(ezxml_t xml)
 {
     zy_harmony_note_parse_t *pfunc = g_harmony_note_parse;
 
@@ -1329,7 +1332,7 @@ void parse_harmony_note_loop(ezxml_t xml)
     }
 }
 
-int parse_note_dump(void)
+FBC_API_LOCAL int parse_note_dump(void)
 {
     // int (*zy_music)[2]=(int(*)[2])malloc(sizeof(int)*3*2); 
     int val = 0,zy_string = 0,zy_display = 0,zy_val = 0;
@@ -1500,7 +1503,7 @@ int parse_note_dump(void)
     return 1;
 }
 
-void parse_harmony_dump(void)
+FBC_API_LOCAL void parse_harmony_dump(void)
 {
     int chord_total = 0;
     int strings_total = 0;
@@ -1626,7 +1629,7 @@ void parse_harmony_dump(void)
                 harmony_notes_total,
                 ptr_harmony->m_harmony_info[i].notes[j].measure,
                 ptr_harmony->m_harmony_info[i].notes[j].chords,
-                ptr_harmony->m_harmony_info[i].notes[j].note,
+                ptr_harmony->m_harmony_info[i].notes[j].note, 
                 ptr_harmony->m_harmony_info[i].notes[j].string));
             
             stringnum = &ptr_chord->m_chord_info[zy_chord_cur].zy_chord_display[z_string].stringnum;
@@ -1709,7 +1712,7 @@ void parse_harmony_dump(void)
 #endif
 }
 
-void parse_repeate_dump(void)
+FBC_API_LOCAL void parse_repeate_dump(void)
 {
     ZY_DEBUG(("ptr_harmony->m_repeate_total: %d",ptr_harmony->m_repeate_total));
     for (int i = 0; i < ptr_harmony->m_repeate_total; i++)
@@ -1720,7 +1723,7 @@ void parse_repeate_dump(void)
     };
 }
 
-void is_repetition_nested(void)
+FBC_API_LOCAL void is_repetition_nested(void)
 {
     int  repeate_cur,repeate_pre;
     //需要判断a[i+1]反复是不是嵌套在a[i]反复里面
@@ -1742,7 +1745,7 @@ void is_repetition_nested(void)
         }
     }
 }
-void xml_parse_note(ezxml_t xml)
+FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
 {
     if (NULL == xml)
     {
@@ -1944,7 +1947,7 @@ void xml_parse_note(ezxml_t xml)
     return;
 }
 
-void xml_parse_free(void)
+FBC_API_LOCAL void xml_parse_free(void)
 {
     if(NULL != ptr_score)
     {
@@ -1956,7 +1959,7 @@ void xml_parse_free(void)
     }
 }
 
-void xml_solo_chord_free(void)
+FBC_API_LOCAL void xml_solo_chord_free(void)
 {
     if(NULL != ptr_solo)
     {
@@ -1967,7 +1970,7 @@ void xml_solo_chord_free(void)
         free(ptr_chord);
     }    
 }
-void xml_parse_init(void)
+FBC_API_LOCAL void xml_parse_init(void)
 {
     ptr_score = malloc(sizeof(zy_score_t) + zy_note_num * sizeof(zy_note_info_t));
     ptr_score->m_note_total = zy_note_num;
@@ -1989,7 +1992,7 @@ void xml_parse_init(void)
     playinfo.note = 0;
 }
 
-void xml_parse_node(ezxml_t xml)
+FBC_API_LOCAL void xml_parse_node(ezxml_t xml)
 {
     xml_parse_note(xml);
     parse_note_dump();
@@ -1999,7 +2002,7 @@ void xml_parse_node(ezxml_t xml)
     xml_parse_free();
 }
 
-void xml_print(ezxml_t xml, int level, int parent_sibling)
+FBC_API_LOCAL void xml_print(ezxml_t xml, int level, int parent_sibling)
 {
     if (NULL == xml)
     {
@@ -2082,7 +2085,7 @@ void xml_print(ezxml_t xml, int level, int parent_sibling)
     return;
 }
 
-void xml_print_all(ezxml_t xml)
+FBC_API_LOCAL void xml_print_all(ezxml_t xml)
 {
     xml_print(xml, 0, 0);
     printf("\n\n");
