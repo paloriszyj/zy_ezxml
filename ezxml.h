@@ -185,7 +185,7 @@ typedef struct zy_chord_strings_s
     char chordname[MAX_ATTRIBUTES_SIZE];
     int zy_strings_total;
     int zy_strings[STRINGSNUM];
-    zy_chord_display_site_t zy_chord_display[STRINGSNUM]
+    zy_chord_display_site_t zy_chord_display[STRINGSNUM];
 } zy_chord_strings_t;
 
 typedef struct zy_chord_s
@@ -198,7 +198,7 @@ static struct zy_playinfo_s {
     int measure;	//小节序号 0 based
     int chords;		//小节序号内的和弦序号(新小节，该序号清零)
     int note;		//和弦序号内的音符序号(新和弦，该序号清零)
-};
+}zy_playinfo_t;
 
 
 // Given a string of xml data and its length, parses it and creates an ezxml

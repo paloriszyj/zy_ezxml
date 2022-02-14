@@ -1337,7 +1337,7 @@ FBC_API_LOCAL int parse_note_dump(void)
     // int (*zy_music)[2]=(int(*)[2])malloc(sizeof(int)*3*2); 
     int val = 0,zy_string = 0,zy_display = 0,zy_val = 0;
     int z_step = 0;
-    static int num = 1;
+    int num = 1;
     int chord_tie = false;   //用于处理和弦和连音线同时存在的情况
     int ties = false;    //用于处理连音线连接3个note即以上
 
@@ -1677,16 +1677,16 @@ FBC_API_LOCAL void parse_harmony_dump(void)
         for(int j = 0;j < STRINGSNUM; j++)
         {
             int stringnum = ptr_chord->m_chord_info[i].zy_chord_display[j].stringnum;
-            printf("stringnum: %d\n",stringnum);
+            ZY_DEBUG(("stringnum: %d\n",stringnum));
             for(int k = 0; k < stringnum;k++)
             {
-                printf("chord: %d string: %d stringnum: %d measure: %d chords: %d note: %d\n",\
+                ZY_DEBUG(("chord: %d string: %d stringnum: %d measure: %d chords: %d note: %d\n",\
                     i,
                     j,
                     stringnum,
                     ptr_chord->m_chord_info[i].zy_chord_display[j].zy_display[k].measure,
                     ptr_chord->m_chord_info[i].zy_chord_display[j].zy_display[k].chords,
-                    ptr_chord->m_chord_info[i].zy_chord_display[j].zy_display[k].note);
+                    ptr_chord->m_chord_info[i].zy_chord_display[j].zy_display[k].note));
             }
         }
     }
@@ -2093,7 +2093,7 @@ FBC_API_LOCAL void xml_print_all(ezxml_t xml)
     return;
 }
 
-#if 1
+#if 0
 #define EZXML_TEST // test harness
 #ifdef EZXML_TEST // test harness
 
