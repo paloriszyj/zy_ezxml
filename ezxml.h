@@ -55,6 +55,11 @@ extern "C" {
 
 #define Z_OCTAVE 1
 
+typedef struct zy_playinfo_s {  
+    int measure;	//小节序号 0 based
+    int chords;		//小节序号内的和弦序号(新小节，该序号清零)
+    int note;		//和弦时此标记不使用
+}zy_playinfo_t;
 
 typedef struct ezxml *ezxml_t;
 struct ezxml {
@@ -110,27 +115,16 @@ typedef struct zy_harmony_frame_note_info_s
     char barre[MAX_ATTRIBUTES_SIZE];
 } zy_harmony_frame_note_info_t;
 
-typedef struct zy_harmony_notes_info_s
-{
-    char string[MAX_ATTRIBUTES_SIZE];
-    int measure;	//小节序号 0 based
-    int chords;		//小节序号内的和弦序号(新小节，该序号清零)
-    int note;		//和弦序号内的音符序号(新和弦，该序号清零)
-} zy_harmony_notes_info_t;
-
 typedef struct zy_harmony_info_s
 {    
     int words;   //为解析横按添加的文字说明
     int ending_number;
-    int m_framenote_total;
-    int harmony_notes_cur;
-    int harmony_notes_total;
-    int m_harmony_note_if_parsing;       //解析和弦内的note
+    int m_framenote_total;     
     char root_step[MAX_ATTRIBUTES_SIZE];
     char root_alter[MAX_ATTRIBUTES_SIZE];
     char kind[MAX_ATTRIBUTES_SIZE];   
     zy_harmony_frame_note_info_t framenote[STRINGSNUM];    //表示构成和弦内的所有音高，记录的是品格图的内容
-    zy_harmony_notes_info_t notes[MAX_ATTRIBUTES_SIZE];   //表示构成和弦内弹奏顺序指法
+    zy_playinfo_t zy_display_harmony; 
 } zy_harmony_info_t;
 
 typedef struct zy_harmony_s
@@ -147,17 +141,10 @@ typedef struct zy_harmony_s
     zy_harmony_info_t m_harmony_info[];
 } zy_harmony_t;
 
-typedef struct zy_solo_display_site_s
-{
-    int measure;	//小节序号 0 based
-    int chords;		//小节序号内的和弦序号(新小节，该序号清零)
-    int note;		//和弦序号内的音符序号(新和弦，该序号清零)
-} zy_solo_display_site_t;
-
 typedef struct zy_solo_display_s
 {
     int zy_display_total;    //显示信息，每个节拍上共有多少个和弦，即竖线信息，显示连音线连接的所以note
-    zy_solo_display_site_t zy_display[DISPLAYMAX];         //吉他最多只有6根弦
+    zy_playinfo_t zy_display_solo[DISPLAYMAX];         //吉他最多只有6根弦
 } zy_solo_display_t;
 
 typedef struct zy_solo_beat_s
@@ -173,19 +160,12 @@ typedef struct zy_solo_s
     zy_solo_beat_t m_beat_info[];   //前奏每个节拍信息
 } zy_solo_t;
 
-typedef struct zy_chord_display_site_s
-{
-    int stringnum;  //和弦内没根系弹奏的次数
-    int curnum;  //和弦内没根系弹奏的次数
-    zy_solo_display_site_t zy_display[DISPLAYMAX];  
-} zy_chord_display_site_t;
-
 typedef struct zy_chord_strings_s
 {
     char chordname[MAX_ATTRIBUTES_SIZE];
     int zy_strings_total;
     int zy_strings[STRINGSNUM];
-    zy_chord_display_site_t zy_chord_display[STRINGSNUM];
+    zy_playinfo_t zy_chord_display;
 } zy_chord_strings_t;
 
 typedef struct zy_chord_s
@@ -194,11 +174,7 @@ typedef struct zy_chord_s
     zy_chord_strings_t m_chord_info[];
 } zy_chord_t;
 
-static struct zy_playinfo_s {  
-    int measure;	//小节序号 0 based
-    int chords;		//小节序号内的和弦序号(新小节，该序号清零)
-    int note;		//和弦序号内的音符序号(新和弦，该序号清零)
-}zy_playinfo_t;
+
 
 
 // Given a string of xml data and its length, parses it and creates an ezxml
