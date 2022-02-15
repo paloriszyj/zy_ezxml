@@ -138,7 +138,7 @@ zy_score_t *ptr_score;
 zy_harmony_t *ptr_harmony;
 zy_solo_t *ptr_solo;
 zy_chord_t *ptr_chord;
-zy_playinfo_t playinfo;
+zy_com_playinfo_t playinfo;
 
 
 char *EZXML_NIL[] = { NULL }; // empty, null terminated array of strings

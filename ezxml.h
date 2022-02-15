@@ -55,11 +55,11 @@ extern "C" {
 
 #define Z_OCTAVE 1
 
-typedef struct zy_playinfo_s {  
+typedef struct zy_com_playinfo_s {  
     int measure;	//小节序号 0 based
     int chords;		//小节序号内的和弦序号(新小节，该序号清零)
     int note;		//和弦时此标记不使用
-}zy_playinfo_t;
+}zy_com_playinfo_t;
 
 typedef struct ezxml *ezxml_t;
 struct ezxml {
@@ -124,7 +124,7 @@ typedef struct zy_harmony_info_s
     char root_alter[MAX_ATTRIBUTES_SIZE];
     char kind[MAX_ATTRIBUTES_SIZE];   
     zy_harmony_frame_note_info_t framenote[STRINGSNUM];    //表示构成和弦内的所有音高，记录的是品格图的内容
-    zy_playinfo_t zy_display_harmony; 
+    zy_com_playinfo_t zy_display_harmony; 
 } zy_harmony_info_t;
 
 typedef struct zy_harmony_s
@@ -144,7 +144,7 @@ typedef struct zy_harmony_s
 typedef struct zy_solo_display_s
 {
     int zy_display_total;    //显示信息，每个节拍上共有多少个和弦，即竖线信息，显示连音线连接的所以note
-    zy_playinfo_t zy_display_solo[DISPLAYMAX];         //吉他最多只有6根弦
+    zy_com_playinfo_t zy_display_solo[DISPLAYMAX];         //吉他最多只有6根弦
 } zy_solo_display_t;
 
 typedef struct zy_solo_beat_s
@@ -165,7 +165,7 @@ typedef struct zy_chord_strings_s
     char chordname[MAX_ATTRIBUTES_SIZE];
     int zy_strings_total;
     int zy_strings[STRINGSNUM];
-    zy_playinfo_t zy_chord_display;
+    zy_com_playinfo_t zy_chord_display;
 } zy_chord_strings_t;
 
 typedef struct zy_chord_s
