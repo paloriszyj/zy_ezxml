@@ -85,7 +85,8 @@ typedef struct zy_note_info_s
     int chordsign;                     //和弦，叠音，也就是说当这个标签出现的时候，竖直方向是有多个音的  
     int measure;	//小节序号 0 based
     int chords;		//小节序号内的和弦序号(新小节，该序号清零)
-    int note;		//和弦序号内的音符序号(新和弦，该序号清零)            
+    int note;		//和弦序号内的音符序号(新和弦，该序号清零) 
+    char string[MAX_ATTRIBUTES_SIZE]   //记录note所在的弦         
 } zy_note_info_t;
 
 typedef struct zy_score_s
@@ -150,7 +151,8 @@ typedef struct zy_solo_display_s
 typedef struct zy_solo_beat_s
 {
     int zy_strings_total;    //每个节拍上共有多少个和弦，即竖线信息,连音线只算第一个
-    int zy_beats[STRINGSNUM];         //吉他最多只有6根弦
+    int zy_beats[STRINGSNUM];         //吉他最多只有6根弦,记录note的音高
+    int zy_strings[STRINGSNUM];       //吉他最多只有6根弦,记录note所在的弦
     zy_solo_display_t m_display_info;
 } zy_solo_beat_t;
 

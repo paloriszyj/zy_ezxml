@@ -106,6 +106,7 @@ FBC_API_LOCAL void parse_note_alter(ezxml_t xml);
 FBC_API_LOCAL void parse_note_tie(ezxml_t xml);
 FBC_API_LOCAL void parse_note_rest(ezxml_t xml);
 FBC_API_LOCAL void parse_note_chord(ezxml_t xml);
+FBC_API_LOCAL void parse_note_string(ezxml_t xml);
 
 zy_note_parse_t g_note_parse[] = {
     {"step", parse_note_step},
@@ -114,6 +115,7 @@ zy_note_parse_t g_note_parse[] = {
     {"tie", parse_note_tie},
     {"rest", parse_note_rest},   //休止符
     {"chord", parse_note_chord},  
+    {"string", parse_note_string}, 
     {"", NULL},
 };
 
@@ -1205,6 +1207,16 @@ FBC_API_LOCAL void parse_note_chord(ezxml_t xml)
     *chordsign = 1;
 }
 
+FBC_API_LOCAL void parse_note_string(ezxml_t xml)
+{
+    int note_num = ptr_score->m_note_cur;
+    char *ptr = ptr_score->m_note_info[note_num].string;
+    if (NULL != xml->txt)
+    {
+        strcpy(ptr, xml->txt);
+    }
+}
+
 FBC_API_LOCAL void parse_harmony_step(ezxml_t xml)
 {
     int harmony_num = ptr_harmony->m_harmony_cur;
@@ -1333,7 +1345,7 @@ FBC_API_LOCAL int parse_note_dump(void)
         else
         {
             ZY_DEBUG(("note id: %3d,    step: %s, octave: %s,  alter: %s, tie: %s,\
-                       chordsign: %d measure: %d chords: %d note: %d",
+                       chordsign: %d measure: %d chords: %d note: %d string: %s",
                    i,
                    ptr_score->m_note_info[i].step,
                    ptr_score->m_note_info[i].octave,
@@ -1342,7 +1354,8 @@ FBC_API_LOCAL int parse_note_dump(void)
                    ptr_score->m_note_info[i].chordsign,
                    ptr_score->m_note_info[i].measure,
                    ptr_score->m_note_info[i].chords,
-                   ptr_score->m_note_info[i].note));
+                   ptr_score->m_note_info[i].note,
+                   ptr_score->m_note_info[i].string));
         }
         if(!strcmp(ptr_score->m_note_info[i].step,"C"))
         {
@@ -1451,6 +1464,7 @@ FBC_API_LOCAL int parse_note_dump(void)
 
         int a = (12 * (atoi(ptr_score->m_note_info[i].octave)+Z_OCTAVE)+z_step) + atoi(ptr_score->m_note_info[i].alter) ;
         ptr_solo->m_beat_info[val].zy_beats[zy_string]= a;
+        ptr_solo->m_beat_info[val].zy_strings[zy_string]= atoi(ptr_score->m_note_info[i].string);
         zy_string++;
     }
 
@@ -1465,7 +1479,8 @@ FBC_API_LOCAL int parse_note_dump(void)
         ZY_DEBUG(("zy_strings_total: %d  --------->: ",k));
         for(int j =0;j<k;j++)
         {
-            ZY_DEBUG(("%d   ",ptr_solo->m_beat_info[i].zy_beats[j]));
+            ZY_DEBUG(("zy_beats: %d zy_string: %d",ptr_solo->m_beat_info[i].zy_beats[j],\
+                                                   ptr_solo->m_beat_info[i].zy_strings[j]));
         }
         ZY_DEBUG(("\n"));        
         ZY_DEBUG(("zy_display_total: %d  --------->:",n));
