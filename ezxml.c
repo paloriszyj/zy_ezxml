@@ -1464,7 +1464,7 @@ FBC_API_LOCAL int parse_note_dump(void)
 
         int a = (12 * (atoi(ptr_score->m_note_info[i].octave)+Z_OCTAVE)+z_step) + atoi(ptr_score->m_note_info[i].alter) ;
         ptr_solo->m_beat_info[val].zy_beats[zy_string]= a;
-        ptr_solo->m_beat_info[val].zy_strings[zy_string]= atoi(ptr_score->m_note_info[i].string);
+        ptr_solo->m_beat_info[val].zy_strings[zy_string]= atoi(ptr_score->m_note_info[i].string) - 1;
         zy_string++;
     }
 
