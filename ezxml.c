@@ -60,7 +60,7 @@
 
 // #define MAX_FRAME_SIZE    10
 
-static zy_dbg_module_info s_this_module={ZY_DBG_ERROR,NULL,0};
+static zy_dbg_module_info s_this_module={ZY_DBG_DEBUG,NULL,0};
 
 static int tie_len = 0;
 static int zy_note_num = 0;      //前奏部分节拍数量
@@ -1505,7 +1505,7 @@ FBC_API_LOCAL void parse_harmony_dump(void)
     int m_framenote_total = 0,harmony_notes_total = 0;
     int zy_chord_cur = 0;
     char *chordname = NULL;
-    int end_num = 0;
+    int end_num = 0;              //计算每个小节反复的次数，用于处理反复第二次需要跳过某些小节
     int words = 0;
     
     if(ptr_harmony->m_harmony_total < 0) 
@@ -1519,27 +1519,32 @@ FBC_API_LOCAL void parse_harmony_dump(void)
     for (int i = 0; i < ptr_harmony->m_harmony_total; i++)
     {
         chordname = ptr_chord->m_chord_info[zy_chord_cur].chordname;
-        if(0 != ptr_harmony->m_harmony_info[i].ending_number &&  repeattime != ptr_harmony->m_harmony_info[i].ending_number)
+        if(0 != ptr_harmony->m_harmony_info[i].ending_number && /* 出现反复时 */\ 
+           2 == repeattime && /* 反复第二次时 */\
+           1 == ptr_harmony->m_harmony_info[i].ending_number) /*反复第二次时，跳过ending_number == 1的小节*/
         {
-            if(repeattime > 2) 
-            {
-                repeattime = 0;
-            }
             continue;
         }
-        // usleep(500*1000);
+        if(2 < repeattime)
+        {
+            repeattime = 1;
+        }
 
         m_framenote_total = ptr_harmony->m_harmony_info[i].m_framenote_total;
-        ZY_TEST(("note id: %3d,    root_step: %s, root_alter: %s,  kind: %s ending_number: %d words: %d",
-                i,
-                ptr_harmony->m_harmony_info[i].root_step,
-                ptr_harmony->m_harmony_info[i].root_alter,
-                ptr_harmony->m_harmony_info[i].kind,
-                ptr_harmony->m_harmony_info[i].ending_number,
-                ptr_harmony->m_harmony_info[i].words));
+        ZY_DEBUG(("note id: %3d,    root_step: %s, root_alter: %s,  kind: %s ending_number: %d words: %d\
+        measure: %d, chords: %d, note: %d",
+                 i,
+                 ptr_harmony->m_harmony_info[i].root_step,
+                 ptr_harmony->m_harmony_info[i].root_alter,
+                 ptr_harmony->m_harmony_info[i].kind,
+                 ptr_harmony->m_harmony_info[i].ending_number,
+                 ptr_harmony->m_harmony_info[i].words,
+                 ptr_harmony->m_harmony_info[i].zy_display_harmony.measure,
+                 ptr_harmony->m_harmony_info[i].zy_display_harmony.chords,
+                 ptr_harmony->m_harmony_info[i].zy_display_harmony.note));
         for(int j = 0;j < m_framenote_total; j++)
         {
-            ZY_TEST(("m_framenote_total: %d,    string: %s, fret: %s barre: %s",
+            ZY_TEST(("m_framenote_total: %d,string: %s,fret: %s,barre: %s",
                     m_framenote_total,
                     ptr_harmony->m_harmony_info[i].framenote[j].string,
                     ptr_harmony->m_harmony_info[i].framenote[j].fret,
@@ -1636,7 +1641,12 @@ FBC_API_LOCAL void parse_harmony_dump(void)
                 {
                     i = ptr_harmony->m_repeate_info[repeate_cur].start - 1; 
                 }
-            }  
+            }
+            else if(i >= ptr_harmony->m_repeate_info[repeate_cur].end)  //当反复第二次跳过反复结尾的小节时,需要对end_num置0,
+            {
+                end_num = 0;
+                repeate_cur++;
+            }
         }   
     }
     
@@ -1764,7 +1774,8 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
             for (i=0; xml->attr[i] != NULL; i++)
             {      
                 if(0 == strcmp(xml->attr[i], "forward"))
-                {                
+                {
+                    ptr_harmony->m_ending_number = 0;   //每次repeat都要重置ending_number
                     (ptr_harmony->m_repeate_total)++;
                     ptr_harmony->m_repeate_cur = ptr_harmony->m_repeate_total - 1;   
                     ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].repeate_type = FORWARDTOBACKWARD;        
@@ -1793,7 +1804,7 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
                 }
             }
         }
-        else if(0 == strcmp(xml->name, "ending"))  //ending只会标记在每个小结最后
+        else if(0 == strcmp(xml->name, "ending"))
         {
             int i,ending_number = 0;
             for (i=0; xml->attr[i] != NULL; i++)
@@ -1918,7 +1929,7 @@ FBC_API_LOCAL void xml_parse_init(void)
 FBC_API_LOCAL void xml_parse_node(ezxml_t xml)
 {
     xml_parse_note(xml);
-    parse_note_dump();
+    // parse_note_dump();
     parse_harmony_dump();
     parse_repeate_dump();
 
@@ -2016,7 +2027,7 @@ FBC_API_LOCAL void xml_print_all(ezxml_t xml)
     return;
 }
 
-#if 0
+#if 1
 #define EZXML_TEST // test harness
 #ifdef EZXML_TEST // test harness
 
