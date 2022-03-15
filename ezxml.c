@@ -60,7 +60,7 @@
 
 // #define MAX_FRAME_SIZE    10
 
-static zy_dbg_module_info s_this_module={ZY_DBG_DEBUG,NULL,0};
+static zy_dbg_module_info s_this_module={ZY_DBG_ERROR,NULL,0};
 
 static int tie_len = 0;
 static int zy_note_num = 0;      //前奏部分节拍数量
@@ -1338,7 +1338,6 @@ FBC_API_LOCAL int parse_note_dump(void)
     {
         if (1 == ptr_score->m_note_info[i].rest)
         {
-            num--;
             ZY_DEBUG(("note id: %3d,    rest", i));
             continue;
         }
@@ -1470,7 +1469,15 @@ FBC_API_LOCAL int parse_note_dump(void)
 
     ptr_solo->zy_beats_total = num;
     ptr_solo->m_beat_info[val].zy_strings_total =  zy_string;
-                    
+    if(chord_tie)
+    {
+        ptr_solo->m_beat_info[val].m_display_info.zy_display_total =  zy_display;
+    }
+    else
+    {
+        ptr_solo->m_beat_info[val].m_display_info.zy_display_total =  zy_string;     
+    } 
+
     //printf,可注释
     for(int i =0;i<num;i++)
     {   
@@ -1929,7 +1936,7 @@ FBC_API_LOCAL void xml_parse_init(void)
 FBC_API_LOCAL void xml_parse_node(ezxml_t xml)
 {
     xml_parse_note(xml);
-    // parse_note_dump();
+    parse_note_dump();
     parse_harmony_dump();
     parse_repeate_dump();
 
@@ -2027,7 +2034,7 @@ FBC_API_LOCAL void xml_print_all(ezxml_t xml)
     return;
 }
 
-#if 1
+#if 0
 #define EZXML_TEST // test harness
 #ifdef EZXML_TEST // test harness
 
