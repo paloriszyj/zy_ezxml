@@ -86,16 +86,8 @@ typedef struct zy_note_info_s
     int measure;	//小节序号 0 based
     int chords;		//小节序号内的和弦序号(新小节，该序号清零)
     int note;		//和弦序号内的音符序号(新和弦，该序号清零) 
-    char string[MAX_ATTRIBUTES_SIZE]   //记录note所在的弦         
+    char string[MAX_ATTRIBUTES_SIZE];   //记录note所在的弦
 } zy_note_info_t;
-
-typedef struct zy_score_s
-{
-    int m_note_total;
-    int m_note_cur;
-    int m_note_if_parsing;
-    zy_note_info_t m_note_info[];
-} zy_score_t;
 
 enum repeateType
 {
@@ -105,9 +97,21 @@ enum repeateType
 typedef struct zy_repeate_info_s
 {
     int repeate_type;  //[forward,backward]类型为1,  [segno,dalsegno]类型为2
-    int start;       //开始反复的小结编号
-    int end;         //小结结束后，需要反复，记录当前小结   
+    int start;       //如果是前奏，则表示开始反复的小结编号，如果是和弦，表示的是地几个和弦序号
+    int end;         //如果是前奏，则表示开始反复的小结编号，如果是和弦，表示的是地几个和弦序号
 } zy_repeate_info_t;
+
+typedef struct zy_score_s
+{
+    int m_note_total;
+    int m_note_cur;
+    int m_note_if_parsing;
+    int m_repeate_total;          //表示所有反复数量
+    int m_repeate_cur;
+    int m_solo_if_parsing_end;    //前奏是否解析结束
+    zy_repeate_info_t m_repeate_info[MAX_ATTRIBUTES_SIZE];
+    zy_note_info_t m_note_info[];
+} zy_score_t;
 
 typedef struct zy_harmony_frame_note_info_s
 {

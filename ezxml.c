@@ -1320,6 +1320,8 @@ FBC_API_LOCAL int parse_note_dump(void)
     int num = 1;
     int chord_tie = false;   //用于处理和弦和连音线同时存在的情况
     int ties = false;    //用于处理连音线连接3个note即以上
+    int end_num = 0;              //计算每个小节反复的次数
+    int repeate_cur = 0;
 
     if(0 == ptr_score->m_note_total)
     {
@@ -1330,7 +1332,7 @@ FBC_API_LOCAL int parse_note_dump(void)
     }
     printf("ptr_score->m_note_cur: %d\n",ptr_score->m_note_cur);
     printf("zy_note_num: %d\n",zy_note_num);
-    ptr_solo = malloc(sizeof(zy_solo_t) + zy_note_num * sizeof(zy_solo_beat_t));
+    ptr_solo = malloc(sizeof(zy_solo_t) + zy_note_num * sizeof(zy_solo_beat_t) * 10);
     ptr_solo->m_beat_info[0].m_display_info.zy_display_total = 0;
     ptr_solo->zy_beats_total = 0;
     
@@ -1445,6 +1447,19 @@ FBC_API_LOCAL int parse_note_dump(void)
                 zy_display++;
                 ptr_solo->m_beat_info[val].m_display_info.zy_display_total =  zy_display;
                 // zy_val = 0;
+                if(i == ptr_score->m_repeate_info[repeate_cur].end)
+                {
+                    end_num++;
+                    if(end_num > 1)
+                    {
+                        end_num = 0;
+                        repeate_cur++;
+                    }
+                    else
+                    {
+                        i = ptr_score->m_repeate_info[repeate_cur].start - 1;
+                    }
+                }
                 continue;
             }           
         }
@@ -1465,6 +1480,21 @@ FBC_API_LOCAL int parse_note_dump(void)
         ptr_solo->m_beat_info[val].zy_beats[zy_string]= a;
         ptr_solo->m_beat_info[val].zy_strings[zy_string]= atoi(ptr_score->m_note_info[i].string) - 1;
         zy_string++;
+
+        //处理反复
+        if(i == ptr_score->m_repeate_info[repeate_cur].end)
+        {
+            end_num++;
+            if(end_num > 1)
+            {
+                end_num = 0;
+                repeate_cur++;
+            }
+            else
+            {
+                i = ptr_score->m_repeate_info[repeate_cur].start - 1;
+            }
+        }
     }
 
     ptr_solo->zy_beats_total = num;
@@ -1479,6 +1509,7 @@ FBC_API_LOCAL int parse_note_dump(void)
     } 
 
     //printf,可注释
+#if 0
     for(int i =0;i<num;i++)
     {   
         int k = ptr_solo->m_beat_info[i].zy_strings_total;
@@ -1499,6 +1530,7 @@ FBC_API_LOCAL int parse_note_dump(void)
         }
         ZY_DEBUG(("\n"));        
     }
+#endif
     return 1;
 }
 
@@ -1509,7 +1541,7 @@ FBC_API_LOCAL void parse_harmony_dump(void)
     int string = 0,fret = 0;
     int repeattime = 0;
     int repeate_cur = 0;
-    int m_framenote_total = 0,harmony_notes_total = 0;
+    int m_framenote_total = 0;
     int zy_chord_cur = 0;
     char *chordname = NULL;
     int end_num = 0;              //计算每个小节反复的次数，用于处理反复第二次需要跳过某些小节
@@ -1690,13 +1722,20 @@ FBC_API_LOCAL void parse_harmony_dump(void)
 
 FBC_API_LOCAL void parse_repeate_dump(void)
 {
+    ZY_DEBUG(("ptr_score->m_repeate_total: %d",ptr_score->m_repeate_total));
+    for (int i = 0; i < ptr_score->m_repeate_total; i++)
+    {
+        ZY_DEBUG(("start: %d, end: %d",
+                ptr_score->m_repeate_info[i].start,
+                ptr_score->m_repeate_info[i].end));
+    }
     ZY_DEBUG(("ptr_harmony->m_repeate_total: %d",ptr_harmony->m_repeate_total));
     for (int i = 0; i < ptr_harmony->m_repeate_total; i++)
     {
         ZY_DEBUG(("start: %d, end: %d",
                 ptr_harmony->m_repeate_info[i].start,
                 ptr_harmony->m_repeate_info[i].end));
-    };
+    }
 }
 
 FBC_API_LOCAL void is_repetition_nested(void)
@@ -1736,6 +1775,7 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
         }
         if (0 == strcmp(xml->name, "harmony"))
         { 
+            ptr_score->m_solo_if_parsing_end = 0;
             ptr_harmony->m_is_parsing_note = 1;
             ptr_harmony->m_harmony_if_parsing = 1;
             (ptr_harmony->m_harmony_cur)++;
@@ -1762,6 +1802,7 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
         // }   
         if (0 == strcmp(xml->name, "note") && (0 == ptr_harmony->m_is_parsing_note))   //解析前奏，间奏，尾奏一类的note
         {
+            ptr_score->m_solo_if_parsing_end = 1;
             ptr_score->m_note_if_parsing = 1;
             (ptr_score->m_note_cur)++;
             playinfo.note++;
@@ -1775,89 +1816,109 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
             parse_note_loop(xml);
         }
 
-        if(0 == strcmp(xml->name, "repeat")) //repeat只会标记在每个小结最后
+        if(0 == ptr_score->m_solo_if_parsing_end)   //解析和弦部分反复
         {
-            int i;
-            for (i=0; xml->attr[i] != NULL; i++)
-            {      
-                if(0 == strcmp(xml->attr[i], "forward"))
+            if(0 == strcmp(xml->name, "repeat")) //repeat只会标记在每个小结最后
+            {
+                for (int i=0; xml->attr[i] != NULL; i++)
                 {
-                    ptr_harmony->m_ending_number = 0;   //每次repeat都要重置ending_number
-                    (ptr_harmony->m_repeate_total)++;
-                    ptr_harmony->m_repeate_cur = ptr_harmony->m_repeate_total - 1;   
-                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].repeate_type = FORWARDTOBACKWARD;        
-                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].start = ptr_harmony->m_harmony_cur + 1;                                                      
+                    if(0 == strcmp(xml->attr[i], "forward"))
+                    {
+                        ptr_harmony->m_ending_number = 0;   //每次repeat都要重置ending_number
+                        (ptr_harmony->m_repeate_total)++;
+                        ptr_harmony->m_repeate_cur = ptr_harmony->m_repeate_total - 1;
+                        ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].repeate_type = FORWARDTOBACKWARD;
+                        ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].start = ptr_harmony->m_harmony_cur + 1;  
+                    }
+                    else if(0 == strcmp(xml->attr[i], "backward"))
+                    {
+                        if(0 == ptr_harmony->m_repeate_total  && 0 == ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].start)
+                        {
+                            //第一个反复只有结束标志
+                            (ptr_harmony->m_repeate_total)++; 
+                            ptr_harmony->m_repeate_cur = ptr_harmony->m_repeate_total - 1;
+                        }
+                        if( SEGNOTODALSEGNO == ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].repeate_type  )
+                        {
+                            //交叉反复只有结束标志
+                            if(ptr_harmony->m_repeate_total < 2)
+                            {
+                                (ptr_harmony->m_repeate_total)++;
+                                ptr_harmony->m_repeate_cur = ptr_harmony->m_repeate_total - 1;
+                            }      
+                        }
+
+                        ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].end = ptr_harmony->m_harmony_cur;
+                        is_repetition_nested();  
+                    }
+                }
+            }
+            else if(0 == strcmp(xml->name, "ending"))
+            {
+                int i,ending_number = 0;
+                for (i=0; xml->attr[i] != NULL; i++)
+                {
+                    if(0 == strcmp(xml->attr[i], "number"))
+                    {
+                        i++;
+                        ending_number = atoi(xml->attr[i]);
+                    }
+                    else if(0 == strcmp(xml->attr[i], "type"))
+                    {
+                        i++;
+                        if(0 == strcmp(xml->attr[i], "start"))
+                        {
+                            ptr_harmony->m_ending_number = ending_number;
+                        }
+                        else if(0 == strcmp(xml->attr[i], "stop"))
+                        {
+                            ptr_harmony->m_ending_number = 0;
+                        }
+                    }
+                }
+            }
+            else if(0 == strcmp(xml->name, "sound"))
+            {
+                for (int i=0; xml->attr[i] != NULL; i = i + 2)
+                {
+                    if((0 == strcmp(xml->attr[0], "segno")) && (0 == strcmp(xml->attr[1], "segno")))
+                    {
+                        (ptr_harmony->m_repeate_total)++;
+                        ptr_harmony->m_sound_cur = ptr_harmony->m_repeate_total - 1;
+                        ZY_DEBUG(("-------segno----------: %d",ptr_harmony->m_sound_cur));
+                        ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].repeate_type = SEGNOTODALSEGNO; 
+                        ptr_harmony->m_repeate_info[ptr_harmony->m_sound_cur].start = ptr_harmony->m_harmony_cur + 1; 
+                    }
+                    else if((0 == strcmp(xml->attr[0], "dalsegno")) && (0 == strcmp(xml->attr[1], "segno")))
+                    {
+                        ZY_DEBUG(("-------dalsegno----------: %d",ptr_harmony->m_sound_cur));
+                        ptr_harmony->m_repeate_info[ptr_harmony->m_sound_cur].end = ptr_harmony->m_harmony_cur;
+                        is_repetition_nested();    
+                    } 
+                }
+            }
+        }
+        else        //前奏部分和弦解析
+        {
+            for (int i=0; xml->attr[i] != NULL; i++)
+            {
+                if(0 == strcmp(xml->attr[i], "forward"))
+                {   
+                    (ptr_score->m_repeate_total)++;
+                    ptr_score->m_repeate_cur = ptr_score->m_repeate_total - 1;   
+                    ptr_score->m_repeate_info[ptr_score->m_repeate_cur].repeate_type = FORWARDTOBACKWARD;        
+                    ptr_score->m_repeate_info[ptr_score->m_repeate_cur].start = ptr_score->m_note_cur + 1;//因为forward是出现在每个小节开始，note前面                                                      
                 }
                 else if(0 == strcmp(xml->attr[i], "backward"))
                 {
-                    if(0 == ptr_harmony->m_repeate_total  && 0 == ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].start) 
-                    {
-                        //第一个反复只有结束标志
-                        (ptr_harmony->m_repeate_total)++; 
-                        ptr_harmony->m_repeate_cur = ptr_harmony->m_repeate_total - 1;
-                    }
-                    if( SEGNOTODALSEGNO == ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].repeate_type  )
-                    {
-                        //交叉反复只有结束标志
-                        if(ptr_harmony->m_repeate_total < 2)
-                        {
-                            (ptr_harmony->m_repeate_total)++; 
-                            ptr_harmony->m_repeate_cur = ptr_harmony->m_repeate_total - 1;
-                        }      
-                    }
-
-                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].end = ptr_harmony->m_harmony_cur;
-                    is_repetition_nested();          
+                    ptr_score->m_repeate_cur = ptr_score->m_repeate_total - 1;
+                    ptr_score->m_repeate_info[ptr_score->m_repeate_cur].end = ptr_score->m_note_cur;                            
                 }
             }
         }
-        else if(0 == strcmp(xml->name, "ending"))
-        {
-            int i,ending_number = 0;
-            for (i=0; xml->attr[i] != NULL; i++)
-            {
-                if(0 == strcmp(xml->attr[i], "number"))
-                {
-                    i++;
-                    ending_number = atoi(xml->attr[i]);
-                }
-                else if(0 == strcmp(xml->attr[i], "type"))
-                {
-                    i++;
-                    if(0 == strcmp(xml->attr[i], "start"))
-                    {
-                        ptr_harmony->m_ending_number = ending_number;
-                    }
-                    else if(0 == strcmp(xml->attr[i], "stop"))
-                    {
-                        ptr_harmony->m_ending_number = 0;
-                    }
-                }
-            }
-        }
-        else if(0 == strcmp(xml->name, "sound"))
-        {
-            int i;
-            for (i=0; xml->attr[i] != NULL; i = i + 2)
-            {
-                if((0 == strcmp(xml->attr[0], "segno")) && (0 == strcmp(xml->attr[1], "segno")))
-                {
-                    (ptr_harmony->m_repeate_total)++;
-                    ptr_harmony->m_sound_cur = ptr_harmony->m_repeate_total - 1;
-                    ZY_DEBUG(("-------segno----------: %d",ptr_harmony->m_sound_cur));
-                    ptr_harmony->m_repeate_info[ptr_harmony->m_repeate_cur].repeate_type = SEGNOTODALSEGNO; 
-                    ptr_harmony->m_repeate_info[ptr_harmony->m_sound_cur].start = ptr_harmony->m_harmony_cur + 1;        
-                }
-                else if((0 == strcmp(xml->attr[0], "dalsegno")) && (0 == strcmp(xml->attr[1], "segno")))
-                {
-                    ZY_DEBUG(("-------dalsegno----------: %d",ptr_harmony->m_sound_cur));
-                    ptr_harmony->m_repeate_info[ptr_harmony->m_sound_cur].end = ptr_harmony->m_harmony_cur;
-                    is_repetition_nested();            
-                }           
-            }
-        }
-
     }
+    
+    
 
     xml_parse_note(xml->child);
 
@@ -1917,6 +1978,9 @@ FBC_API_LOCAL void xml_parse_init(void)
     ptr_score->m_note_total = zy_note_num;
     ptr_score->m_note_cur = -1;
     ptr_score->m_note_if_parsing = 0;
+    ptr_score->m_repeate_total = 0; 
+    ptr_score->m_repeate_cur = 0;
+    ptr_score->m_solo_if_parsing_end = 1;   //默认有前奏，遇到和弦置0
 
     ptr_harmony = malloc(sizeof(zy_harmony_t) + zy_harmony_num * sizeof(zy_harmony_info_t));
     ptr_harmony->m_harmony_total = zy_harmony_num;
