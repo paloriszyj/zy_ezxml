@@ -1447,7 +1447,7 @@ FBC_API_LOCAL int parse_note_dump(void)
                 zy_display++;
                 ptr_solo->m_beat_info[val].m_display_info.zy_display_total =  zy_display;
                 // zy_val = 0;
-                if(i == ptr_score->m_repeate_info[repeate_cur].end)
+                if(ptr_score->m_repeate_total && i == ptr_score->m_repeate_info[repeate_cur].end)
                 {
                     end_num++;
                     if(end_num > 1)
@@ -1482,7 +1482,7 @@ FBC_API_LOCAL int parse_note_dump(void)
         zy_string++;
 
         //处理反复
-        if(i == ptr_score->m_repeate_info[repeate_cur].end)
+        if(ptr_score->m_repeate_total && i == ptr_score->m_repeate_info[repeate_cur].end)
         {
             end_num++;
             if(end_num > 1)
