@@ -1772,6 +1772,10 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
         if(0 == strcmp(xml->name, "measure"))
         {
             playinfo.measure++;
+            if(ptr_score->m_note_cur == ptr_score->m_note_total -1)  // ptr_score->m_note_cur从-1开始
+            {
+                ptr_score->m_solo_if_parsing_end = 0;
+            }
         }
         if (0 == strcmp(xml->name, "harmony"))
         { 
