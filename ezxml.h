@@ -160,9 +160,19 @@ typedef struct zy_solo_beat_s
     zy_solo_display_t m_display_info;
 } zy_solo_beat_t;
 
+typedef struct zy_solo_num_s
+{
+    int stratmeasure;              //记录前奏间奏尾奏开始的小节
+    int endmeasure;                //记录前奏间奏尾奏结束的小节
+    int solonum;              //记录前奏间奏尾奏note数量
+} zy_solo_num_t;
+
 typedef struct zy_solo_s
 {
+    int play_measure;               //记录正在正在弹奏的小节
     int zy_beats_total;             //前奏所有note节点数量，连音线只算一个
+    int solo_num_total;
+    zy_solo_num_t solo_num_info[MAX_ATTRIBUTES_SIZE];    //记录前奏间奏尾奏信息
     zy_solo_beat_t m_beat_info[];   //前奏每个节拍信息
 } zy_solo_t;
 

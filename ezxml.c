@@ -63,7 +63,7 @@
 static zy_dbg_module_info s_this_module={ZY_DBG_ERROR,NULL,0};
 
 static int tie_len = 0;
-static int zy_note_num = 0;      //前奏部分节拍数量
+static int zy_note_num = 0;      //前奏note数量
 static int zy_harmony_num = 0;   //正文部分和弦数量（反复的和弦只记录一次）
 
 typedef struct ezxml_root *ezxml_root_t;
@@ -1321,23 +1321,41 @@ FBC_API_LOCAL int parse_note_dump(void)
     int chord_tie = false;   //用于处理和弦和连音线同时存在的情况
     int ties = false;    //用于处理连音线连接3个note即以上
     int end_num = 0;              //计算每个小节反复的次数
-    int repeate_cur = 0;
+    int repeate_cur = 0;  
+    int old_measure = 0;
+    int solo_num_cur = 0;
+
 
     if(0 == ptr_score->m_note_total)
     {
         ZY_DEBUG(("--------------------没有前奏-------------"));
         ptr_solo = malloc(sizeof(zy_solo_t));
         ptr_solo->zy_beats_total = -1;
+        ptr_solo->solo_num_total = 0;
         return 0;
     }
     printf("ptr_score->m_note_cur: %d\n",ptr_score->m_note_cur);
     printf("zy_note_num: %d\n",zy_note_num);
-    ptr_solo = malloc(sizeof(zy_solo_t) + zy_note_num * sizeof(zy_solo_beat_t) * 10);
+    ptr_solo = malloc(sizeof(zy_solo_t) + ptr_score->m_note_cur * sizeof(zy_solo_beat_t) * 10);
     ptr_solo->m_beat_info[0].m_display_info.zy_display_total = 0;
     ptr_solo->zy_beats_total = 0;
+    ptr_solo->solo_num_total = 1;
+    ptr_solo->solo_num_info[solo_num_cur].stratmeasure = 1;
+    ptr_solo->solo_num_info[solo_num_cur].solonum  = num;
     
-    for (int i = 0; i < zy_note_num; i++)
+    for (int i = 0; i < ptr_score->m_note_cur + 1; i++)
     {
+        // printf("old_measure: %d measure: %d\n",old_measure,ptr_score->m_note_info[i].measure);
+        if(ptr_score->m_note_info[i].measure - 1 > old_measure )
+        {
+            ptr_solo->solo_num_info[solo_num_cur].solonum = num;
+            ptr_solo->solo_num_info[solo_num_cur].endmeasure = old_measure;
+            solo_num_cur++;
+            (ptr_solo->solo_num_total)++;            
+            ptr_solo->solo_num_info[solo_num_cur].stratmeasure = ptr_score->m_note_info[i].measure;
+            num = 1;
+        }
+        old_measure = ptr_score->m_note_info[i].measure;
         if (1 == ptr_score->m_note_info[i].rest)
         {
             ZY_DEBUG(("note id: %3d,    rest", i));
@@ -1497,7 +1515,9 @@ FBC_API_LOCAL int parse_note_dump(void)
         }
     }
 
-    ptr_solo->zy_beats_total = num;
+    // ptr_solo->zy_beats_total = num;
+    ptr_solo->solo_num_info[solo_num_cur].endmeasure = ptr_score->m_note_info[ptr_score->m_note_cur].measure;
+    ptr_solo->solo_num_info[solo_num_cur].solonum = num;
     ptr_solo->m_beat_info[val].zy_strings_total =  zy_string;
     if(chord_tie)
     {
@@ -1509,6 +1529,14 @@ FBC_API_LOCAL int parse_note_dump(void)
     } 
 
     //printf,可注释
+    ZY_DEBUG(("ptr_solo->solo_num_total: %d\n",ptr_solo->solo_num_total));
+    for(int i =0;i<ptr_solo->solo_num_total;i++)
+    {
+        ZY_DEBUG(("solonum: %d  ",ptr_solo->solo_num_info[i].solonum));
+        ZY_DEBUG(("stratmeasure: %d ",ptr_solo->solo_num_info[i].stratmeasure));
+        ZY_DEBUG(("endmeasure: %d\n",ptr_solo->solo_num_info[i].endmeasure));
+        ptr_solo->zy_beats_total = ptr_solo->zy_beats_total + ptr_solo->solo_num_info[i].solonum;
+    }
 #if 0
     for(int i =0;i<num;i++)
     {   
@@ -1689,7 +1717,7 @@ FBC_API_LOCAL void parse_harmony_dump(void)
         }   
     }
     
-    ptr_chord->zy_chord_total = chord_total;
+    ptr_chord->zy_chord_total = chord_total;   
 #if 0
     int value = 0;
     for(int i = 0; i < ptr_chord->zy_chord_total; i++)
@@ -1772,6 +1800,7 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
         if(0 == strcmp(xml->name, "measure"))
         {
             playinfo.measure++;
+            ptr_harmony->m_is_parsing_note = 0;
             if(ptr_score->m_note_cur == ptr_score->m_note_total -1)  // ptr_score->m_note_cur从-1开始
             {
                 ptr_score->m_solo_if_parsing_end = 0;
@@ -1978,7 +2007,7 @@ FBC_API_LOCAL void xml_solo_chord_free(void)
 }
 FBC_API_LOCAL void xml_parse_init(void)
 {
-    ptr_score = malloc(sizeof(zy_score_t) + zy_note_num * sizeof(zy_note_info_t));
+    ptr_score = malloc(sizeof(zy_score_t) + zy_note_num * 10 * sizeof(zy_note_info_t));
     ptr_score->m_note_total = zy_note_num;
     ptr_score->m_note_cur = -1;
     ptr_score->m_note_if_parsing = 0;
