@@ -1317,9 +1317,7 @@ FBC_API_LOCAL int parse_note_dump(void)
     // int (*zy_music)[2]=(int(*)[2])malloc(sizeof(int)*3*2); 
     int val = 0,zy_string = 0,zy_display = 0,zy_val = 0;
     int z_step = 0;
-    int num = 1;
-    int chord_tie = false;   //用于处理和弦和连音线同时存在的情况
-    int ties = false;    //用于处理连音线连接3个note即以上
+    int num = 1;          //前奏间奏尾奏的note数量   
     int end_num = 0;              //计算每个小节反复的次数
     int repeate_cur = 0;  
     int old_measure = 0;
@@ -1334,8 +1332,7 @@ FBC_API_LOCAL int parse_note_dump(void)
         ptr_solo->solo_num_total = 0;
         return 0;
     }
-    printf("ptr_score->m_note_cur: %d\n",ptr_score->m_note_cur);
-    printf("zy_note_num: %d\n",zy_note_num);
+
     ptr_solo = malloc(sizeof(zy_solo_t) + ptr_score->m_note_cur * sizeof(zy_solo_beat_t) * 10);
     ptr_solo->m_beat_info[0].m_display_info.zy_display_total = 0;
     ptr_solo->zy_beats_total = 0;
@@ -1345,7 +1342,6 @@ FBC_API_LOCAL int parse_note_dump(void)
     
     for (int i = 0; i < ptr_score->m_note_cur + 1; i++)
     {
-        // printf("old_measure: %d measure: %d\n",old_measure,ptr_score->m_note_info[i].measure);
         if(ptr_score->m_note_info[i].measure - 1 > old_measure )
         {
             ptr_solo->solo_num_info[solo_num_cur].solonum = num;
@@ -1405,21 +1401,16 @@ FBC_API_LOCAL int parse_note_dump(void)
             z_step = STEP_B;
         }
       
-        if((!ptr_score->m_note_info[i].chordsign && i) || true == chord_tie)
-        {              
+        if((!ptr_score->m_note_info[i].chordsign && i && NULL == strstr(ptr_score->m_note_info[i].tie,"stop")))
+        {   
             ptr_solo->m_beat_info[val].zy_strings_total =  zy_string;
-            ptr_solo->m_beat_info[val].m_display_info.zy_display_total =  zy_string;           
+            ptr_solo->m_beat_info[val].m_display_info.zy_display_total =  zy_display;           
             val++;
             zy_string = 0;
-            num++;
-            if(true == chord_tie)   //当连音线处理完之后，需要重新更新连音线start所在的节拍note数量
-            {
-                ptr_solo->m_beat_info[zy_val].m_display_info.zy_display_total =  zy_display;     
-            }
-            chord_tie = false;
+            zy_display = 0;
+            num++;    
         }
 
-        //  printf(" --aaaaa-------zy_display_total: %d\n",ptr_solo->m_beat_info[4].m_display_info.zy_display_total);
         if(0 == strcmp(ptr_score->m_note_info[i].tie,"type#start#"))    //连音线开始的note
         {          
             zy_val = val;
@@ -1429,9 +1420,6 @@ FBC_API_LOCAL int parse_note_dump(void)
             
             if(0 == strcmp(ptr_score->m_note_info[i].tie,"type#stop#type#start#"))   //位于连音线start和stop中间的note
             {     
-                // printf("measure: %d chords: %d note: %d\n",ptr_score->m_note_info[i].measure,ptr_score->m_note_info[i].chords,\
-                            ptr_score->m_note_info[i].note);
-                zy_display = ptr_solo->m_beat_info[zy_val].zy_strings_total;
                 ptr_solo->m_beat_info[zy_val].m_display_info.zy_display_solo[zy_display].measure = \
                     ptr_score->m_note_info[i].measure;
                 ptr_solo->m_beat_info[zy_val].m_display_info.zy_display_solo[zy_display].chords = \
@@ -1439,23 +1427,11 @@ FBC_API_LOCAL int parse_note_dump(void)
                 ptr_solo->m_beat_info[zy_val].m_display_info.zy_display_solo[zy_display].note = \
                     ptr_score->m_note_info[i].note;
                 zy_display++;
-                ties = true;
-                val--;
-                num--;
                 continue;
             }
             else if(0 == strcmp(ptr_score->m_note_info[i].tie,"type#stop#") && \
                 0 == ptr_solo->m_beat_info[val].zy_beats[zy_string])    //连音线结束的note
             {
-                val--;
-                num--;
-                zy_string++;
-                chord_tie = true;
-                if(!ties)
-                {
-                    zy_display = ptr_solo->m_beat_info[zy_val].zy_strings_total;                 
-                }
-                ties = false;
                 ptr_solo->m_beat_info[zy_val].m_display_info.zy_display_solo[zy_display].measure = \
                     ptr_score->m_note_info[i].measure;
                 ptr_solo->m_beat_info[zy_val].m_display_info.zy_display_solo[zy_display].chords = \
@@ -1464,7 +1440,7 @@ FBC_API_LOCAL int parse_note_dump(void)
                     ptr_score->m_note_info[i].note;
                 zy_display++;
                 ptr_solo->m_beat_info[val].m_display_info.zy_display_total =  zy_display;
-                // zy_val = 0;
+
                 if(ptr_score->m_repeate_total && i == ptr_score->m_repeate_info[repeate_cur].end)
                 {
                     end_num++;
@@ -1481,12 +1457,7 @@ FBC_API_LOCAL int parse_note_dump(void)
                 continue;
             }           
         }
-        chord_tie = false;
 
-        // printf("i: %d measure: %d\n",i,ptr_score->m_note_info[i].measure);
-        // printf("i: %d chords: %d\n",i,ptr_score->m_note_info[i].chords);
-        // printf("i: %d note: %d\n",i,ptr_score->m_note_info[i].note);
-        // printf("val: %d zy_display: %d\n",val,zy_display);
         ptr_solo->m_beat_info[val].m_display_info.zy_display_solo[zy_string].measure = \
             ptr_score->m_note_info[i].measure;
         ptr_solo->m_beat_info[val].m_display_info.zy_display_solo[zy_string].chords = \
@@ -1498,7 +1469,7 @@ FBC_API_LOCAL int parse_note_dump(void)
         ptr_solo->m_beat_info[val].zy_beats[zy_string]= a;
         ptr_solo->m_beat_info[val].zy_strings[zy_string]= atoi(ptr_score->m_note_info[i].string) - 1;
         zy_string++;
-
+        zy_display++;
         //处理反复
         if(ptr_score->m_repeate_total && i == ptr_score->m_repeate_info[repeate_cur].end)
         {
@@ -1515,18 +1486,11 @@ FBC_API_LOCAL int parse_note_dump(void)
         }
     }
 
-    // ptr_solo->zy_beats_total = num;
     ptr_solo->solo_num_info[solo_num_cur].endmeasure = ptr_score->m_note_info[ptr_score->m_note_cur].measure;
     ptr_solo->solo_num_info[solo_num_cur].solonum = num;
+    
     ptr_solo->m_beat_info[val].zy_strings_total =  zy_string;
-    if(chord_tie)
-    {
-        ptr_solo->m_beat_info[val].m_display_info.zy_display_total =  zy_display;
-    }
-    else
-    {
-        ptr_solo->m_beat_info[val].m_display_info.zy_display_total =  zy_string;     
-    } 
+    ptr_solo->m_beat_info[val].m_display_info.zy_display_total =  zy_display;
 
     //printf,可注释
     ZY_DEBUG(("ptr_solo->solo_num_total: %d\n",ptr_solo->solo_num_total));
@@ -1538,25 +1502,25 @@ FBC_API_LOCAL int parse_note_dump(void)
         ptr_solo->zy_beats_total = ptr_solo->zy_beats_total + ptr_solo->solo_num_info[i].solonum;
     }
 #if 0
+    printf("------> num: %d\n",num);
     for(int i =0;i<num;i++)
     {   
         int k = ptr_solo->m_beat_info[i].zy_strings_total;
         int n = ptr_solo->m_beat_info[i].m_display_info.zy_display_total;
-        ZY_DEBUG(("zy_strings_total: %d  --------->: ",k));
+        printf("zy_strings_total: %d  --------->: ",k);
         for(int j =0;j<k;j++)
         {
-            ZY_DEBUG(("zy_beats: %d zy_string: %d",ptr_solo->m_beat_info[i].zy_beats[j],\
-                                                   ptr_solo->m_beat_info[i].zy_strings[j]));
+            printf("zy_beats: %d zy_string: %d ",ptr_solo->m_beat_info[i].zy_beats[j],\
+                                                   ptr_solo->m_beat_info[i].zy_strings[j]);
         }
-        ZY_DEBUG(("\n"));        
-        ZY_DEBUG(("zy_display_total: %d  --------->:",n));
+        printf("\n");        
+        printf("zy_display_total: %d  --------->: \n",n);
         for(int j =0;j<n;j++)
         {
-            ZY_DEBUG(("%d  %d  %d",ptr_solo->m_beat_info[i].m_display_info.zy_display_solo[j].measure,\
+            printf("%d  %d  %d  \n",ptr_solo->m_beat_info[i].m_display_info.zy_display_solo[j].measure,\
                                   ptr_solo->m_beat_info[i].m_display_info.zy_display_solo[j].chords, \
-                                  ptr_solo->m_beat_info[i].m_display_info.zy_display_solo[j].note));
-        }
-        ZY_DEBUG(("\n"));        
+                                  ptr_solo->m_beat_info[i].m_display_info.zy_display_solo[j].note);
+        }       
     }
 #endif
     return 1;
