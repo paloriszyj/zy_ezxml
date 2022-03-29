@@ -1337,7 +1337,7 @@ FBC_API_LOCAL int parse_note_dump(void)
     ptr_solo->m_beat_info[0].m_display_info.zy_display_total = 0;
     ptr_solo->zy_beats_total = 0;
     ptr_solo->solo_num_total = 1;
-    ptr_solo->solo_num_info[solo_num_cur].stratmeasure = 1;
+    ptr_solo->solo_num_info[solo_num_cur].startmeasure = 1;
     ptr_solo->solo_num_info[solo_num_cur].solonum  = num;
     
     for (int i = 0; i < ptr_score->m_note_cur + 1; i++)
@@ -1348,8 +1348,8 @@ FBC_API_LOCAL int parse_note_dump(void)
             ptr_solo->solo_num_info[solo_num_cur].endmeasure = old_measure;
             solo_num_cur++;
             (ptr_solo->solo_num_total)++;            
-            ptr_solo->solo_num_info[solo_num_cur].stratmeasure = ptr_score->m_note_info[i].measure;
-            num = 1;
+            ptr_solo->solo_num_info[solo_num_cur].startmeasure = ptr_score->m_note_info[i].measure;
+            num = 0;
         }
         old_measure = ptr_score->m_note_info[i].measure;
         if (1 == ptr_score->m_note_info[i].rest)
@@ -1468,6 +1468,11 @@ FBC_API_LOCAL int parse_note_dump(void)
         int a = (12 * (atoi(ptr_score->m_note_info[i].octave)+Z_OCTAVE)+z_step) + atoi(ptr_score->m_note_info[i].alter) ;
         ptr_solo->m_beat_info[val].zy_beats[zy_string]= a;
         ptr_solo->m_beat_info[val].zy_strings[zy_string]= atoi(ptr_score->m_note_info[i].string) - 1;
+        ptr_solo->m_beat_info[val].zy_score_display[zy_string].measure = \
+            ptr_score->m_note_info[i].measure;
+        ptr_solo->m_beat_info[val].zy_score_display[zy_string].chords = 0;
+        ptr_solo->m_beat_info[val].zy_score_display[zy_string].note = \
+            ptr_score->m_note_info[i].note;
         zy_string++;
         zy_display++;
         //处理反复
@@ -1497,30 +1502,36 @@ FBC_API_LOCAL int parse_note_dump(void)
     for(int i =0;i<ptr_solo->solo_num_total;i++)
     {
         ZY_DEBUG(("solonum: %d  ",ptr_solo->solo_num_info[i].solonum));
-        ZY_DEBUG(("stratmeasure: %d ",ptr_solo->solo_num_info[i].stratmeasure));
+        ZY_DEBUG(("startmeasure: %d ",ptr_solo->solo_num_info[i].startmeasure));
         ZY_DEBUG(("endmeasure: %d\n",ptr_solo->solo_num_info[i].endmeasure));
         ptr_solo->zy_beats_total = ptr_solo->zy_beats_total + ptr_solo->solo_num_info[i].solonum;
     }
 #if 0
-    printf("------> num: %d\n",num);
-    for(int i =0;i<num;i++)
+    printf("------> zy_beats_total: %d\n",ptr_solo->zy_beats_total);
+    for(int i =0;i<ptr_solo->zy_beats_total;i++)
     {   
         int k = ptr_solo->m_beat_info[i].zy_strings_total;
         int n = ptr_solo->m_beat_info[i].m_display_info.zy_display_total;
-        printf("zy_strings_total: %d  --------->: ",k);
+        printf("zy_strings_total: %d  --------->: \n",k);
         for(int j =0;j<k;j++)
         {
-            printf("zy_beats: %d zy_string: %d ",ptr_solo->m_beat_info[i].zy_beats[j],\
-                                                   ptr_solo->m_beat_info[i].zy_strings[j]);
-        }
-        printf("\n");        
+            printf("zy_beats: %d zy_string: %d measure: %d chords: %d note: %d \n",\
+                    ptr_solo->m_beat_info[i].zy_beats[j],\
+                    ptr_solo->m_beat_info[i].zy_strings[j], \
+                    ptr_solo->m_beat_info[i].m_display_info.zy_display_solo[j].measure,\
+                    ptr_solo->m_beat_info[i].m_display_info.zy_display_solo[j].chords,\
+                    ptr_solo->m_beat_info[i].m_display_info.zy_display_solo[j].note);          
+        }  
+        printf("\n"); 
+#if 0   
         printf("zy_display_total: %d  --------->: \n",n);
         for(int j =0;j<n;j++)
         {
             printf("%d  %d  %d  \n",ptr_solo->m_beat_info[i].m_display_info.zy_display_solo[j].measure,\
                                   ptr_solo->m_beat_info[i].m_display_info.zy_display_solo[j].chords, \
                                   ptr_solo->m_beat_info[i].m_display_info.zy_display_solo[j].note);
-        }       
+        }   
+#endif    
     }
 #endif
     return 1;

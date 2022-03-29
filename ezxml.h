@@ -157,12 +157,13 @@ typedef struct zy_solo_beat_s
     int zy_strings_total;    //每个节拍上共有多少个和弦，即竖线信息,连音线只算第一个
     int zy_beats[STRINGSNUM];         //吉他最多只有6根弦,记录note的音高
     int zy_strings[STRINGSNUM];       //吉他最多只有6根弦,记录note所在的弦
-    zy_solo_display_t m_display_info;
+    zy_com_playinfo_t zy_score_display[STRINGSNUM];  //记录每个弦的位置
+    zy_solo_display_t m_display_info;   //这个结构体解析了连音线上的所有音符，现在不用了，以防后面需要，没有删除
 } zy_solo_beat_t;
 
 typedef struct zy_solo_num_s
 {
-    int stratmeasure;              //记录前奏间奏尾奏开始的小节
+    int startmeasure;              //记录前奏间奏尾奏开始的小节
     int endmeasure;                //记录前奏间奏尾奏结束的小节
     int solonum;              //记录前奏间奏尾奏note数量
 } zy_solo_num_t;
