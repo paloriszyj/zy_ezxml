@@ -60,6 +60,14 @@
 
 // #define MAX_FRAME_SIZE    10
 
+zy_erron_note_t erron_info[6] = {
+    {"0", "0"},
+    {"1", "0"},
+    {"2", "0"},
+    {"3", "0"},
+    {"4", "0"},
+    {"5", "0"},
+};
 static zy_dbg_module_info s_this_module={ZY_DBG_ERROR,NULL,0};
 
 static int tie_len = 0;
@@ -82,6 +90,12 @@ struct ezxml_root {       // additional data for the root tag
     char err[EZXML_ERRL]; // error string
 };
 
+typedef struct zy_note_erron_s
+{
+    char *name;
+    void (*process)(ezxml_t);
+} zy_note_erron_t;
+
 typedef struct zy_note_parse_s
 {
     char *name;
@@ -99,6 +113,12 @@ typedef struct zy_harmony_note_parse_s
     char *name;
     void (*process)(ezxml_t);
 } zy_harmony_note_parse_t;
+
+typedef struct zy_harmony_erron_s
+{
+    char *name;
+    void (*process)(ezxml_t);
+} zy_harmony_erron_t;
 
 FBC_API_LOCAL void parse_note_step(ezxml_t xml);
 FBC_API_LOCAL void parse_note_octave(ezxml_t xml);
@@ -136,6 +156,14 @@ zy_harmony_parse_t g_harmony_parse[] = {
     {"", NULL},
 };
 
+FBC_API_LOCAL void parse_erron_string(ezxml_t xml);
+FBC_API_LOCAL void parse_erron_fret(ezxml_t xml);
+
+zy_harmony_erron_t g_harmony_erron[] = {
+    {"string", parse_erron_string},
+    {"fret", parse_erron_fret},
+    {"", NULL},
+};
 zy_score_t *ptr_score;
 zy_harmony_t *ptr_harmony;
 zy_solo_t *ptr_solo;
@@ -145,6 +173,34 @@ zy_com_playinfo_t playinfo;
 
 char *EZXML_NIL[] = { NULL }; // empty, null terminated array of strings
 
+static int erronval = 0;
+FBC_API_LOCAL void parse_erron_string(ezxml_t xml)
+{
+    if (NULL != xml->txt)
+    {
+        erronval = atoi(xml->txt) - 1 ;
+    }  
+}
+FBC_API_LOCAL void parse_erron_fret(ezxml_t xml)
+{
+    if( 0 != strcmp(xml->txt,erron_info[erronval].fret))
+    {
+        printf("measure: %d chords: %d note: %d\n",playinfo.measure,playinfo.chords,playinfo.note);
+    }
+}
+
+FBC_API_LOCAL void parse_erron_loop(ezxml_t xml)
+{
+    zy_harmony_erron_t *pfunc = g_harmony_erron;
+    while (NULL != pfunc && NULL != pfunc->process)
+    {
+        if (0 == strcmp(xml->name, pfunc->name))    
+        {
+            (*(pfunc->process))(xml);
+        }
+        pfunc++;
+    }
+}
 // returns the first child tag with the given name or NULL if not found
 FBC_API_LOCAL ezxml_t ezxml_child(ezxml_t xml, const char *name)
 {
@@ -1244,7 +1300,7 @@ FBC_API_LOCAL void parse_harmony_kind(ezxml_t xml)
         strcpy(ptr, xml->txt);
     }
 }
-    
+static int erronstring = 0;
 FBC_API_LOCAL void parse_harmony_string(ezxml_t xml)
 {
     int harmony_num = ptr_harmony->m_harmony_cur;
@@ -1253,8 +1309,8 @@ FBC_API_LOCAL void parse_harmony_string(ezxml_t xml)
     if (NULL != xml->txt)
     {
         strcpy(ptr, xml->txt);
+        erronstring = atoi(xml->txt)-1;
     } 
-
 }
 
 FBC_API_LOCAL void parse_harmony_fret(ezxml_t xml)
@@ -1264,7 +1320,8 @@ FBC_API_LOCAL void parse_harmony_fret(ezxml_t xml)
     char *ptr = ptr_harmony->m_harmony_info[harmony_num].framenote[*m_framenote_total].fret;
     if (NULL != xml->txt)
     {
-        strcpy(ptr, xml->txt);
+        strcpy(ptr, xml->txt);  
+        strcpy(erron_info[erronstring].fret,xml->txt);
     }
     (*m_framenote_total)++; 
 }
@@ -1280,6 +1337,13 @@ FBC_API_LOCAL void parse_harmony_barre(ezxml_t xml)
         {
             i++; 
             strcpy(ptr, xml->attr[i]);
+            if( 0 == strcmp(ptr,"start"))
+            {
+                for(int i = 0; i < 6; i++)
+                {
+                   strcpy(erron_info[i].fret,erron_info[erronstring].fret); 
+                }
+            }
         }        
     }
 }
@@ -1763,6 +1827,7 @@ FBC_API_LOCAL void is_repetition_nested(void)
         }
     }
 }
+static int erronfalg = 0;
 FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
 {
     if (NULL == xml)
@@ -1783,6 +1848,8 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
         }
         if (0 == strcmp(xml->name, "harmony"))
         { 
+            erronfalg = 0; 
+            memset(&erron_info,0,sizeof(erron_info));
             ptr_score->m_solo_if_parsing_end = 0;
             ptr_harmony->m_is_parsing_note = 1;
             ptr_harmony->m_harmony_if_parsing = 1;
@@ -1824,6 +1891,14 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
             parse_note_loop(xml);
         }
 
+        if(1 == ptr_harmony->m_is_parsing_note && 0 == strcmp(xml->name, "note"))
+        {
+            erronfalg = 1;
+        }
+        if(erronfalg)
+        {
+            parse_erron_loop(xml);
+        }
         if(0 == ptr_score->m_solo_if_parsing_end)   //解析和弦部分反复
         {
             if(0 == strcmp(xml->name, "repeat")) //repeat只会标记在每个小结最后
@@ -2106,7 +2181,7 @@ FBC_API_LOCAL void xml_print_all(ezxml_t xml)
     return;
 }
 
-#if 0
+#if 1
 #define EZXML_TEST // test harness
 #ifdef EZXML_TEST // test harness
 

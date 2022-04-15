@@ -55,6 +55,13 @@ extern "C" {
 
 #define Z_OCTAVE 1
 
+typedef struct zy_erron_note_s
+{
+    char string[MAX_ATTRIBUTES_SIZE];
+    char fret[MAX_ATTRIBUTES_SIZE];
+    char barre[MAX_ATTRIBUTES_SIZE];
+} zy_erron_note_t;
+
 typedef struct zy_com_playinfo_s {  
     int measure;	//小节序号 0 based
     int chords;		//小节序号内的和弦序号(新小节，该序号清零)
