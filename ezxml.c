@@ -1776,6 +1776,7 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
         {
             playinfo.measure++;
             ptr_harmony->m_is_parsing_note = 0;
+            ptr_harmony->m_direction_type = 0;
             if(ptr_score->m_note_cur == ptr_score->m_note_total -1)  // ptr_score->m_note_cur从-1开始
             {
                 ptr_score->m_solo_if_parsing_end = 0;
@@ -1797,8 +1798,11 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
         {
             parse_harmony_loop(xml);
         }
-
-        if (0 == strcmp(xml->name, "words"))
+        if (0 == strcmp(xml->name, "direction-type"))
+        {
+            ptr_harmony->m_direction_type = 1;
+        }
+        if (0 == strcmp(xml->name, "words") && (0 == ptr_harmony->m_direction_type))
         {
             ptr_harmony->m_harmony_info[ptr_harmony->m_harmony_cur].words = atoi(xml->txt);
         }
@@ -1999,6 +2003,7 @@ FBC_API_LOCAL void xml_parse_init(void)
     ptr_harmony->m_ending_number = 0;
     ptr_harmony->m_repeate_cur = 0;
     ptr_harmony->m_sound_cur = 0;
+    ptr_harmony->m_direction_type = 0;
 
     playinfo.measure = 0;
     playinfo.chords = 0;
@@ -2114,7 +2119,7 @@ int main(int argc, char **argv)
 {
     ezxml_t xml;
     char *s;
-    int i;
+    int i = 0;
 
     if (argc != 2) return fprintf(stderr, "usage: %s xmlfile\n", argv[0]);
 

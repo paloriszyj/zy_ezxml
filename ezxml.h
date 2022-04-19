@@ -142,6 +142,7 @@ typedef struct zy_harmony_s
     int m_repeate_cur; 
     int m_sound_cur; 
     int m_ending_number;
+    int m_direction_type;
     zy_repeate_info_t m_repeate_info[MAX_ATTRIBUTES_SIZE];    //保存所有反复的小节段落
     zy_harmony_info_t m_harmony_info[];
 } zy_harmony_t;
