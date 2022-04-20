@@ -1548,7 +1548,6 @@ FBC_API_LOCAL void parse_harmony_dump(void)
     int zy_chord_cur = 0;
     char *chordname = NULL;
     int end_num = 0;              //计算每个小节反复的次数，用于处理反复第二次需要跳过某些小节
-    int words = 0;
     
     if(ptr_harmony->m_harmony_total < 0) 
     {
@@ -1556,6 +1555,7 @@ FBC_API_LOCAL void parse_harmony_dump(void)
     }
 
     ptr_chord = malloc(sizeof(zy_chord_t) + (ptr_harmony->m_harmony_total * sizeof(zy_chord_strings_t)) * 10);
+    memset(ptr_chord,0,sizeof(zy_chord_t) + (ptr_harmony->m_harmony_total * sizeof(zy_chord_strings_t)) * 10);
     ptr_chord->zy_chord_total = 0;
 
     for (int i = 0; i < ptr_harmony->m_harmony_total; i++)
@@ -1573,20 +1573,19 @@ FBC_API_LOCAL void parse_harmony_dump(void)
         }
 
         m_framenote_total = ptr_harmony->m_harmony_info[i].m_framenote_total;
-        ZY_DEBUG(("note id: %3d,    root_step: %s, root_alter: %s,  kind: %s ending_number: %d words: %d\
+        ZY_DEBUG(("note id: %3d,    root_step: %s, root_alter: %s,  kind: %s ending_number: %d \
         measure: %d, chords: %d, note: %d",
                  i,
                  ptr_harmony->m_harmony_info[i].root_step,
                  ptr_harmony->m_harmony_info[i].root_alter,
                  ptr_harmony->m_harmony_info[i].kind,
                  ptr_harmony->m_harmony_info[i].ending_number,
-                 ptr_harmony->m_harmony_info[i].words,
                  ptr_harmony->m_harmony_info[i].zy_display_harmony.measure,
                  ptr_harmony->m_harmony_info[i].zy_display_harmony.chords,
                  ptr_harmony->m_harmony_info[i].zy_display_harmony.note));
         for(int j = 0;j < m_framenote_total; j++)
         {
-            ZY_TEST(("m_framenote_total: %d,string: %s,fret: %s,barre: %s",
+            ZY_DEBUG(("m_framenote_total: %d,string: %s,fret: %s,barre: %s",
                     m_framenote_total,
                     ptr_harmony->m_harmony_info[i].framenote[j].string,
                     ptr_harmony->m_harmony_info[i].framenote[j].fret,
@@ -1596,59 +1595,48 @@ FBC_API_LOCAL void parse_harmony_dump(void)
 
             if(0 == strcmp(ptr_harmony->m_harmony_info[i].framenote[j].barre, "start"))
             {
-                if(0 == ptr_harmony->m_harmony_info[i].words)
+                for(int i = STRINGSNUM - string ; i < STRINGSNUM ; i++)
                 {
-                    words = 1;
-                    for(int i = m_framenote_total; i >= 0 ; i--)
+                    if( i > STRINS3 )
                     {
-                        if( i > STRINS3 )
-                        {
-                            ptr_chord->m_chord_info[zy_chord_cur].zy_strings[i] =i * (ZY_A2 - ZY_E2) +  ZY_E2 + words - 1;
-                        }
-                        else
-                        {
-                            ptr_chord->m_chord_info[zy_chord_cur].zy_strings[i] =i * (ZY_A2 - ZY_E2) +  ZY_E2 + words;
-                        }
+                        ptr_chord->m_chord_info[zy_chord_cur].zy_strings[i] =i * (ZY_A2 - ZY_E2) +  ZY_E2 - 1;
                     }
-                    words--;
-                }
-                else
-                {
-                    words = ptr_harmony->m_harmony_info[i].words;
-                    words = words - fret;
-                }                      
+                    else
+                    {
+                        ptr_chord->m_chord_info[zy_chord_cur].zy_strings[i] =i * (ZY_A2 - ZY_E2) +  ZY_E2;
+                    }
+                }                       
             }
             
             if(STRINS1 == string)
             {
-                ptr_chord->m_chord_info[zy_chord_cur].zy_strings[5] = ZY_E4 + fret + words;
+                if(0 == ptr_chord->m_chord_info[zy_chord_cur].zy_strings[5] || \
+                   ZY_E4 == ptr_chord->m_chord_info[zy_chord_cur].zy_strings[5] )
+                {
+                    ptr_chord->m_chord_info[zy_chord_cur].zy_strings[5] = ZY_E4 + fret;
+                }        
             }
             else if(STRINS2 == string)
             {
-                ptr_chord->m_chord_info[zy_chord_cur].zy_strings[4] = ZY_B3 + fret + words;
+                ptr_chord->m_chord_info[zy_chord_cur].zy_strings[4] = ZY_B3 + fret;
             }
             else if(STRINS3 == string)
             {
-                ptr_chord->m_chord_info[zy_chord_cur].zy_strings[3] = ZY_G3 + fret + words;
+                ptr_chord->m_chord_info[zy_chord_cur].zy_strings[3] = ZY_G3 + fret;
             }
             else if(STRINS4 == string)
             {
-                ptr_chord->m_chord_info[zy_chord_cur].zy_strings[2] = ZY_D3 + fret + words;
+                ptr_chord->m_chord_info[zy_chord_cur].zy_strings[2] = ZY_D3 + fret;
             }
             else if(STRINS5 == string)
             {
-                ptr_chord->m_chord_info[zy_chord_cur].zy_strings[1] = ZY_A2 + fret + words;
+                ptr_chord->m_chord_info[zy_chord_cur].zy_strings[1] = ZY_A2 + fret;
             }
             else if(STRINS6 == string)
             {
-                ptr_chord->m_chord_info[zy_chord_cur].zy_strings[0] = ZY_E2 + fret + words;
+                ptr_chord->m_chord_info[zy_chord_cur].zy_strings[0] = ZY_E2 + fret;
             }
             strings_total++;
-
-            if(0 == strcmp(ptr_harmony->m_harmony_info[i].framenote[j].barre, "stop"))
-            {
-                words = 0;
-            }
         }
         /*---------------------------------------------------------*/
         ptr_chord->m_chord_info[zy_chord_cur].zy_chord_display.measure = \
@@ -1801,10 +1789,6 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
         if (0 == strcmp(xml->name, "direction-type"))
         {
             ptr_harmony->m_direction_type = 1;
-        }
-        if (0 == strcmp(xml->name, "words") && (0 == ptr_harmony->m_direction_type))
-        {
-            ptr_harmony->m_harmony_info[ptr_harmony->m_harmony_cur].words = atoi(xml->txt);
         }
 
         // printf("ptr_harmony->m_harmony_cur: %d\n",ptr_harmony->m_harmony_cur);

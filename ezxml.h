@@ -122,7 +122,6 @@ typedef struct zy_harmony_frame_note_info_s
 
 typedef struct zy_harmony_info_s
 {    
-    int words;   //为解析横按添加的文字说明
     int ending_number;
     int m_framenote_total;     
     char root_step[MAX_ATTRIBUTES_SIZE];
