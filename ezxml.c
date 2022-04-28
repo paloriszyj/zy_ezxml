@@ -60,7 +60,7 @@
 
 // #define MAX_FRAME_SIZE    10
 
-static zy_dbg_module_info s_this_module={ZY_DBG_ERROR,NULL,0};
+static zy_dbg_module_info s_this_module={ZY_DBG_DEBUG,NULL,0};
 
 static int tie_len = 0;
 static int zy_note_num = 0;      //前奏note数量
@@ -141,6 +141,8 @@ zy_harmony_t *ptr_harmony;
 zy_solo_t *ptr_solo;
 zy_chord_t *ptr_chord;
 zy_com_playinfo_t playinfo;
+//================================================//
+zy_info_t zy_info;
 
 
 char *EZXML_NIL[] = { NULL }; // empty, null terminated array of strings
@@ -1339,7 +1341,7 @@ FBC_API_LOCAL int parse_note_dump(void)
     ptr_solo->solo_num_total = 1;
     ptr_solo->solo_num_info[solo_num_cur].startmeasure = 1;
     ptr_solo->solo_num_info[solo_num_cur].solonum  = num;
-    
+    printf("val: %d\n",ptr_score->m_note_cur + 1);
     for (int i = 0; i < ptr_score->m_note_cur + 1; i++)
     {
         if(ptr_score->m_note_info[i].measure - 1 > old_measure )
@@ -1802,6 +1804,9 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
             ptr_score->m_note_if_parsing = 1;
             (ptr_score->m_note_cur)++;
             playinfo.note++;
+            
+            
+            ptr_score->m_note_info[ptr_score->m_note_cur].ending_number = ptr_score->m_ending_number;
 
             ptr_score->m_note_info[ptr_score->m_note_cur].measure = playinfo.measure;
             ptr_score->m_note_info[ptr_score->m_note_cur].chords = playinfo.chords;
@@ -1898,24 +1903,63 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
         {
             for (int i=0; xml->attr[i] != NULL; i++)
             {
+                
                 if(0 == strcmp(xml->attr[i], "forward"))
                 {   
+                    ptr_score->m_ending_number = 0;   //每次repeat都要重置ending_number
                     (ptr_score->m_repeate_total)++;
                     ptr_score->m_repeate_cur = ptr_score->m_repeate_total - 1;   
                     ptr_score->m_repeate_info[ptr_score->m_repeate_cur].repeate_type = FORWARDTOBACKWARD;        
-                    ptr_score->m_repeate_info[ptr_score->m_repeate_cur].start = ptr_score->m_note_cur + 1;//因为forward是出现在每个小节开始，note前面                                                      
+                    // ptr_score->m_repeate_info[ptr_score->m_repeate_cur].start = ptr_score->m_note_cur + 1;//因为forward是出现在每个小节开始，note前面       
+                    ptr_score->m_repeate_info[ptr_score->m_repeate_cur].start = playinfo.measure;    
+                    
+                    //=======================================//
+                    (zy_info.m_repeat_total)++; 
+                    zy_info.m_repeate_info[zy_info.m_repeat_total].start = playinfo.measure; 
+                                                              
                 }
                 else if(0 == strcmp(xml->attr[i], "backward"))
                 {
+                    printf("backward: %d\n",playinfo.measure);
+                    ptr_score->m_ending_number = 0;   //每次repeat都要重置ending_number
                     ptr_score->m_repeate_cur = ptr_score->m_repeate_total - 1;
-                    ptr_score->m_repeate_info[ptr_score->m_repeate_cur].end = ptr_score->m_note_cur;                            
+                    // ptr_score->m_repeate_info[ptr_score->m_repeate_cur].end = ptr_score->m_note_cur;
+                    ptr_score->m_repeate_info[ptr_score->m_repeate_cur].end = playinfo.measure;     
+
+                    //=======================================//
+                    zy_info.m_repeate_info[zy_info.m_repeat_total].end = playinfo.measure;                               
                 }
+                else if(0 == strcmp(xml->name, "ending"))
+                {
+                    int i,ending_number = 0;
+                    for (i=0; xml->attr[i] != NULL; i++)
+                    {
+                        if(0 == strcmp(xml->attr[i], "number"))
+                        {
+                            i++;
+                            ending_number = atoi(xml->attr[i]);
+                        }
+                        else if(0 == strcmp(xml->attr[i], "type"))
+                        {
+                            i++;
+                            if(0 == strcmp(xml->attr[i], "start"))
+                            {
+                                ptr_score->m_ending_number = ending_number;
+                                printf("m_ending_number: %d\n",ptr_score->m_ending_number);
+                            }
+                            else if(0 == strcmp(xml->attr[i], "stop"))
+                            {
+                                ptr_score->m_ending_number = 0;
+                            }
+                        }
+                    }
+                }
+                
             }
+            
         }
     }
-    
-    
-
+        
     xml_parse_note(xml->child);
 
     if (0 == strcmp(xml->name, "measure"))
@@ -1945,6 +1989,117 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
     return;
 }
 
+FBC_API_LOCAL void parse_xml_dump(void)
+{
+    int val = 0,zy_string = 0,zy_val = 0;
+    int z_step = 0;   
+
+    if(0 == ptr_score->m_note_total)
+    {
+        ZY_DEBUG(("--------------------没有前奏-------------"));
+        return 0;
+    }
+
+    for (int i = 0; i < ptr_score->m_note_cur + 1; i++)
+    {
+        if (1 == ptr_score->m_note_info[i].rest)
+        {
+            ZY_DEBUG(("note id: %3d,    rest", i));
+            continue;
+        }
+        else
+        {
+            ZY_DEBUG(("note id: %3d,  ending_number: %d  step: %s, octave: %s,  alter: %s, tie: %s,\
+                       chordsign: %d measure: %d chords: %d note: %d string: %s",
+                   i,
+                   ptr_score->m_note_info[i].ending_number,
+                   ptr_score->m_note_info[i].step,
+                   ptr_score->m_note_info[i].octave,
+                   ptr_score->m_note_info[i].alter,
+                   ptr_score->m_note_info[i].tie,
+                   ptr_score->m_note_info[i].chordsign,
+                   ptr_score->m_note_info[i].measure,
+                   ptr_score->m_note_info[i].chords,
+                   ptr_score->m_note_info[i].note,
+                   ptr_score->m_note_info[i].string));
+        }
+        if(!strcmp(ptr_score->m_note_info[i].step,"C"))
+        {
+            z_step = STEP_C;
+        }
+        else if(!strcmp(ptr_score->m_note_info[i].step,"D"))
+        {
+            z_step = STEP_D;
+        }
+        else if(!strcmp(ptr_score->m_note_info[i].step,"E"))
+        {
+            z_step = STEP_E;
+        }
+        else if(!strcmp(ptr_score->m_note_info[i].step,"F"))
+        {
+            z_step = STEP_F;
+        }
+        else if(!strcmp(ptr_score->m_note_info[i].step,"G"))
+        {
+            z_step = STEP_G;
+        }
+        else if(!strcmp(ptr_score->m_note_info[i].step,"A"))
+        {
+            z_step = STEP_A;
+        }        
+        else if(!strcmp(ptr_score->m_note_info[i].step,"B"))
+        {
+            z_step = STEP_B;
+        }
+      
+        if((!ptr_score->m_note_info[i].chordsign && i && NULL == strstr(ptr_score->m_note_info[i].tie,"stop")))
+        {             
+            (zy_info.m_guitar_cur)++; 
+        }
+
+        if(NULL != strstr(ptr_score->m_note_info[i].tie,"stop"))
+        {  
+            continue;  
+        }
+
+        int pitch = (12 * (atoi(ptr_score->m_note_info[i].octave)+Z_OCTAVE)+z_step) + atoi(ptr_score->m_note_info[i].alter) ;
+        zy_string = atoi(ptr_score->m_note_info[i].string);
+        zy_info.m_guitar_info[zy_info.m_guitar_cur].m_solo_info.m_string_info[zy_string - 1].zy_beats = pitch;
+        zy_info.m_guitar_info[zy_info.m_guitar_cur].m_solo_info.m_string_info[zy_string - 1].zy_strings = zy_string;
+
+        for(int i=0;i<zy_info.m_repeat_total + 1;i++)
+        {
+            printf("start: %d\n",zy_info.m_repeate_info[i].start);
+            printf("end: %d\n",zy_info.m_repeate_info[i].end);
+            if(ptr_score->m_note_info[i].measure >= zy_info.m_repeate_info[i].start \
+                && ptr_score->m_note_info[i].measure <= zy_info.m_repeate_info[i].end)
+            {
+                zy_info.m_guitar_info[zy_info.m_guitar_cur].m_solo_info.forward= 1;
+                break;
+            }
+
+        }
+    }
+
+    for(int i = 0; i < zy_info.m_guitar_cur; i++)
+    {
+        for(int j=0;j<6;j++)
+        {
+            int zy_beats = zy_info.m_guitar_info[i].m_solo_info.m_string_info[j].zy_beats;
+            int zy_string = zy_info.m_guitar_info[i].m_solo_info.m_string_info[j].zy_strings;
+            if(zy_beats || zy_string)
+            {
+                printf("guitar id: %3d,size: %d  zy_beats: %d, zy_strings: %d\n",
+                    i,
+                    j,
+                    zy_beats,
+                    zy_string);
+            }
+            
+        } 
+    }
+}
+
 FBC_API_LOCAL void xml_parse_free(void)
 {
     if(NULL != ptr_score)
@@ -1971,14 +2126,17 @@ FBC_API_LOCAL void xml_solo_chord_free(void)
 FBC_API_LOCAL void xml_parse_init(void)
 {
     ptr_score = malloc(sizeof(zy_score_t) + zy_note_num * 10 * sizeof(zy_note_info_t));
+    memset(ptr_score, 0, sizeof(zy_score_t) + zy_note_num * 10 * sizeof(zy_note_info_t));
     ptr_score->m_note_total = zy_note_num;
     ptr_score->m_note_cur = -1;
     ptr_score->m_note_if_parsing = 0;
     ptr_score->m_repeate_total = 0; 
     ptr_score->m_repeate_cur = 0;
     ptr_score->m_solo_if_parsing_end = 1;   //默认有前奏，遇到和弦置0
+    ptr_score->m_ending_number = 0;
 
     ptr_harmony = malloc(sizeof(zy_harmony_t) + zy_harmony_num * sizeof(zy_harmony_info_t));
+    memset(ptr_harmony, 0, sizeof(zy_harmony_t) + zy_harmony_num * sizeof(zy_harmony_info_t));
     ptr_harmony->m_harmony_total = zy_harmony_num;
     ptr_harmony->m_harmony_cur = -1;
     ptr_harmony->m_harmony_if_parsing = 0;
@@ -1992,16 +2150,21 @@ FBC_API_LOCAL void xml_parse_init(void)
     playinfo.measure = 0;
     playinfo.chords = 0;
     playinfo.note = 0;
+    //=====================================================//
+    zy_info.m_guitar_cur = 0;
+    zy_info.m_repeat_total = -1;
 }
 
 FBC_API_LOCAL void xml_parse_node(ezxml_t xml)
 {
     xml_parse_note(xml);
-    parse_note_dump();
-    parse_harmony_dump();
-    parse_repeate_dump();
+    // parse_note_dump();
+    // parse_harmony_dump();
+    // parse_repeate_dump();
+    //==================================//
+    parse_xml_dump();
 
-    xml_parse_free();
+    xml_parse_free(); 
 }
 
 FBC_API_LOCAL void xml_print(ezxml_t xml, int level, int parent_sibling)
@@ -2095,7 +2258,7 @@ FBC_API_LOCAL void xml_print_all(ezxml_t xml)
     return;
 }
 
-#if 0
+#if 1
 #define EZXML_TEST // test harness
 #ifdef EZXML_TEST // test harness
 
@@ -2106,7 +2269,6 @@ int main(int argc, char **argv)
     int i = 0;
 
     if (argc != 2) return fprintf(stderr, "usage: %s xmlfile\n", argv[0]);
-
     xml = ezxml_parse_file(argv[1]);
     // xml_print_all(xml);
     xml_parse_init();

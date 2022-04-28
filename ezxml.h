@@ -45,6 +45,8 @@ extern "C" {
 #define DISPLAYMAX    10
 #define STRINGSNUM    6
 
+#define MAXINFO    1000
+
 #define STEP_C 0
 #define STEP_D 2
 #define STEP_E 4
@@ -77,6 +79,7 @@ struct ezxml {
 
 typedef struct zy_note_info_s
 {
+    int ending_number;
     char step[MAX_ATTRIBUTES_SIZE];    //音阶
     char octave[MAX_ATTRIBUTES_SIZE];  //八度
     char alter[MAX_ATTRIBUTES_SIZE];   //表示升降音，-1 表示降音，1 表示升音
@@ -109,6 +112,7 @@ typedef struct zy_score_s
     int m_repeate_total;          //表示所有反复数量
     int m_repeate_cur;
     int m_solo_if_parsing_end;    //前奏是否解析结束
+    int m_ending_number;
     zy_repeate_info_t m_repeate_info[MAX_ATTRIBUTES_SIZE];
     zy_note_info_t m_note_info[];
 } zy_score_t;
@@ -190,7 +194,46 @@ typedef struct zy_chord_s
     int zy_chord_total;
     zy_chord_strings_t m_chord_info[];
 } zy_chord_t;
+//============================================================///
+enum playType
+{
+    SOLO = 0x00,
+    CHORDS,
+};
 
+typedef struct zy_guitar_string_s
+{
+    int zy_beats;         //吉他最多只有6根弦,记录note的音高
+    int zy_strings;       //吉他最多只有6根弦,记录note所在的弦
+} zy_guitar_string_t;
+
+typedef struct zy_guitar_solo_s
+{
+    // int times;
+    int forward;
+    zy_guitar_string_t m_string_info[STRINGSNUM];
+} zy_guitar_solo_t;
+
+typedef struct zy_guitar_chord_s
+{
+
+} zy_guitar_chord_t;
+
+typedef struct zy_guitar_s
+{
+    int m_type;          //前奏or和弦
+    zy_guitar_solo_t m_solo_info;
+    zy_guitar_chord_t m_chords_info;
+    zy_com_playinfo_t m_display_info;
+} zy_guitar_t;
+
+typedef struct zy_info_s
+{    
+    int m_guitar_cur;
+    int m_repeat_total;          //表示所有反复数量
+    zy_guitar_t m_guitar_info[MAXINFO];
+    zy_repeate_info_t m_repeate_info[MAX_ATTRIBUTES_SIZE];    //保存所有反复的小节段落
+} zy_info_t;
 
 
 
