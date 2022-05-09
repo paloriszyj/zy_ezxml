@@ -45,7 +45,8 @@ extern "C" {
 #define DISPLAYMAX    10
 #define STRINGSNUM    6
 
-#define MAXINFO    1000
+#define MAXINFO     1000
+#define XMLMAXINFO  1500
 
 #define STEP_C 0
 #define STEP_D 2
@@ -145,7 +146,6 @@ typedef struct zy_harmony_s
     int m_repeate_cur; 
     int m_sound_cur; 
     int m_ending_number;
-    int m_direction_type;
     zy_repeate_info_t m_repeate_info[MAX_ATTRIBUTES_SIZE];    //保存所有反复的小节段落
     zy_harmony_info_t m_harmony_info[];
 } zy_harmony_t;
@@ -194,11 +194,18 @@ typedef struct zy_chord_s
     int zy_chord_total;
     zy_chord_strings_t m_chord_info[];
 } zy_chord_t;
-//============================================================///
+//============================================================//
+//第二步：对提取出来的xml信息进行处理，转换成需要的音符信息
 enum playType
 {
-    SOLO = 0x00,
+    NONE=0X00,
+    SOLO,
     CHORDS,
+};
+enum barreType
+{
+    BARREEND=0X00,
+    BARRESTART,
 };
 
 typedef struct zy_guitar_string_s
@@ -235,7 +242,51 @@ typedef struct zy_info_s
     zy_repeate_info_t m_repeate_info[MAX_ATTRIBUTES_SIZE];    //保存所有反复的小节段落
 } zy_info_t;
 
+//=====================================================//
+//第一步:解析乐谱信息，不进行处理，单纯提取xml信息
+typedef struct zy_xml_solo_s
+{
+    int ending_number;
+    char step[MAX_ATTRIBUTES_SIZE];    //音阶
+    char octave[MAX_ATTRIBUTES_SIZE];  //八度
+    char alter[MAX_ATTRIBUTES_SIZE];   //表示升降音，-1 表示降音，1 表示升音
+    char tie[MAX_ATTRIBUTES_SIZE];     //表示一个连音的开始和结束
+    int  rest;                         //休止符
+    int chordsign;                     //和弦，叠音，也就是说当这个标签出现的时候，竖直方向是有多个音的   
+    char string[MAX_ATTRIBUTES_SIZE];   //记录note所在的弦
+}zy_xml_solo_t;
 
+typedef struct zy_harmony_barre_start_s
+{
+    int m_framenote_cur;
+    int start_falg;
+    char string[MAX_ATTRIBUTES_SIZE];
+    char fret[MAX_ATTRIBUTES_SIZE];
+} zy_harmony_barre_start_t;
+
+typedef struct zy_xml_chord_s
+{    
+    char root_step[MAX_ATTRIBUTES_SIZE];
+    char root_alter[MAX_ATTRIBUTES_SIZE];
+    char kind[MAX_ATTRIBUTES_SIZE];   
+    zy_harmony_frame_note_info_t framenote[STRINGSNUM];    //表示构成和弦内的所有音高，记录的是品格图的内容
+    zy_harmony_barre_start_t barre_start_info;     //记录有横按开始的信息
+}zy_xml_chord_t;
+
+typedef struct zy_xml_info_s
+{    
+    int m_type;         //前奏or和弦
+    zy_xml_solo_t m_solo_xml_info;
+    zy_xml_chord_t m_chords_xml_info;
+    zy_com_playinfo_t m_display_xml_info;
+}zy_xml_info_t;
+
+typedef struct zy_xml_s
+{
+    int m_type;          //前奏or和弦
+    int cur_xml;
+    zy_xml_info_t m_xml_info[XMLMAXINFO];
+} zy_xml_t;
 
 // Given a string of xml data and its length, parses it and creates an ezxml
 // structure. For efficiency, modifies the data by adding null terminators
@@ -349,6 +400,10 @@ FBC_API_LOCAL void xml_parse_init(void);
 FBC_API_LOCAL void xml_parse_node(ezxml_t xml);
 
 FBC_API_LOCAL void xml_solo_chord_free(void);
+
+FBC_API_LOCAL void guitar_xml_parse_note(ezxml_t xml);
+
+FBC_API_LOCAL void guitar_parse_xml_dump(void);
 
 extern zy_solo_t *ptr_solo;
 

@@ -143,6 +143,7 @@ zy_chord_t *ptr_chord;
 zy_com_playinfo_t playinfo;
 //================================================//
 zy_info_t zy_info;
+zy_xml_t zy_xml_info;
 
 
 char *EZXML_NIL[] = { NULL }; // empty, null terminated array of strings
@@ -1152,8 +1153,14 @@ FBC_API_LOCAL ezxml_t ezxml_cut(ezxml_t xml)
 
 FBC_API_LOCAL void parse_note_step(ezxml_t xml)
 {
-    int note_num = ptr_score->m_note_cur;
-    char *ptr = ptr_score->m_note_info[note_num].step;
+    // int note_num = ptr_score->m_note_cur;
+    // char *ptr = ptr_score->m_note_info[note_num].step;
+    // if (NULL != xml->txt)
+    // {
+    //     strcpy(ptr, xml->txt);
+    // }
+    //=============//
+    char *ptr = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_solo_xml_info.step;
     if (NULL != xml->txt)
     {
         strcpy(ptr, xml->txt);
@@ -1162,18 +1169,30 @@ FBC_API_LOCAL void parse_note_step(ezxml_t xml)
 
 FBC_API_LOCAL void parse_note_octave(ezxml_t xml)
 {
-    int note_num = ptr_score->m_note_cur;
-    char *ptr = ptr_score->m_note_info[note_num].octave;
+    // int note_num = ptr_score->m_note_cur;
+    // char *ptr = ptr_score->m_note_info[note_num].octave;
+    // if (NULL != xml->txt)
+    // {     
+    //     strcpy(ptr, xml->txt);
+    // }
+    //=============//
+    char *ptr = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_solo_xml_info.octave;
     if (NULL != xml->txt)
-    {     
+    {
         strcpy(ptr, xml->txt);
     }
 }
 
 FBC_API_LOCAL void parse_note_alter(ezxml_t xml)
 {
-    int note_num = ptr_score->m_note_cur;
-    char *ptr = ptr_score->m_note_info[note_num].alter;
+    // int note_num = ptr_score->m_note_cur;
+    // char *ptr = ptr_score->m_note_info[note_num].alter;
+    // if (NULL != xml->txt)
+    // {
+    //     strcpy(ptr, xml->txt);
+    // }
+    //=============//
+    char *ptr = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_solo_xml_info.alter;
     if (NULL != xml->txt)
     {
         strcpy(ptr, xml->txt);
@@ -1182,37 +1201,59 @@ FBC_API_LOCAL void parse_note_alter(ezxml_t xml)
 
 FBC_API_LOCAL void parse_note_tie(ezxml_t xml)
 {
-    int note_num = ptr_score->m_note_cur;
-    char *ptr = ptr_score->m_note_info[note_num].tie;
+    // int note_num = ptr_score->m_note_cur;
+    // char *ptr = ptr_score->m_note_info[note_num].tie;
+    // char buf[MAX_ATTRIBUTES_SIZE] = {0};
+    // int tie_i;
+    // for (tie_i=0; xml->attr[tie_i] != NULL; tie_i++)
+    // {    
+    //     sprintf(buf+strlen(buf),"%s#", xml->attr[tie_i]);    
+    // }
+    
+    // strncpy(ptr+tie_len, buf,strlen(buf));
+    // tie_len = tie_len + strlen(buf); 
+    //=============//
+    char *ptr = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_solo_xml_info.tie;
     char buf[MAX_ATTRIBUTES_SIZE] = {0};
     int tie_i;
     for (tie_i=0; xml->attr[tie_i] != NULL; tie_i++)
     {    
         sprintf(buf+strlen(buf),"%s#", xml->attr[tie_i]);    
     }
-    
     strncpy(ptr+tie_len, buf,strlen(buf));
     tie_len = tie_len + strlen(buf);   
 }
 
 FBC_API_LOCAL void parse_note_rest(ezxml_t xml)
 {
-    int note_num = ptr_score->m_note_cur;
-    int *rest = &(ptr_score->m_note_info[note_num].rest);
+    // int note_num = ptr_score->m_note_cur;
+    // int *rest = &(ptr_score->m_note_info[note_num].rest);
+    // *rest = 1;
+    //=============//
+    int *rest = &(zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_solo_xml_info.rest);
     *rest = 1;
 }
 
 FBC_API_LOCAL void parse_note_chord(ezxml_t xml)
 {
-    int note_num = ptr_score->m_note_cur;
-    int *chordsign = &(ptr_score->m_note_info[note_num].chordsign);
+    // int note_num = ptr_score->m_note_cur;
+    // int *chordsign = &(ptr_score->m_note_info[note_num].chordsign);
+    // *chordsign = 1;
+    //=============//
+    int *chordsign = &(zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_solo_xml_info.chordsign);
     *chordsign = 1;
 }
 
 FBC_API_LOCAL void parse_note_string(ezxml_t xml)
 {
-    int note_num = ptr_score->m_note_cur;
-    char *ptr = ptr_score->m_note_info[note_num].string;
+    // int note_num = ptr_score->m_note_cur;
+    // char *ptr = ptr_score->m_note_info[note_num].string;
+    // if (NULL != xml->txt)
+    // {
+    //     strcpy(ptr, xml->txt);
+    // }
+    //=============//
+    char *ptr = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_solo_xml_info.string;
     if (NULL != xml->txt)
     {
         strcpy(ptr, xml->txt);
@@ -1221,8 +1262,14 @@ FBC_API_LOCAL void parse_note_string(ezxml_t xml)
 
 FBC_API_LOCAL void parse_harmony_step(ezxml_t xml)
 {
-    int harmony_num = ptr_harmony->m_harmony_cur;
-    char *ptr = ptr_harmony->m_harmony_info[harmony_num].root_step;
+    // int harmony_num = ptr_harmony->m_harmony_cur;
+    // char *ptr = ptr_harmony->m_harmony_info[harmony_num].root_step;
+    // if (NULL != xml->txt)
+    // {
+    //     strcpy(ptr, xml->txt);
+    // }
+    //=============//
+    char *ptr = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.root_step;
     if (NULL != xml->txt)
     {
         strcpy(ptr, xml->txt);
@@ -1230,8 +1277,14 @@ FBC_API_LOCAL void parse_harmony_step(ezxml_t xml)
 }
 FBC_API_LOCAL void parse_harmony_alter(ezxml_t xml)
 {
-    int harmony_num = ptr_harmony->m_harmony_cur;
-    char *ptr = ptr_harmony->m_harmony_info[harmony_num].root_alter;
+    // int harmony_num = ptr_harmony->m_harmony_cur;
+    // char *ptr = ptr_harmony->m_harmony_info[harmony_num].root_alter;
+    // if (NULL != xml->txt)
+    // {
+    //     strcpy(ptr, xml->txt);
+    // }
+    //=============//
+    char *ptr = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.root_alter;
     if (NULL != xml->txt)
     {
         strcpy(ptr, xml->txt);
@@ -1239,8 +1292,14 @@ FBC_API_LOCAL void parse_harmony_alter(ezxml_t xml)
 }
 FBC_API_LOCAL void parse_harmony_kind(ezxml_t xml)
 {
-    int harmony_num = ptr_harmony->m_harmony_cur;
-    char *ptr = ptr_harmony->m_harmony_info[harmony_num].kind;
+    // int harmony_num = ptr_harmony->m_harmony_cur;
+    // char *ptr = ptr_harmony->m_harmony_info[harmony_num].kind;
+    // if (NULL != xml->txt)
+    // {
+    //     strcpy(ptr, xml->txt);
+    // }
+    //=============//
+    char *ptr = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.kind;
     if (NULL != xml->txt)
     {
         strcpy(ptr, xml->txt);
@@ -1249,39 +1308,111 @@ FBC_API_LOCAL void parse_harmony_kind(ezxml_t xml)
     
 FBC_API_LOCAL void parse_harmony_string(ezxml_t xml)
 {
-    int harmony_num = ptr_harmony->m_harmony_cur;
-    int m_framenote_total = ptr_harmony->m_harmony_info[harmony_num].m_framenote_total;
-    char *ptr = ptr_harmony->m_harmony_info[harmony_num].framenote[m_framenote_total].string;
+    // int harmony_num = ptr_harmony->m_harmony_cur;
+    // int m_framenote_total = ptr_harmony->m_harmony_info[harmony_num].m_framenote_total;
+    // char *ptr = ptr_harmony->m_harmony_info[harmony_num].framenote[m_framenote_total].string;
+    // if (NULL != xml->txt)
+    // {
+    //     strcpy(ptr, xml->txt);
+    // } 
+    //=============//
+    zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.barre_start_info.m_framenote_cur = atoi(xml->txt) - 1;
+    int m_framenote_position = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].\
+                                m_chords_xml_info.barre_start_info.m_framenote_cur;
+    char *ptr = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.framenote[m_framenote_position].string;
+    char *barre_string = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.barre_start_info.string;
     if (NULL != xml->txt)
     {
-        strcpy(ptr, xml->txt);
-    } 
-
+        if(0 == strlen(ptr))
+        {
+            strcpy(ptr, xml->txt);
+        }
+        else if(strlen(ptr) >0 && \
+                BARREEND == zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.barre_start_info.start_falg)
+        {
+            strcpy(barre_string,xml->txt);
+        }
+    }
 }
 
 FBC_API_LOCAL void parse_harmony_fret(ezxml_t xml)
 {
-    int harmony_num = ptr_harmony->m_harmony_cur;
-    int *m_framenote_total = &(ptr_harmony->m_harmony_info[harmony_num].m_framenote_total);
-    char *ptr = ptr_harmony->m_harmony_info[harmony_num].framenote[*m_framenote_total].fret;
+    // int harmony_num = ptr_harmony->m_harmony_cur;
+    // int *m_framenote_total = &(ptr_harmony->m_harmony_info[harmony_num].m_framenote_total);
+    // char *ptr = ptr_harmony->m_harmony_info[harmony_num].framenote[*m_framenote_total].fret;
+    // if (NULL != xml->txt)
+    // {
+    //     strcpy(ptr, xml->txt);
+    // }
+    // (*m_framenote_total)++; 
+    //=============//
+    int m_framenote_position = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].\
+                                m_chords_xml_info.barre_start_info.m_framenote_cur;
+    char *ptr = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.framenote[m_framenote_position].fret;
+    char *barre_fret = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.barre_start_info.fret;
     if (NULL != xml->txt)
     {
-        strcpy(ptr, xml->txt);
+        if(0 == strlen(ptr))
+        {
+            strcpy(ptr, xml->txt);
+        }
+        else if(strlen(ptr) >0 && \
+                BARREEND == zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.barre_start_info.start_falg)
+        {
+            strcpy(barre_fret,xml->txt);
+        }
     }
-    (*m_framenote_total)++; 
 }
 
 FBC_API_LOCAL void parse_harmony_barre(ezxml_t xml)
 {
-    int harmony_num = ptr_harmony->m_harmony_cur;
-    int m_framenote_total = ptr_harmony->m_harmony_info[harmony_num].m_framenote_total - 1;
-    char *ptr = ptr_harmony->m_harmony_info[harmony_num].framenote[m_framenote_total].barre;
+    // int harmony_num = ptr_harmony->m_harmony_cur;
+    // int m_framenote_total = ptr_harmony->m_harmony_info[harmony_num].m_framenote_total - 1;
+    // char *ptr = ptr_harmony->m_harmony_info[harmony_num].framenote[m_framenote_total].barre;
+    // for (int i = 0; xml->attr[i] != NULL; i++)
+    // {          
+    //     if( 0 == strcmp(xml->attr[i],"type"))
+    //     {
+    //         i++; 
+    //         strcpy(ptr, xml->attr[i]);
+    //     }        
+    // }
+    //=============//
+    int m_framenote_position = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].\
+                                m_chords_xml_info.barre_start_info.m_framenote_cur;
+    char *ptr_barre = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.framenote[m_framenote_position].barre;
+    char *ptr_string = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.framenote[m_framenote_position].string;
+    char *ptr_fret = zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.framenote[m_framenote_position].fret;
+
+    char * barre_string= zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.barre_start_info.string;
+    char * barre_fret= zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.barre_start_info.fret;
     for (int i = 0; xml->attr[i] != NULL; i++)
     {          
         if( 0 == strcmp(xml->attr[i],"type"))
         {
             i++; 
-            strcpy(ptr, xml->attr[i]);
+            strcpy(ptr_barre, xml->attr[i]);
+            if( 0 == strcmp(xml->attr[i],"start") )
+            {
+                zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.barre_start_info.start_falg = BARRESTART;
+                if(0 == strlen(barre_string) && 0 == strlen(barre_fret))
+                {
+                    strcpy(barre_string,ptr_string);
+                    strcpy(barre_fret,ptr_fret);
+                }
+            }
+            else if( 0 == strcmp(xml->attr[i],"stop") )
+            {
+                int val = atoi(barre_string);
+                for(int i = 0;i < val;i++)
+                {
+                    if(0 == strlen(zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.framenote[i].string))
+                    {
+                        sprintf(zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.framenote[i].string,"%d",i+1);
+                        strcpy(zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.framenote[i].fret,barre_fret);
+                    }
+                }
+            }
         }        
     }
 }
@@ -1766,7 +1897,6 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
         {
             playinfo.measure++;
             ptr_harmony->m_is_parsing_note = 0;
-            ptr_harmony->m_direction_type = 0;
             if(ptr_score->m_note_cur == ptr_score->m_note_total -1)  // ptr_score->m_note_cur从-1开始
             {
                 ptr_score->m_solo_if_parsing_end = 0;
@@ -1787,10 +1917,6 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
         else if (1 == ptr_harmony->m_harmony_if_parsing)
         {
             parse_harmony_loop(xml);
-        }
-        if (0 == strcmp(xml->name, "direction-type"))
-        {
-            ptr_harmony->m_direction_type = 1;
         }
 
         // printf("ptr_harmony->m_harmony_cur: %d\n",ptr_harmony->m_harmony_cur);
@@ -1989,6 +2115,74 @@ FBC_API_LOCAL void xml_parse_note(ezxml_t xml)
     return;
 }
 
+FBC_API_LOCAL void guitar_xml_parse_note(ezxml_t xml)
+{
+    if (NULL == xml)
+    {
+        return;
+    }
+    else
+    {
+        if(0 == strcmp(xml->name, "measure"))
+        {
+            playinfo.measure++;
+            zy_xml_info.m_type = SOLO;
+            //===============//
+        }
+        if (0 == strcmp(xml->name, "harmony"))
+        { 
+            (zy_xml_info.cur_xml)++;
+            playinfo.chords++;        
+            zy_xml_info.m_type = CHORDS;
+            zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_display_xml_info.measure = playinfo.measure;
+            zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_display_xml_info.chords = playinfo.chords;
+            zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_type = zy_xml_info.m_type;  
+            zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.barre_start_info.start_falg = BARREEND;
+        }
+        else if (CHORDS == zy_xml_info.m_type)
+        {
+            parse_harmony_loop(xml);
+        }
+ 
+        if (0 == strcmp(xml->name, "note") && (SOLO == zy_xml_info.m_type))   //解析前奏，间奏，尾奏一类的note
+        {
+            (zy_xml_info.cur_xml)++;
+            playinfo.note++; 
+            zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_display_xml_info.measure = playinfo.measure;
+            zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_display_xml_info.note = playinfo.note;
+            zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_type = zy_xml_info.m_type;           
+        }
+        else if (0 == strcmp(xml->name, "note") && (CHORDS == zy_xml_info.m_type))   //位于和弦的note
+        {
+            zy_xml_info.m_type = NONE;
+        }
+        if (SOLO == zy_xml_info.m_type)                     //解析前奏，间奏，尾奏一类的note的子节点
+        {
+            parse_note_loop(xml);
+        }
+    }
+
+    guitar_xml_parse_note(xml->child);
+
+    if (0 == strcmp(xml->name, "measure"))
+    {
+        playinfo.chords = 0;
+        playinfo.note = 0;
+    }
+    if (0 == strcmp(xml->name, "harmony"))
+    {    
+        playinfo.note = 0;
+    }
+    if (0 == strcmp(xml->name, "note") && (SOLO == zy_xml_info.m_type))
+    {
+        tie_len = 0;
+    }
+
+    guitar_xml_parse_note(xml->ordered);
+
+    return;
+}
+
 FBC_API_LOCAL void parse_xml_dump(void)
 {
     int val = 0,zy_string = 0,zy_val = 0;
@@ -2080,8 +2274,8 @@ FBC_API_LOCAL void parse_xml_dump(void)
 
         }
     }
-
-    for(int i = 0; i < zy_info.m_guitar_cur; i++)
+    printf("zy_info.m_guitar_cur: %d\n",zy_info.m_guitar_cur);
+    for(int i = 0; i <= zy_info.m_guitar_cur; i++)
     {
         for(int j=0;j<6;j++)
         {
@@ -2094,10 +2288,143 @@ FBC_API_LOCAL void parse_xml_dump(void)
                     j,
                     zy_beats,
                     zy_string);
-            }
-            
+            }   
         } 
     }
+}
+
+FBC_API_LOCAL void guitar_parse_xml_dump(void)
+{
+    int val = 0,zy_string = 0,zy_val = 0;
+    int z_step = 0;   
+
+    // if(0 == ptr_score->m_note_total)
+    // {
+    //     ZY_DEBUG(("--------------------没有前奏-------------"));
+    //     return 0;
+    // }
+    for (int i = 0; i < zy_xml_info.cur_xml; i++)
+    {
+        // printf("zy_xml_info.m_type: %d\n",zy_xml_info.m_type);
+        if(SOLO == zy_xml_info.m_xml_info[i].m_type)
+        {
+            if (1 == zy_xml_info.m_xml_info[i].m_solo_xml_info.rest)
+            {
+                ZY_DEBUG(("note id: %3d,    rest", i));
+                continue;
+            }
+            else
+            {
+                ZY_DEBUG(("note id: %-5d, ending_number: %-3d, step: %-3s, octave: %-3s, alter: %-3s, tie: %-25s,\
+ chordsign: %-3d, string: %-3s, measure: %-5d, chords: %-5d, note: %-5d ",
+                    i,
+                    zy_xml_info.m_xml_info[i].m_solo_xml_info.ending_number,
+                    zy_xml_info.m_xml_info[i].m_solo_xml_info.step,
+                    zy_xml_info.m_xml_info[i].m_solo_xml_info.octave,
+                    zy_xml_info.m_xml_info[i].m_solo_xml_info.alter,
+                    zy_xml_info.m_xml_info[i].m_solo_xml_info.tie,
+                    zy_xml_info.m_xml_info[i].m_solo_xml_info.chordsign,
+                    zy_xml_info.m_xml_info[i].m_solo_xml_info.string,
+                    zy_xml_info.m_xml_info[i].m_display_xml_info.measure,
+                    zy_xml_info.m_xml_info[i].m_display_xml_info.chords,
+                    zy_xml_info.m_xml_info[i].m_display_xml_info.note));
+            }
+            if(!strcmp(zy_xml_info.m_xml_info[i].m_solo_xml_info.step,"C"))
+            {
+                z_step = STEP_C;
+            }
+            else if(!strcmp(zy_xml_info.m_xml_info[i].m_solo_xml_info.step,"D"))
+            {
+                z_step = STEP_D;
+            }
+            else if(!strcmp(zy_xml_info.m_xml_info[i].m_solo_xml_info.step,"E"))
+            {
+                z_step = STEP_E;
+            }
+            else if(!strcmp(zy_xml_info.m_xml_info[i].m_solo_xml_info.step,"F"))
+            {
+                z_step = STEP_F;
+            }
+            else if(!strcmp(zy_xml_info.m_xml_info[i].m_solo_xml_info.step,"G"))
+            {
+                z_step = STEP_G;
+            }
+            else if(!strcmp(zy_xml_info.m_xml_info[i].m_solo_xml_info.step,"A"))
+            {
+                z_step = STEP_A;
+            }        
+            else if(!strcmp(zy_xml_info.m_xml_info[i].m_solo_xml_info.step,"B"))
+            {
+                z_step = STEP_B;
+            }
+        
+            if((!zy_xml_info.m_xml_info[i].m_solo_xml_info.chordsign && i && \
+                NULL == strstr(zy_xml_info.m_xml_info[i].m_solo_xml_info.tie,"stop")))
+            {             
+                (zy_info.m_guitar_cur)++; 
+            }
+
+            if(NULL != strstr(zy_xml_info.m_xml_info[i].m_solo_xml_info.tie,"stop"))
+            {  
+                continue;  
+            }
+
+            int pitch = (12 * (atoi(zy_xml_info.m_xml_info[i].m_solo_xml_info.octave)+Z_OCTAVE)+z_step) + atoi(zy_xml_info.m_xml_info[i].m_solo_xml_info.alter) ;
+            zy_string = atoi(zy_xml_info.m_xml_info[i].m_solo_xml_info.string);
+            zy_info.m_guitar_info[zy_info.m_guitar_cur].m_solo_info.m_string_info[zy_string - 1].zy_beats = pitch;
+            zy_info.m_guitar_info[zy_info.m_guitar_cur].m_solo_info.m_string_info[zy_string - 1].zy_strings = zy_string;
+
+            for(int i=0;i<zy_info.m_repeat_total + 1;i++)
+            {
+                printf("start: %d\n",zy_info.m_repeate_info[i].start);
+                printf("end: %d\n",zy_info.m_repeate_info[i].end);
+                if(ptr_score->m_note_info[i].measure >= zy_info.m_repeate_info[i].start \
+                    && ptr_score->m_note_info[i].measure <= zy_info.m_repeate_info[i].end)
+                {
+                    zy_info.m_guitar_info[zy_info.m_guitar_cur].m_solo_info.forward= 1;
+                    break;
+                }
+
+            }
+        }
+        else if(CHORDS == zy_xml_info.m_xml_info[i].m_type)
+        { 
+            ZY_DEBUG(("note id: %-5d, root_step: %-5s, root_alter: %-5s, kind: %-10s\
+ measure: %-5d, chords: %-5d, note: %-5d",
+                    i,
+                    zy_xml_info.m_xml_info[i].m_chords_xml_info.root_step,
+                    zy_xml_info.m_xml_info[i].m_chords_xml_info.root_alter,
+                    zy_xml_info.m_xml_info[i].m_chords_xml_info.kind,
+                    zy_xml_info.m_xml_info[i].m_display_xml_info.measure,
+                    zy_xml_info.m_xml_info[i].m_display_xml_info.chords,
+                    zy_xml_info.m_xml_info[i].m_display_xml_info.note));
+            for(int j = 0;j < STRINGSNUM; j++)
+            {
+                ZY_DEBUG(("cur framenote: %d,string: %s,fret: %s,barre: %s",
+                        j,
+                        zy_xml_info.m_xml_info[i].m_chords_xml_info.framenote[j].string,
+                        zy_xml_info.m_xml_info[i].m_chords_xml_info.framenote[j].fret,
+                        zy_xml_info.m_xml_info[i].m_chords_xml_info.framenote[j].barre));
+            }      
+        }
+    }
+    // printf("zy_info.m_guitar_cur: %d\n",zy_info.m_guitar_cur);
+    // for(int i = 0; i <= zy_info.m_guitar_cur; i++)
+    // {
+    //     for(int j=0;j<6;j++)
+    //     {
+    //         int zy_beats = zy_info.m_guitar_info[i].m_solo_info.m_string_info[j].zy_beats;
+    //         int zy_string = zy_info.m_guitar_info[i].m_solo_info.m_string_info[j].zy_strings;
+    //         if(zy_beats || zy_string)
+    //         {
+    //             printf("guitar id: %3d,size: %d  zy_beats: %d, zy_strings: %d\n",
+    //                 i,
+    //                 j,
+    //                 zy_beats,
+    //                 zy_string);
+    //         }   
+    //     } 
+    // }
 }
 
 FBC_API_LOCAL void xml_parse_free(void)
@@ -2125,27 +2452,26 @@ FBC_API_LOCAL void xml_solo_chord_free(void)
 }
 FBC_API_LOCAL void xml_parse_init(void)
 {
-    ptr_score = malloc(sizeof(zy_score_t) + zy_note_num * 10 * sizeof(zy_note_info_t));
-    memset(ptr_score, 0, sizeof(zy_score_t) + zy_note_num * 10 * sizeof(zy_note_info_t));
-    ptr_score->m_note_total = zy_note_num;
-    ptr_score->m_note_cur = -1;
-    ptr_score->m_note_if_parsing = 0;
-    ptr_score->m_repeate_total = 0; 
-    ptr_score->m_repeate_cur = 0;
-    ptr_score->m_solo_if_parsing_end = 1;   //默认有前奏，遇到和弦置0
-    ptr_score->m_ending_number = 0;
+    // ptr_score = malloc(sizeof(zy_score_t) + zy_note_num * 10 * sizeof(zy_note_info_t));
+    // memset(ptr_score, 0, sizeof(zy_score_t) + zy_note_num * 10 * sizeof(zy_note_info_t));
+    // ptr_score->m_note_total = zy_note_num;
+    // ptr_score->m_note_cur = -1;
+    // ptr_score->m_note_if_parsing = 0;
+    // ptr_score->m_repeate_total = 0; 
+    // ptr_score->m_repeate_cur = 0;
+    // ptr_score->m_solo_if_parsing_end = 1;   //默认有前奏，遇到和弦置0
+    // ptr_score->m_ending_number = 0;
 
-    ptr_harmony = malloc(sizeof(zy_harmony_t) + zy_harmony_num * sizeof(zy_harmony_info_t));
-    memset(ptr_harmony, 0, sizeof(zy_harmony_t) + zy_harmony_num * sizeof(zy_harmony_info_t));
-    ptr_harmony->m_harmony_total = zy_harmony_num;
-    ptr_harmony->m_harmony_cur = -1;
-    ptr_harmony->m_harmony_if_parsing = 0;
-    ptr_harmony->m_is_parsing_note = 0;
-    ptr_harmony->m_repeate_total = 0;   
-    ptr_harmony->m_ending_number = 0;
-    ptr_harmony->m_repeate_cur = 0;
-    ptr_harmony->m_sound_cur = 0;
-    ptr_harmony->m_direction_type = 0;
+    // ptr_harmony = malloc(sizeof(zy_harmony_t) + zy_harmony_num * sizeof(zy_harmony_info_t));
+    // memset(ptr_harmony, 0, sizeof(zy_harmony_t) + zy_harmony_num * sizeof(zy_harmony_info_t));
+    // ptr_harmony->m_harmony_total = zy_harmony_num;
+    // ptr_harmony->m_harmony_cur = -1;
+    // ptr_harmony->m_harmony_if_parsing = 0;
+    // ptr_harmony->m_is_parsing_note = 0;
+    // ptr_harmony->m_repeate_total = 0;   
+    // ptr_harmony->m_ending_number = 0;
+    // ptr_harmony->m_repeate_cur = 0;
+    // ptr_harmony->m_sound_cur = 0;
 
     playinfo.measure = 0;
     playinfo.chords = 0;
@@ -2153,16 +2479,21 @@ FBC_API_LOCAL void xml_parse_init(void)
     //=====================================================//
     zy_info.m_guitar_cur = 0;
     zy_info.m_repeat_total = -1;
+
+    zy_xml_info.cur_xml = -1;
+    zy_xml_info.m_type = NONE;
 }
 
 FBC_API_LOCAL void xml_parse_node(ezxml_t xml)
 {
-    xml_parse_note(xml);
+    // xml_parse_note(xml);
+    guitar_xml_parse_note(xml);
     // parse_note_dump();
     // parse_harmony_dump();
     // parse_repeate_dump();
     //==================================//
-    parse_xml_dump();
+    // parse_xml_dump();
+    guitar_parse_xml_dump();
 
     xml_parse_free(); 
 }
