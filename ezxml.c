@@ -2138,6 +2138,21 @@ FBC_API_LOCAL void guitar_xml_parse_note(ezxml_t xml)
             zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_display_xml_info.chords = playinfo.chords;
             zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_type = zy_xml_info.m_type;  
             zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_chords_xml_info.barre_start_info.start_falg = BARREEND;
+            zy_xml_info.m_xml_info[zy_xml_info.cur_xml].repeats = S_ONE;
+            if(ENDINGSTART == zy_xml_info.m_ending_info.endingflag || DISCONTINUE == zy_xml_info.m_ending_info.endingflag)
+            {   
+                zy_xml_info.m_xml_info[zy_xml_info.cur_xml].ending_number = zy_xml_info.m_ending_info.ending_number;
+            }
+            else
+            {
+                zy_xml_info.m_xml_info[zy_xml_info.cur_xml].ending_number = ENDINGNONE;
+            }
+            if(FORWARD == zy_xml_info.repeatflag && S_ONE != zy_xml_info.m_xml_info[zy_xml_info.cur_xml].ending_number)
+            {
+                printf("playinfo.measure: %d\n",playinfo.measure);
+                zy_xml_info.m_xml_info[zy_xml_info.cur_xml].repeats = S_TWO;
+            }
+            
         }
         else if (CHORDS == zy_xml_info.m_type)
         {
@@ -2150,7 +2165,20 @@ FBC_API_LOCAL void guitar_xml_parse_note(ezxml_t xml)
             playinfo.note++; 
             zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_display_xml_info.measure = playinfo.measure;
             zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_display_xml_info.note = playinfo.note;
-            zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_type = zy_xml_info.m_type;           
+            zy_xml_info.m_xml_info[zy_xml_info.cur_xml].m_type = zy_xml_info.m_type; 
+            zy_xml_info.m_xml_info[zy_xml_info.cur_xml].repeats = S_ONE;
+            if(ENDINGSTART == zy_xml_info.m_ending_info.endingflag || DISCONTINUE == zy_xml_info.m_ending_info.endingflag)
+            {
+                zy_xml_info.m_xml_info[zy_xml_info.cur_xml].ending_number = zy_xml_info.m_ending_info.ending_number;
+            }
+            else
+            {
+                zy_xml_info.m_xml_info[zy_xml_info.cur_xml].ending_number = ENDINGNONE;
+            }
+            if(FORWARD == zy_xml_info.repeatflag && S_ONE != zy_xml_info.m_xml_info[zy_xml_info.cur_xml].ending_number)
+            {
+                zy_xml_info.m_xml_info[zy_xml_info.cur_xml].repeats = S_TWO;
+            }    
         }
         else if (0 == strcmp(xml->name, "note") && (CHORDS == zy_xml_info.m_type))   //位于和弦的note
         {
@@ -2159,6 +2187,63 @@ FBC_API_LOCAL void guitar_xml_parse_note(ezxml_t xml)
         if (SOLO == zy_xml_info.m_type)                     //解析前奏，间奏，尾奏一类的note的子节点
         {
             parse_note_loop(xml);
+        }
+    }
+    if(0 == strcmp(xml->name, "repeat")) //repeat只会标记在每个小结最后
+    {
+        for (int i=0; xml->attr[i] != NULL; i++)
+        {
+            if(0 == strcmp(xml->attr[i], "forward"))
+            {
+                printf("forward playinfo.measure: %d\n",playinfo.measure);
+                zy_xml_info.repeatflag = FORWARD;
+                zy_xml_info.firstbackward = ZY_TRUE;
+            }
+            else if(0 == strcmp(xml->attr[i], "backward"))
+            {
+                zy_xml_info.repeatflag = BACKWARD;
+                zy_xml_info.m_ending_info.endingflag = ENDINGNONE;
+                if(S_TWO != zy_xml_info.m_xml_info[zy_xml_info.cur_xml].repeats && ZY_FALSE == zy_xml_info.firstbackward)
+                {
+                    for(int j=0; j <= zy_xml_info.cur_xml; j++)
+                    {
+                        if(S_ONE != zy_xml_info.m_xml_info[j].ending_number)
+                        {
+                            zy_xml_info.m_xml_info[j].repeats = S_TWO;
+                        }            
+                    }
+                }
+                zy_xml_info.firstbackward = ZY_TRUE;
+            }
+        }
+    }
+    else if(0 == strcmp(xml->name, "ending"))
+    {
+        int i,ending_number = 0;
+        for (i=0; xml->attr[i] != NULL; i++)
+        {
+            if(0 == strcmp(xml->attr[i], "number"))
+            {
+                i++;
+                ending_number = atoi(xml->attr[i]);
+                zy_xml_info.m_ending_info.ending_number = ending_number;
+            }
+            else if(0 == strcmp(xml->attr[i], "type"))
+            {
+                i++;
+                if(0 == strcmp(xml->attr[i], "start"))
+                {
+                    zy_xml_info.m_ending_info.endingflag = ENDINGSTART;
+                }
+                else if(0 == strcmp(xml->attr[i], "stop"))
+                {
+                    zy_xml_info.m_ending_info.endingflag = ENDINGSTOP;
+                }
+                else if(0 == strcmp(xml->attr[i], "discontinue"))
+                {
+                    zy_xml_info.m_ending_info.endingflag = DISCONTINUE;
+                }
+            }
         }
     }
 
@@ -2303,7 +2388,7 @@ FBC_API_LOCAL void guitar_parse_xml_dump(void)
     //     ZY_DEBUG(("--------------------没有前奏-------------"));
     //     return 0;
     // }
-    for (int i = 0; i < zy_xml_info.cur_xml; i++)
+    for (int i = 0; i <= zy_xml_info.cur_xml; i++)
     {
         // printf("zy_xml_info.m_type: %d\n",zy_xml_info.m_type);
         if(SOLO == zy_xml_info.m_xml_info[i].m_type)
@@ -2315,10 +2400,11 @@ FBC_API_LOCAL void guitar_parse_xml_dump(void)
             }
             else
             {
-                ZY_DEBUG(("note id: %-5d, ending_number: %-3d, step: %-3s, octave: %-3s, alter: %-3s, tie: %-25s,\
- chordsign: %-3d, string: %-3s, measure: %-5d, chords: %-5d, note: %-5d ",
+                ZY_DEBUG(("note id: %-4d, repeats: %-3d, ending_number: %-3d, step: %-3s, octave: %-3s, alter: %-3s,\
+ tie: %-11s, chordsign: %-3d, string: %-3s, measure: %-4d, chords: %-4d, note: %-4d ",
                     i,
-                    zy_xml_info.m_xml_info[i].m_solo_xml_info.ending_number,
+                    zy_xml_info.m_xml_info[i].repeats,
+                    zy_xml_info.m_xml_info[i].ending_number,
                     zy_xml_info.m_xml_info[i].m_solo_xml_info.step,
                     zy_xml_info.m_xml_info[i].m_solo_xml_info.octave,
                     zy_xml_info.m_xml_info[i].m_solo_xml_info.alter,
@@ -2389,9 +2475,11 @@ FBC_API_LOCAL void guitar_parse_xml_dump(void)
         }
         else if(CHORDS == zy_xml_info.m_xml_info[i].m_type)
         { 
-            ZY_DEBUG(("note id: %-5d, root_step: %-5s, root_alter: %-5s, kind: %-10s\
+            ZY_DEBUG(("note id: %-5d, repeats: %-5d, ending_number: %-5d, root_step: %-5s, root_alter: %-5s, kind: %-10s\
  measure: %-5d, chords: %-5d, note: %-5d",
                     i,
+                    zy_xml_info.m_xml_info[i].repeats,
+                    zy_xml_info.m_xml_info[i].ending_number,
                     zy_xml_info.m_xml_info[i].m_chords_xml_info.root_step,
                     zy_xml_info.m_xml_info[i].m_chords_xml_info.root_alter,
                     zy_xml_info.m_xml_info[i].m_chords_xml_info.kind,
@@ -2400,7 +2488,7 @@ FBC_API_LOCAL void guitar_parse_xml_dump(void)
                     zy_xml_info.m_xml_info[i].m_display_xml_info.note));
             for(int j = 0;j < STRINGSNUM; j++)
             {
-                ZY_DEBUG(("cur framenote: %d,string: %s,fret: %s,barre: %s",
+                ZY_DEBUG(("cur framenote: %-5d, string: %-5s, fret: %-5s, barre: %-5s",
                         j,
                         zy_xml_info.m_xml_info[i].m_chords_xml_info.framenote[j].string,
                         zy_xml_info.m_xml_info[i].m_chords_xml_info.framenote[j].fret,
@@ -2482,6 +2570,10 @@ FBC_API_LOCAL void xml_parse_init(void)
 
     zy_xml_info.cur_xml = -1;
     zy_xml_info.m_type = NONE;
+    zy_xml_info.repeatflag = REPEATNONE;
+    zy_xml_info.m_ending_info.endingflag = ENDINGNONE;
+    zy_xml_info.m_ending_info.ending_number = S_NONE; 
+    zy_xml_info.firstbackward = ZY_FALSE;
 }
 
 FBC_API_LOCAL void xml_parse_node(ezxml_t xml)
@@ -2495,7 +2587,7 @@ FBC_API_LOCAL void xml_parse_node(ezxml_t xml)
     // parse_xml_dump();
     guitar_parse_xml_dump();
 
-    xml_parse_free(); 
+    // xml_parse_free(); 
 }
 
 FBC_API_LOCAL void xml_print(ezxml_t xml, int level, int parent_sibling)

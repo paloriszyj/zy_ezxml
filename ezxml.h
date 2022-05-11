@@ -198,14 +198,42 @@ typedef struct zy_chord_s
 //第二步：对提取出来的xml信息进行处理，转换成需要的音符信息
 enum playType
 {
-    NONE=0X00,
+    NONE=0x00,
     SOLO,
     CHORDS,
 };
 enum barreType
 {
-    BARREEND=0X00,
+    BARREEND=0x00,
     BARRESTART,
+};
+
+enum endingType
+{
+    ENDINGNONE=0x00,
+    ENDINGSTART,
+    DISCONTINUE,
+    ENDINGSTOP,
+};
+
+enum playTime
+{
+    S_NONE=0x00,
+    S_ONE,
+    S_TWO,
+};
+
+enum repeatType
+{
+    REPEATNONE=0x00,
+    FORWARD,
+    BACKWARD,
+};
+
+enum guitarType
+{
+    ZY_FALSE=0x00,
+    ZY_TURE,
 };
 
 typedef struct zy_guitar_string_s
@@ -246,7 +274,6 @@ typedef struct zy_info_s
 //第一步:解析乐谱信息，不进行处理，单纯提取xml信息
 typedef struct zy_xml_solo_s
 {
-    int ending_number;
     char step[MAX_ATTRIBUTES_SIZE];    //音阶
     char octave[MAX_ATTRIBUTES_SIZE];  //八度
     char alter[MAX_ATTRIBUTES_SIZE];   //表示升降音，-1 表示降音，1 表示升音
@@ -276,15 +303,27 @@ typedef struct zy_xml_chord_s
 typedef struct zy_xml_info_s
 {    
     int m_type;         //前奏or和弦
+    int repeats;        //每个前奏or和弦的播放次数，
+    int ending_number;  //记录反复跳跃记号上标数字
     zy_xml_solo_t m_solo_xml_info;
     zy_xml_chord_t m_chords_xml_info;
     zy_com_playinfo_t m_display_xml_info;
 }zy_xml_info_t;
 
+typedef struct zy_ending_info_s
+{    
+    int endingflag;     //反复开始时2置为REPEATSTART
+    int ending_number;  //记录反复跳跃记号上标数字
+}zy_ending_info_t;
+
 typedef struct zy_xml_s
 {
     int m_type;          //前奏or和弦
     int cur_xml;
+    int endingflag;    //反复跳跃记号开始，继续，结束的判断标志位
+    int repeatflag;    //反复开始，结束的判断标志位
+    int firstbackward;  //第一个反复结束的标志位，因为第一组反复可能存在直接结束标签，没有开始标签，需要特殊处理
+    zy_ending_info_t m_ending_info;
     zy_xml_info_t m_xml_info[XMLMAXINFO];
 } zy_xml_t;
 
